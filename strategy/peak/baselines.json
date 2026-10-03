@@ -1,0 +1,12 @@
+{
+ "train_fixed_d3_gain": 2.29,
+ "train_fixed_d6_gain": 2.03,
+ "train_fixed_d11_gain": 0.35,
+ "train_fixed_d22_gain": 0.29,
+ "train_oracle_eff_median": 92.0,
+ "validation_fixed_d3_gain": 3.65,
+ "validation_fixed_d6_gain": 1.36,
+ "validation_fixed_d11_gain": 2.34,
+ "validation_fixed_d22_gain": -0.36,
+ "validation_oracle_eff_median": 93.6
+}

@@ -1,0 +1,8 @@
+symbol,company,reason
+OLPX,Olaplex,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+AVDX,AvidXchange,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+INFA,Informatica,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+UDMY,Udemy,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+HCP,HashiCorp,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+ZK,Zeekr,not in ohlcv_daily (acquired/delisted; DB holds current listings only)
+OS,OneStream,not in ohlcv_daily (acquired/delisted; DB holds current listings only)

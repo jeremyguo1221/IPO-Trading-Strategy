@@ -1,0 +1,38 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy
+collecting ... collected 30 items
+
+test_ml.py::test_ipo_features_ignore_future_bars PASSED                  [  3%]
+test_ml.py::test_regime_features_ignore_future_market_data[2016-05-16] PASSED [  6%]
+test_ml.py::test_regime_features_ignore_future_market_data[2019-11-20] PASSED [ 10%]
+test_ml.py::test_regime_features_ignore_future_market_data[2020-09-15] PASSED [ 13%]
+test_ml.py::test_regime_features_ignore_future_market_data[2022-03-10] PASSED [ 16%]
+test_ml.py::test_regime_features_ignore_future_market_data[2025-06-18] PASSED [ 20%]
+test_ml.py::test_labels_match_engine PASSED                              [ 23%]
+test_ml.py::test_walkforward_integrity PASSED                            [ 26%]
+test_ml.py::test_walkforward_deterministic PASSED                        [ 30%]
+test_ml.py::test_lookup_signal_takes_first_true_checkpoint PASSED        [ 33%]
+test_engine.py::test_known_answer_short_profit_with_exact_costs PASSED   [ 36%]
+test_engine.py::test_short_loss_when_price_rises PASSED                  [ 40%]
+test_engine.py::test_stop_intraday_fills_at_stop PASSED                  [ 43%]
+test_engine.py::test_gap_through_stop_fills_at_open PASSED               [ 46%]
+test_engine.py::test_stop_on_entry_day PASSED                            [ 50%]
+test_engine.py::test_profit_target_and_gap_down PASSED                   [ 53%]
+test_engine.py::test_hedge_leg_pnl PASSED                                [ 56%]
+test_engine.py::test_hedge_uses_selected_instrument PASSED               [ 60%]
+test_engine.py::test_range_scaled_sizing PASSED                          [ 63%]
+test_engine.py::test_missing_bar_is_carried_not_crashed PASSED           [ 66%]
+test_engine.py::test_capacity_limits_respected PASSED                    [ 70%]
+test_engine.py::test_no_lookahead_future_corruption[params0] PASSED      [ 73%]
+test_engine.py::test_no_lookahead_future_corruption[params1] PASSED      [ 76%]
+test_engine.py::test_no_lookahead_future_corruption[params2] PASSED      [ 80%]
+test_engine.py::test_no_lookahead_future_corruption[params3] PASSED      [ 83%]
+test_engine.py::test_no_lookahead_future_corruption[params4] PASSED      [ 86%]
+test_engine.py::test_view_cannot_see_future PASSED                       [ 90%]
+test_engine.py::test_accounting_identity_real_run PASSED                 [ 93%]
+test_engine.py::test_independent_vectorized_cross_check PASSED           [ 96%]
+test_engine.py::test_zeus_metrics_known_values PASSED                    [100%]
+
+============================= 30 passed in 5.66s ==============================

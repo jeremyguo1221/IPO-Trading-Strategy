@@ -1,0 +1,47 @@
+{
+ "sector_specific": {
+  "trades": 81,
+  "cagr": 12.19,
+  "sharpe": 1.325,
+  "max_dd": -6.78,
+  "profit_factor": 2.039,
+  "mean_trade": 3.91,
+  "total_return": 25.22,
+  "by_bucket_mean_trade_%": {
+   "Consumer": 8.33,
+   "Health Care": 0.48,
+   "Other": 2.95,
+   "Technology": 9.41
+  },
+  "exit_reasons": {
+   "time": 81
+  }
+ },
+ "global_21d": {
+  "trades": 81,
+  "cagr": 15.62,
+  "sharpe": 1.323,
+  "max_dd": -7.57,
+  "profit_factor": 2.122,
+  "mean_trade": 5.51,
+  "total_return": 33.22
+ },
+ "global_5d": {
+  "trades": 81,
+  "cagr": 3.42,
+  "sharpe": 0.558,
+  "max_dd": -6.61,
+  "profit_factor": 1.296,
+  "mean_trade": 0.94,
+  "total_return": 6.67
+ },
+ "global_searched": {
+  "trades": 81,
+  "cagr": 3.42,
+  "sharpe": 0.558,
+  "max_dd": -6.61,
+  "profit_factor": 1.296,
+  "mean_trade": 0.94,
+  "total_return": 6.67
+ }
+}

@@ -1,0 +1,45 @@
+# Data quality log  (2026-09-28T18:21:51-04:00)
+
+passed 776 of 1622 IPOs; panel rows 131,106
+
+drop reasons:
+drop_reason
+no price data in database (delisted, renamed, or never listed)                    536
+day-1 open / offer price outside 0.3-5x (split-adjusted or bad data)              226
+bars exist before the IPO (ticker reused or not a new listing)                     30
+zero-volume day in first 60 bars                                                   25
+close-to-close jump > 4x or < 0.25x in first 60 bars (possible split artifact)     13
+first trade after 2026-06-30 (no room for a full hold before data ends)            11
+stub first bar (day-1 volume < 10% of day 2)                                        5
+
+coverage:
+      universe  in_price_db  passed_checks  pct_in_db  pct_passed
+year                                                             
+2019       179          100             79       55.9        44.1
+2020       254          135            100       53.1        39.4
+2021       455          252            188       55.4        41.3
+2022       100           60             33       60.0        33.0
+2023       129           89             55       69.0        42.6
+2024       180          157            101       87.2        56.1
+2025       223          203            144       91.0        64.6
+2026       102           90             76       88.2        74.5
+
+by split:
+split
+holdout       324
+validation    268
+train         184
+
+## Excluded IPOs by size (offer >= $5 and deal >= $50M = 'sizeable')
+                                                                                total  sizeable
+drop_reason                                                                                    
+bars exist before the IPO (ticker reused or not a new listing)                     30        16
+close-to-close jump > 4x or < 0.25x in first 60 bars (possible split artifact)     13         3
+day-1 open / offer price outside 0.3-5x (split-adjusted or bad data)              226        47
+first trade after 2026-06-30 (no room for a full hold before data ends)            11        10
+no price data in database (delisted, renamed, or never listed)                    536       342
+stub first bar (day-1 volume < 10% of day 2)                                        5         0
+zero-volume day in first 60 bars                                                   25         6
+
+Interpretation: excluded sizeable IPOs are mostly later-failed companies (reverse splits, delistings).
+Their absence most likely makes short-strategy results conservative (understated).

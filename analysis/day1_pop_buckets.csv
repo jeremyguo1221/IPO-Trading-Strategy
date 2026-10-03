@@ -1,0 +1,5 @@
+bucket,n,pop_median,after_median,after_ex_median,vs_offer_median,pct_after_pos
+Broke issue (≤0%),13,-4.0,4.5,-12.6,-8.7,53.8
+0–15%,20,8.8,-32.2,-35.8,-27.1,20.0
+15–40%,23,26.9,-20.9,-17.4,-4.2,34.8
+>40%,16,73.3,-46.2,-43.4,-0.6,18.8

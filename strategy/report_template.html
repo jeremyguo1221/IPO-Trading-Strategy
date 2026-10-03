@@ -1,0 +1,443 @@
+<title>IPO Short Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --page:#f5f6f4; --surface:#fcfcfb; --ink:#111416; --ink2:#4f5250; --muted:#85867f; --grid:#e3e2db; --axis:#c3c2b7;
+  --s1:#2a78d6; --s1-wash:rgba(42,120,214,.12); --s2:#eb6834; --neg:#e34948; --pos:#2a78d6; --mid:#f0efec; --ring:#fcfcfb;
+  --good:#0ca30c; --bad:#d03b3b; --tip:#111416; --tip-ink:#fff;
+  --ff-d:"Archivo",system-ui,sans-serif; --ff-b:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --ff-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--page:#0f100f;--surface:#1a1a19;--ink:#f4f4f1;--ink2:#c3c2b7;--muted:#8f8e87;--grid:#2c2c2a;--axis:#44443f;--s1:#3987e5;--s1-wash:rgba(57,135,229,.16);--s2:#d95926;--neg:#e66767;--pos:#3987e5;--mid:#383835;--ring:#1a1a19;--tip:#f4f4f1;--tip-ink:#111416}}
+:root[data-theme="dark"]{color-scheme:dark;--page:#0f100f;--surface:#1a1a19;--ink:#f4f4f1;--ink2:#c3c2b7;--muted:#8f8e87;--grid:#2c2c2a;--axis:#44443f;--s1:#3987e5;--s1-wash:rgba(57,135,229,.16);--s2:#d95926;--neg:#e66767;--pos:#3987e5;--mid:#383835;--ring:#1a1a19;--tip:#f4f4f1;--tip-ink:#111416}
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--ff-b);font-size:15.5px;line-height:1.55;padding-inline:20px;padding-block:32px 64px}
+.wrap{max-width:1000px;margin:0 auto;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--ff-d);margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.015em;line-height:1.08}
+h2{font-size:22px;font-weight:800}
+h3{font-size:15px;font-weight:600}
+p{margin:0;max-width:72ch}
+.eyebrow{font-family:var(--ff-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.lede{color:var(--ink2);font-size:17px;margin-top:12px}
+section{display:grid;gap:14px}
+.verdict{border:1px solid var(--grid);border-radius:10px;background:var(--surface);padding:18px 20px;display:grid;gap:8px}
+.verdict .big{font-family:var(--ff-d);font-size:24px;font-weight:800}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:14px 16px;display:grid;gap:2px;align-content:start}
+.tile .v{font-family:var(--ff-d);font-size:28px;font-weight:800;line-height:1.15}
+.tile .l{font-size:13px;color:var(--ink2)}
+.fig{background:var(--surface);border:1px solid var(--grid);border-radius:10px;padding:18px 18px 12px;display:grid;gap:10px}
+.fig-h{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between}
+.fig-sub{font-size:13px;color:var(--ink2)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink2)}
+.key{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:4px;margin-right:6px}
+.key.sw{height:10px;width:10px;vertical-align:-1px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--ff-b);font-size:11.5px;fill:var(--muted)}
+.chart .val{fill:var(--ink);font-family:var(--ff-m);font-size:11.5px}
+.tip{position:absolute;pointer-events:none;background:var(--tip);color:var(--tip-ink);font-size:12.5px;line-height:1.4;padding:8px 10px;border-radius:6px;white-space:nowrap;z-index:5;transform:translate(-50%,calc(-100% - 12px))}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.note{font-size:13.5px;color:var(--ink2);max-width:76ch}
+.tbox{overflow-x:auto;border:1px solid var(--grid);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:7px 12px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);font-weight:600}
+td{font-family:var(--ff-m);font-variant-numeric:tabular-nums}
+td.t{font-family:var(--ff-b);text-align:left;white-space:normal}
+tr:last-child td{border-bottom:0}
+tr.sel td{background:var(--s1-wash)}
+.st{display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-b);font-weight:600;font-size:12.5px}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.st.pass{color:var(--good)}.st.fail{color:var(--bad)}
+ol.plain,ul.plain{margin:0;padding-left:20px;display:grid;gap:8px;max-width:76ch}
+details summary{cursor:pointer;font-size:14px}
+details summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.m{font-family:var(--ff-m)}
+.best{border:1px solid var(--grid);border-radius:12px;background:var(--surface);padding:22px 22px 18px;display:grid;gap:16px}
+.best h2{font-size:26px}
+.best .rules{margin:0;padding-left:20px;display:grid;gap:6px;max-width:80ch}
+.yr{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:6px}
+.yr div{border-radius:6px;padding:8px 6px;text-align:center;font-family:var(--ff-m);font-size:13px;display:grid;gap:2px}
+.yr b{font-family:var(--ff-b);font-weight:600;font-size:12px;color:var(--ink2)}
+.flag{border-left:3px solid var(--bad);padding:6px 12px;font-size:14px;color:var(--ink2);max-width:80ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1>IPO Short Lab</h1>
+    <p class="lede">A short strategy for recently listed IPOs with every trade held one month or less, built from the IPO trend analysis and tested on 1,017 US IPOs from 2015–2026. Everything tried is shown, including what failed.</p>
+  </header>
+
+  <section class="best" id="best">
+    <div class="eyebrow">Best strategy found</div>
+    <h2 id="b-name"></h2>
+    <ol class="rules" id="b-rules"></ol>
+    <div class="flag" id="b-flag"></div>
+    <div class="tiles" id="b-tiles"></div>
+    <p class="note" id="b-line"></p>
+    <div class="fig" style="border:0;padding:0">
+      <div class="fig-h"><h3>Equity, one continuous backtest 2015–2026</h3><span class="fig-sub">all costs, starts at 1.0</span></div>
+      <div class="chart" id="c-best"></div>
+    </div>
+    <h3>Return by calendar year</h3>
+    <div class="yr" id="b-years"></div>
+    <h3>By period</h3>
+    <div class="tbox"><table id="t-b-eras"></table></div>
+    <h3>Cost and hedge stress, 2015–2026</h3>
+    <div class="tbox"><table id="t-b-stress"></table></div>
+  </section>
+
+  <section id="phase6">
+    <div class="eyebrow">Phase 6</div>
+    <h2>What happens when the IPO lock‑up ends?</h2>
+    <p class="note" id="p6-intro"></p>
+    <div class="fig">
+      <div class="fig-h"><h3>Price vs SPY around lock‑up expiry</h3><span class="fig-sub">925 IPOs · cumulative, set to 0 the day before expiry · trading days</span></div>
+      <div class="legend"><span><i class="key" style="background:var(--s1)"></i>Median stock</span><span><i class="key" style="background:var(--s2)"></i>Average stock</span><span><i class="key" style="background:var(--muted)"></i>Expiry day</span></div>
+      <div class="chart" id="c-p6"></div>
+    </div>
+    <div class="tbox"><table id="t-p6-win"></table></div>
+    <h3>By group: move around expiry (day before → 20 days after) vs the stock's own normal drift</h3>
+    <div class="tbox"><table id="t-p6-grp"></table></div>
+    <p class="note" id="p6-note"></p>
+  </section>
+
+  <div class="verdict" id="verdict"></div>
+  <div class="tiles" id="tiles"></div>
+
+
+  <section id="phase5">
+    <div class="eyebrow">Phase 5</div>
+    <h2>Does a different exit for each sector help?</h2>
+    <p class="note" id="p5-intro"></p>
+    <div class="two">
+      <div style="display:grid;gap:10px;align-content:start">
+        <h3>Out of sample: choose on two eras, test on the third</h3>
+        <div class="tbox"><table id="t-p5-loeo"></table></div>
+      </div>
+      <div style="display:grid;gap:10px;align-content:start">
+        <h3>2024–26 check (run once)</h3>
+        <div class="tbox"><table id="t-p5-val"></table></div>
+      </div>
+    </div>
+    <p class="note" id="p5-note"></p>
+  </section>
+
+  <section id="phase4">
+    <div class="eyebrow">Phase 4</div>
+    <h2>What is the best exit?</h2>
+    <p class="note" id="p4-intro"></p>
+    <div class="tbox"><table id="t-p4-fam"></table></div>
+    <h3>Searched exit vs the 21‑day hold, by era</h3>
+    <div class="tbox"><table id="t-p4-eras"></table></div>
+    <p class="note" id="p4-note"></p>
+  </section>
+
+  <section id="phase3">
+    <div class="eyebrow">Phase 3</div>
+    <h2>Can the short be timed at the peak?</h2>
+    <p class="note" id="p3-intro"></p>
+    <div class="tiles" id="p3-tiles"></div>
+    <div class="tbox"><table id="t-p3"></table></div>
+    <h3>Profit with the best entry and a 21‑day hold</h3>
+    <div class="tbox"><table id="t-p3-pnl"></table></div>
+    <p class="note" id="p3-note"></p>
+  </section>
+
+  <section id="phase2">
+    <div class="eyebrow">Phase 2</div>
+    <h2>Does adding more indicators help?</h2>
+    <p class="note" id="p2-intro"></p>
+    <div class="fig">
+      <div class="fig-h"><h3>Out‑of‑sample equity, 2020–2026 (walk‑forward)</h3><span class="fig-sub">every year predicted by a model trained only on earlier years</span></div>
+      <div class="legend" id="p2-legend"></div>
+      <div class="chart" id="c-p2"></div>
+    </div>
+    <div class="tbox"><table id="t-p2-trials"></table></div>
+    <div class="two">
+      <div style="display:grid;gap:10px;align-content:start">
+        <h3>Which indicators carried any signal?</h3>
+        <p class="note">Rank correlation of each indicator with the short's result, measured separately in each out‑of‑sample year. Positive means higher values led to better shorts. "Years agree" counts the years with the same sign as the average (out of 7).</p>
+        <div class="tbox"><table id="t-p2-ic"></table></div>
+      </div>
+      <div style="display:grid;gap:10px;align-content:start">
+        <h3>Fresh 2015–2018 holdout (run once)</h3>
+        <div class="tbox"><table id="t-p2-hold"></table></div>
+        <p class="note" id="p2-hold-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Phase 1</div>
+    <h2>The strategy</h2>
+    <ol class="plain" id="rules"></ol>
+  </section>
+
+  <section>
+    <h2>Equity curves</h2>
+    <p class="note">Each period starts at 1.0 and compounds after all costs. The holdout (2019 – Sep 2021) was run once, at the end, on the pre‑selected strategy.</p>
+    <div class="three" id="c-equity"></div>
+  </section>
+
+  <section>
+    <h2>Pass/fail scorecard</h2>
+    <p class="note">The bar was set before testing began. A strategy "works" only if it passes every line in both validation and holdout.</p>
+    <div class="tbox"><table id="t-score"></table></div>
+  </section>
+
+  <section>
+    <h2>How robust is it?</h2>
+    <div class="two">
+      <div class="fig">
+        <div class="fig-h"><h3>Strategy vs random selection</h3><span class="fig-sub">Sharpe of 200 shuffled‑signal runs</span></div>
+        <div class="legend"><span><i class="key sw" style="background:var(--axis)"></i>Random IPOs, same trade count and timing</span><span><i class="key" style="background:var(--s2)"></i>Strategy</span></div>
+        <div id="c-null" style="display:grid;gap:14px"></div>
+      </div>
+      <div style="display:grid;gap:14px;align-content:start">
+        <h3>Cost stress tests</h3>
+        <div class="tbox"><table id="t-stress"></table></div>
+        <p class="note" id="stress-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Every strategy tried</h2>
+    <p class="note" id="trials-note"></p>
+    <div class="fig">
+      <div class="fig-h"><h3>Train vs validation Sharpe, all configurations</h3><span class="fig-sub">points near the diagonal held up; points far right of it were overfit to train</span></div>
+      <div class="legend"><span><i class="key sw" style="background:var(--s1)"></i>Configuration</span><span><i class="key sw" style="background:var(--s2)"></i>Selected</span></div>
+      <div class="chart" id="c-trials"></div>
+    </div>
+    <details><summary>Full trial table</summary><div class="tbox" style="margin-top:8px"><table id="t-trials"></table></div></details>
+  </section>
+
+  <section>
+    <h2>Is the backtest itself correct?</h2>
+    <div class="tbox"><table id="t-tests"></table></div>
+    <h3>Spot audit: five trades recomputed by hand from the raw price file</h3>
+    <div class="tbox"><table id="t-audit"></table></div>
+  </section>
+
+  <section>
+    <h2>Data and limitations</h2>
+    <div class="tbox"><table id="t-coverage"></table></div>
+    <ul class="plain" id="limits"></ul>
+  </section>
+  <p class="note">All code, data, test logs and every run are in <span class="m">ipo_first_6_months/strategy/</span>. The step‑by‑step record is in <span class="m">research_log.md</span>.</p>
+</div>
+
+<script>
+const D=/*__DATA__*/null;
+const $=id=>document.getElementById(id);
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const nice=(lo,hi,n=5)=>{const span=hi-lo||1,s0=span/n,mag=Math.pow(10,Math.floor(Math.log10(s0)));const st=[1,2,2.5,5,10].map(s=>s*mag).find(s=>span/s<=n)||mag*10;const a=Math.floor(lo/st)*st,b=Math.ceil(hi/st)*st,t=[];for(let v=a;v<=b+1e-9;v+=st)t.push(+v.toFixed(6));return t};
+const pct=(v,d=1)=>v==null?"–":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(d)+"%";
+const num=(v,d=2)=>v==null?"–":(+v).toFixed(d);
+const SPL={train:"Train",validation:"Validation",holdout:"Holdout"};
+function tip(box,html,x,y){let t=box.querySelector(".tip");if(!t){t=document.createElement("div");t.className="tip";box.appendChild(t)}t.innerHTML=html;t.hidden=false;t.style.left=Math.max(80,Math.min(box.clientWidth-80,x))+"px";t.style.top=y+"px"}
+function untip(box){const t=box.querySelector(".tip");if(t)t.hidden=true}
+function table(id,head,rows){$(id).innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody>`}
+const st=ok=>`<span class="st ${ok?"pass":"fail"}">${ok?"Pass":"Fail"}</span>`;
+
+function equityChart(box,dates,vals,title){
+  box.innerHTML="";const W=Math.max(260,box.clientWidth),H=200,m={t:12,r:12,b:26,l:40};
+  const lo=Math.min(1,...vals),hi=Math.max(1,...vals),ticks=nice(lo,hi,4);const y0=ticks[0],y1=ticks.at(-1);
+  const t0=+new Date(dates[0]),t1=+new Date(dates.at(-1));
+  const xs=d=>m.l+(+new Date(d)-t0)/(t1-t0)*(W-m.l-m.r),ys=v=>m.t+(1-(v-y0)/(y1-y0))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":title},box);
+  ticks.forEach(t=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(t),y2:ys(t),stroke:t===1?css("--axis"):css("--grid"),"stroke-width":1},svg);const x=el("text",{x:m.l-6,y:ys(t)+4,"text-anchor":"end"},svg);x.textContent=t.toFixed(2)});
+  const yrs=[...new Set(dates.map(d=>d.slice(0,4)))];yrs.forEach(y=>{const d=dates.find(x=>x.startsWith(y));if(!d)return;const x=el("text",{x:xs(d),y:H-8,"text-anchor":"start"},svg);x.textContent=y});
+  let path="",area="";dates.forEach((d,i)=>{path+=(i?"L":"M")+xs(d)+","+ys(vals[i])});
+  area=path+`L${xs(dates.at(-1))},${ys(y0)}L${xs(dates[0])},${ys(y0)}Z`;
+  el("path",{d:area,fill:css("--s1-wash")},svg);el("path",{d:path,fill:"none",stroke:css("--s1"),"stroke-width":2,"stroke-linejoin":"round"},svg);
+  el("circle",{cx:xs(dates.at(-1)),cy:ys(vals.at(-1)),r:4.5,fill:css("--s1"),stroke:css("--ring"),"stroke-width":2},svg);
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:css("--axis"),visibility:"hidden"},svg),dot=el("circle",{r:4.5,fill:css("--s1"),stroke:css("--ring"),"stroke-width":2,visibility:"hidden"},svg);
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  hit.addEventListener("pointermove",ev=>{const r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width;let i=Math.round((px-m.l)/(W-m.l-m.r)*(dates.length-1));i=Math.max(0,Math.min(dates.length-1,i));
+    cross.setAttribute("x1",xs(dates[i]));cross.setAttribute("x2",xs(dates[i]));cross.setAttribute("visibility","visible");dot.setAttribute("cx",xs(dates[i]));dot.setAttribute("cy",ys(vals[i]));dot.setAttribute("visibility","visible");
+    tip(box,`<b>${dates[i]}</b><br>equity <span class="m">${vals[i].toFixed(3)}</span> (${pct((vals[i]-1)*100)})`,xs(dates[i])*r.width/W,ys(vals[i])*r.height/H)});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");dot.setAttribute("visibility","hidden");untip(box)});
+}
+
+function nullHist(box,vals,strat,label){
+  box.innerHTML="";const W=Math.max(260,box.clientWidth),H=130,m={t:18,r:10,b:24,l:10};
+  const lo=Math.min(...vals,strat)-0.1,hi=Math.max(...vals,strat)+0.1,nb=24,bw=(hi-lo)/nb;const cnt=new Array(nb).fill(0);vals.forEach(v=>cnt[Math.min(nb-1,Math.floor((v-lo)/bw))]++);
+  const mx=Math.max(...cnt),xs=v=>m.l+(v-lo)/(hi-lo)*(W-m.l-m.r),ys=c=>m.t+(1-c/mx)*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  const lab=el("text",{x:m.l,y:12},svg);lab.textContent=label;lab.setAttribute("class","val");
+  cnt.forEach((c,i)=>{if(!c)return;const x=xs(lo+i*bw)+1,w=Math.max(1,xs(lo+(i+1)*bw)-xs(lo+i*bw)-2);el("rect",{x,y:ys(c),width:w,height:ys(0)-ys(c),fill:css("--axis"),rx:1.5},svg)});
+  el("line",{x1:m.l,x2:W-m.r,y1:ys(0),y2:ys(0),stroke:css("--axis")},svg);
+  el("line",{x1:xs(strat),x2:xs(strat),y1:m.t-4,y2:ys(0),stroke:css("--s2"),"stroke-width":2},svg);
+  const t=el("text",{x:Math.min(W-m.r-2,xs(strat)+4),y:m.t+8,"text-anchor":xs(strat)>W-90?"end":"start",class:"val"},svg);t.textContent=`strategy ${strat.toFixed(2)}`;
+  nice(lo,hi,5).filter(v=>v>=lo&&v<=hi).forEach(v=>{const x=el("text",{x:xs(v),y:H-6,"text-anchor":"middle"},svg);x.textContent=v});
+}
+
+function trialScatter(box,rows,selected){
+  box.innerHTML="";const W=Math.max(300,box.clientWidth),H=320,m={t:12,r:14,b:34,l:46};
+  const all=rows.flatMap(r=>[r.train_sharpe,r.validation_sharpe]);const t=nice(Math.min(...all),Math.max(...all),5);const lo=t[0],hi=t.at(-1);
+  const xs=v=>m.l+(v-lo)/(hi-lo)*(W-m.l-m.r),ys=v=>m.t+(1-(v-lo)/(hi-lo))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  t.forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),stroke:v===0?css("--axis"):css("--grid")},svg);el("line",{x1:xs(v),x2:xs(v),y1:m.t,y2:H-m.b,stroke:v===0?css("--axis"):css("--grid")},svg);
+    const a=el("text",{x:m.l-8,y:ys(v)+4,"text-anchor":"end"},svg);a.textContent=v;const b=el("text",{x:xs(v),y:H-18,"text-anchor":"middle"},svg);b.textContent=v});
+  const xl=el("text",{x:W-m.r,y:H-4,"text-anchor":"end"},svg);xl.textContent="train Sharpe →";const yl=el("text",{x:m.l+4,y:m.t+10},svg);yl.textContent="↑ validation Sharpe";
+  el("line",{x1:xs(lo),y1:ys(lo),x2:xs(hi),y2:ys(hi),stroke:css("--muted"),"stroke-width":1},svg);
+  rows.forEach(r=>{const s=r.run_id===selected;const c=el("circle",{cx:xs(r.train_sharpe),cy:ys(r.validation_sharpe),r:s?6:4.5,fill:css(s?"--s2":"--s1"),"fill-opacity":s?1:.8,stroke:css("--ring"),"stroke-width":2},svg);
+    const h=el("circle",{cx:xs(r.train_sharpe),cy:ys(r.validation_sharpe),r:10,fill:"transparent"},svg);
+    h.addEventListener("pointermove",()=>{const rc=svg.getBoundingClientRect();tip(box,`<b>${r.run_id}</b><br>train <span class="m">${num(r.train_sharpe)}</span> · validation <span class="m">${num(r.validation_sharpe)}</span>`,xs(r.train_sharpe)*rc.width/W,ys(r.validation_sharpe)*rc.height/H)});
+    h.addEventListener("pointerleave",()=>untip(box))});
+}
+
+function render(){
+  const S=D.score, M=sp=>S[sp].metrics, H=M("holdout"), V=M("validation");
+  const allPass=S.validation.passes_all&&S.holdout.passes_all;
+  $("eyebrow").textContent=`${D.n_ipos} IPOs 2019–26 + 241 IPOs 2015–18 · ${S.n_configurations_tried + 12} strategies, 25 entry rules, 53 exits, sector exits and a 925-IPO lock-up study`;
+  const failed=Object.entries(S.holdout.scorecard).filter(([k,v])=>!v.pass).map(([k])=>k);
+  $("verdict").innerHTML=`<span class="eyebrow">Verdict</span><div class="big">${allPass?"Passes every pre‑registered test":"Does not pass the pre‑registered bar"}</div>
+    <p class="note">${D.verdict_text}</p>`;
+  $("tiles").innerHTML=[[pct(H.cagr),"phase‑1 holdout CAGR (2019–21)"],[num(H.sharpe),"holdout Sharpe"],[pct(H.max_dd),"holdout max drawdown"],[pct(V.cagr),"validation CAGR (2024–26)"],[num(V.sharpe),"validation Sharpe"],[H.trades+V.trades+M("train").trades,"phase‑1 trades, all periods"]]
+    .map(([v,l])=>`<div class="tile"><span class="v">${v}</span><span class="l">${l}</span></div>`).join("");
+  $("rules").innerHTML=D.rules.map(r=>`<li>${r}</li>`).join("");
+
+  const eq=$("c-equity");eq.innerHTML="";
+  ["train","validation","holdout"].forEach(sp=>{const f=document.createElement("div");f.className="fig";const m=M(sp);
+    f.innerHTML=`<div class="fig-h"><h3>${SPL[sp]}</h3><span class="fig-sub">${m.start.slice(0,7)} → ${m.end.slice(0,7)} · ${m.trades} trades</span></div><div class="fig-sub">CAGR ${pct(m.cagr)} · Sharpe ${num(m.sharpe)} · max DD ${pct(m.max_dd)}</div><div class="chart"></div>`;
+    eq.appendChild(f);equityChart(f.querySelector(".chart"),D.equity[sp].d,D.equity[sp].v,SPL[sp])});
+
+  const keys=Object.keys(S.validation.scorecard);
+  const fmtv=v=>Array.isArray(v)?`${num(v[0])} vs ${num(v[1])}`:typeof v==="number"?(Number.isInteger(v)?String(v):(+v).toFixed(Math.abs(v)<1?3:1)):v;
+  table("t-score",["Test","Train","","Validation","","Holdout",""],keys.map(k=>`<tr><td class="t">${k}</td>${["train","validation","holdout"].map(sp=>{const c=S[sp].scorecard[k];return `<td>${fmtv(c.value)}</td><td>${st(c.pass)}</td>`}).join("")}</tr>`));
+
+  const nb=$("c-null");nb.innerHTML="";
+  ["train","validation","holdout"].forEach(sp=>{const d=document.createElement("div");d.className="chart";nb.appendChild(d);
+    nullHist(d,D.nulls[sp],M(sp).sharpe,`${SPL[sp]}: strategy beats ${S[sp].null_pct_below_strategy.toFixed(0)}% of random runs`)});
+
+  const SL={base:"Base (30% borrow, 25 bps)",borrow_60:"Borrow 60%/yr",borrow_100:"Borrow 100%/yr",slippage_50bps:"Slippage 50 bps/side",zero_cost:"No costs",unhedged:"Unhedged"};
+  table("t-stress",["Scenario","Validation Sharpe","Validation return","Holdout Sharpe","Holdout return"],
+    Object.keys(SL).map(k=>{const g=sp=>k==="base"?M(sp):S[sp].stress[k];return `<tr><td class="t">${SL[k]}</td><td>${num(g("validation").sharpe)}</td><td>${pct(g("validation").total_return)}</td><td>${num(g("holdout").sharpe)}</td><td>${pct(g("holdout").total_return)}</td></tr>`}));
+  $("stress-note").textContent=D.stress_note;
+
+  $("trials-note").textContent=D.trials_note;
+  trialScatter($("c-trials"),D.trials,S.selected_run_id);
+  table("t-trials",["Run","Hedged","Train n","Train Sharpe","Train CAGR","Val n","Val Sharpe","Val CAGR","min Sharpe"],
+    D.trials.map(r=>`<tr class="${r.run_id===S.selected_run_id?"sel":""}"><td class="t">${r.run_id}</td><td>${r.hedge?"yes":"no"}</td><td>${r.train_trades}</td><td>${num(r.train_sharpe)}</td><td>${pct(r.train_cagr)}</td><td>${r.validation_trades}</td><td>${num(r.validation_sharpe)}</td><td>${pct(r.validation_cagr)}</td><td>${num(Math.min(r.train_sharpe,r.validation_sharpe))}</td></tr>`));
+
+  table("t-tests",["Check","Result","What it shows"],D.tests.map(t=>`<tr><td class="t">${t[0]}</td><td>${st(t[1])}</td><td class="t">${t[2]}</td></tr>`));
+  table("t-audit",["Trade","Entry","Exit","Entry open","Exit close","Engine net","By hand",""],
+    S.spot_audit.map(a=>`<tr><td class="t">${a.symbol}</td><td>${a.entry_date}</td><td>${a.exit_date}</td><td>${num(a.entry_open_raw)}</td><td>${num(a.exit_close_raw)}</td><td>${pct(a.engine_net_ret*100,3)}</td><td>${pct(a.hand_net_ret*100,3)}</td><td>${st(a.match)}</td></tr>`));
+  table("t-coverage",["Listing year","IPOs listed","In price database","Passed data checks","Share usable"],
+    D.coverage.map(c=>`<tr><td>${c.year}</td><td>${c.universe}</td><td>${c.in_price_db}</td><td>${c.passed_checks}</td><td>${c.pct_passed}%</td></tr>`));
+  $("limits").innerHTML=D.limits.map(l=>`<li>${l}</li>`).join("");
+}
+function multiLine(box,series){
+  box.innerHTML="";const W=Math.max(300,box.clientWidth),H=280,m={t:12,r:16,b:28,l:44};
+  const all=series.flatMap(s=>s.v);const ticks=nice(Math.min(...all),Math.max(...all),5);const y0=ticks[0],y1=ticks.at(-1);
+  const dmin=Math.min(...series.map(s=>+new Date(s.d[0]))),dmax=Math.max(...series.map(s=>+new Date(s.d.at(-1))));
+  const xs=d=>m.l+(+new Date(d)-dmin)/(dmax-dmin)*(W-m.l-m.r),ys=v=>m.t+(1-(v-y0)/(y1-y0))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  ticks.forEach(t=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(t),y2:ys(t),stroke:t===1?css("--axis"):css("--grid")},svg);const x=el("text",{x:m.l-6,y:ys(t)+4,"text-anchor":"end"},svg);x.textContent=t.toFixed(1)});
+  for(let y=2020;y<=2026;y++){const x=el("text",{x:xs(`${y}-01-01`),y:H-8,"text-anchor":"middle"},svg);x.textContent=y}
+  series.forEach(s=>{let d="";s.d.forEach((dt,i)=>d+=(i?"L":"M")+xs(dt)+","+ys(s.v[i]));el("path",{d,fill:"none",stroke:css(s.c),"stroke-width":s.w||2,"stroke-linejoin":"round","stroke-opacity":s.o||1},svg);
+    el("circle",{cx:xs(s.d.at(-1)),cy:ys(s.v.at(-1)),r:4,fill:css(s.c),stroke:css("--ring"),"stroke-width":2},svg)});
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:css("--axis"),visibility:"hidden"},svg);
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  hit.addEventListener("pointermove",ev=>{const r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width,tt=dmin+(px-m.l)/(W-m.l-m.r)*(dmax-dmin);
+    cross.setAttribute("x1",px);cross.setAttribute("x2",px);cross.setAttribute("visibility","visible");
+    const rows=series.map(s=>{let i=s.d.findIndex(d=>+new Date(d)>=tt);if(i<0)i=s.d.length-1;return `${s.name}: <span class="m">${s.v[i].toFixed(2)}</span>`});
+    tip(box,`<b>${new Date(tt).toISOString().slice(0,10)}</b><br>${rows.join("<br>")}`,px*r.width/W,m.t*r.height/H+40)});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");untip(box)});
+}
+function renderP2(){
+  const P=D.p2;if(!P)return;
+  $("p2-intro").innerHTML=P.intro;
+  const cols=["--s1","--s2","--muted","--axis"];
+  const ser=P.curves.map((c,i)=>({...c,c:cols[i],w:i<2?2:1.5}));
+  $("p2-legend").innerHTML=ser.map(s=>`<span><i class="key" style="background:var(${s.c})"></i>${s.name}</span>`).join("");
+  multiLine($("c-p2"),ser);
+  table("t-p2-trials",["Model","Indicators","Threshold","Trades","CAGR","Sharpe","Max DD","Worst‑year Sharpe","OOS rank IC"],
+    P.trials.map(r=>`<tr class="${r.run_id===P.selected?"sel":""}"><td class="t">${r.family}</td><td class="t">${r.fset}</td><td class="t">${r.thr}</td><td>${r.trades}</td><td>${pct(r.cagr)}</td><td>${num(r.sharpe)}</td><td>${pct(r.max_dd)}</td><td>${num(r.worst)}</td><td>${num(r.ic,3)}</td></tr>`));
+  table("t-p2-ic",["Indicator","Avg rank corr.","Years agree"],P.ic.map(r=>`<tr><td class="t">${r.name}</td><td>${num(r.mean,3)}</td><td>${r.agree}/7</td></tr>`));
+  if(P.holdout){const H=P.holdout;
+    table("t-p2-hold",["Test","Value",""],Object.entries(H.scorecard).map(([k,v])=>`<tr><td class="t">${k}</td><td>${Array.isArray(v.value)?num(v.value[0])+" vs "+num(v.value[1]):v.value}</td><td>${st(v.pass)}</td></tr>`));
+    $("p2-hold-note").innerHTML=H.note;}
+  else{$("t-p2-hold").innerHTML="<tbody><tr><td class='t'>Not run yet</td></tr></tbody>"}
+}
+function renderP3(){
+  const P=D.p3;if(!P)return;
+  $("p3-intro").innerHTML=P.intro;
+  $("p3-tiles").innerHTML=P.tiles.map(([v,l])=>`<div class="tile"><span class="v">${v}</span><span class="l">${l}</span></div>`).join("");
+  table("t-p3",["Entry rule","Fires on (train / val)","Gain vs random day (train)","Gain vs random day (val, 95% CI)","Median % of peak captured (val)"],
+    P.rules.map(r=>`<tr class="${r.sel?"sel":""}"><td class="t">${r.name}</td><td>${r.fire}</td><td>${r.tg}</td><td>${r.vg}</td><td>${r.eff}</td></tr>`));
+  table("t-p3-pnl",["Period","Trades","CAGR","Sharpe","Max drawdown"],P.pnl.map(r=>`<tr><td class="t">${r.p}</td><td>${r.n}</td><td>${pct(r.cagr)}</td><td>${num(r.sh)}</td><td>${pct(r.dd)}</td></tr>`));
+  $("p3-note").innerHTML=P.note;
+}
+function renderP4(){
+  const P=D.p4;if(!P)return;
+  $("p4-intro").innerHTML=P.intro;$("p4-note").innerHTML=P.note;
+  table("t-p4-fam",["Exit type (best version found)","Worst‑era Sharpe","Rank of 53"],P.fam.map(r=>`<tr class="${r.rank===1?"sel":""}"><td class="t">${r.name}</td><td>${num(r.obj)}</td><td>${r.rank}</td></tr>`));
+  table("t-p4-eras",["Era","5‑day hold: CAGR","Sharpe","Max DD","21‑day hold: CAGR","Sharpe","Max DD"],
+    P.eras.map(r=>`<tr class="${r.val?"sel":""}"><td class="t">${r.era}</td><td>${pct(r.c.cagr)}</td><td>${num(r.c.sharpe)}</td><td>${pct(r.c.max_dd)}</td><td>${pct(r.b.cagr)}</td><td>${num(r.b.sharpe)}</td><td>${pct(r.b.max_dd)}</td></tr>`));
+}
+function renderP5(){
+  const P=D.p5;if(!P)return;
+  $("p5-intro").innerHTML=P.intro;$("p5-note").innerHTML=P.note;
+  table("t-p5-loeo",["Held‑out era","One exit for all","Sector exits","Difference"],P.loeo.map(r=>`<tr><td class="t">${r.era}</td><td>${pct(r.g)}</td><td>${pct(r.s)}</td><td>${pct(r.d,2)}</td></tr>`));
+  table("t-p5-val",["Exits","CAGR","Sharpe","Avg trade"],P.val.map(r=>`<tr class="${r.sel?"sel":""}"><td class="t">${r.name}</td><td>${pct(r.cagr)}</td><td>${num(r.sharpe)}</td><td>${pct(r.mt)}</td></tr>`));
+}
+function renderBest(){
+  const B=D.best;if(!B)return;const F=B.full;
+  $("b-name").textContent=B.name;
+  $("b-rules").innerHTML=B.rules.map(r=>`<li>${r}</li>`).join("");
+  $("b-flag").innerHTML=B.flag;
+  $("b-tiles").innerHTML=[[pct(F.total_return),"total return 2015–26"],[pct(F.cagr),"per year (CAGR)"],[num(F.sharpe),"Sharpe"],
+    [pct(F.max_dd),"max drawdown"],[pct(B.recent.cagr),"per year, 2024–26 only"],[num(B.recent.sharpe),"Sharpe, 2024–26 only"]]
+    .map(([v,l])=>`<div class="tile"><span class="v">${v}</span><span class="l">${l}</span></div>`).join("");
+  $("b-line").textContent=`2015–2026: ${F.trades} trades (about ${F.trades_per_year} a year), ${F.win_rate.toFixed(0)}% winners, average trade ${pct(F.mean_trade)} after costs, profit factor ${num(F.profit_factor)}, worst trade ${pct(F.worst_trade)}, best trade ${pct(F.best_trade)}.`;
+  equityChart($("c-best"),B.equity.d,B.equity.v,"Best strategy equity");
+  const lim=Math.max(...Object.values(B.yearly).map(Math.abs));
+  $("b-years").innerHTML=Object.entries(B.yearly).map(([y,v])=>{const tt=Math.min(1,Math.abs(v)/lim);
+    return `<div style="background:color-mix(in srgb, var(${v<0?"--neg":"--pos"}) ${Math.round(tt*70)}%, var(--mid));color:${tt>0.6?"#fff":"var(--ink)"}"><b style="color:inherit">${y}</b>${pct(v)}</div>`}).join("");
+  table("t-b-eras",["Period","How it was used","Trades","CAGR","Sharpe","Max DD","Win rate","Avg trade"],
+    B.eras.map(e=>`<tr><td class="t">${e.era}</td><td class="t">${e.role}</td><td>${e.trades}</td><td>${pct(e.cagr)}</td><td>${num(e.sharpe)}</td><td>${pct(e.max_dd)}</td><td>${e.win_rate.toFixed(0)}%</td><td>${pct(e.mean_trade)}</td></tr>`));
+  table("t-b-stress",["Scenario","CAGR","Sharpe","Max DD"],
+    [["Base (30%/yr borrow, 25 bps)",F.cagr,F.sharpe,F.max_dd]].concat(Object.entries(B.stress).map(([k,v])=>[k,v.cagr,v.sharpe,v.max_dd]))
+    .map(r=>`<tr><td class="t">${r[0]}</td><td>${pct(r[1])}</td><td>${num(r[2])}</td><td>${pct(r[3])}</td></tr>`));
+}
+function tauChart(box,tau,series){
+  box.innerHTML="";const W=Math.max(300,box.clientWidth),H=260,m={t:12,r:16,b:30,l:46};
+  const all=series.flatMap(s=>s.v);const ticks=nice(Math.min(...all),Math.max(...all),5);const y0=ticks[0],y1=ticks.at(-1);
+  const xs=v=>m.l+(v-tau[0])/(tau.at(-1)-tau[0])*(W-m.l-m.r),ys=v=>m.t+(1-(v-y0)/(y1-y0))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  ticks.forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(v),y2:ys(v),stroke:v===0?css("--axis"):css("--grid")},svg);const x=el("text",{x:m.l-6,y:ys(v)+4,"text-anchor":"end"},svg);x.textContent=(v>0?"+":"")+v+"%"});
+  [-70,-60,-40,-20,0,20,40].forEach(v=>{const x=el("text",{x:xs(v),y:H-8,"text-anchor":"middle"},svg);x.textContent=v===0?"expiry":v});
+  el("line",{x1:xs(0),x2:xs(0),y1:m.t,y2:H-m.b,stroke:css("--muted"),"stroke-width":1.5},svg);
+  series.forEach(s=>{let d="";s.v.forEach((v,i)=>d+=(i?"L":"M")+xs(tau[i])+","+ys(v));el("path",{d,fill:"none",stroke:css(s.c),"stroke-width":2,"stroke-linejoin":"round"},svg)});
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:css("--axis"),visibility:"hidden"},svg);
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  hit.addEventListener("pointermove",ev=>{const r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width;let i=Math.round((px-m.l)/(W-m.l-m.r)*(tau.length-1));i=Math.max(0,Math.min(tau.length-1,i));
+    cross.setAttribute("x1",xs(tau[i]));cross.setAttribute("x2",xs(tau[i]));cross.setAttribute("visibility","visible");
+    tip(box,`<b>${tau[i]===0?"expiry day":(tau[i]>0?"+":"")+tau[i]+" trading days"}</b><br>`+series.map(s=>`${s.name}: <span class="m">${pct(s.v[i])}</span>`).join("<br>"),xs(tau[i])*r.width/W,40)});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");untip(box)});
+}
+function renderP6(){
+  const P=D.p6;if(!P)return;
+  $("p6-intro").innerHTML=P.intro;$("p6-note").innerHTML=P.note;
+  tauChart($("c-p6"),P.tau,[{name:"Median",v:P.median,c:"--s1"},{name:"Average",v:P.mean,c:"--s2"}]);
+  table("t-p6-win",["Window","Around expiry","Normal drift (placebo)","Difference","Holds up?"],
+    P.windows.map(w=>`<tr><td class="t">${w.name}</td><td>${pct(w.ev,2)}</td><td>${pct(w.pl,2)}</td><td>${pct(w.d,2)}</td><td class="t">${w.sig}</td></tr>`));
+  table("t-p6-grp",["Group","Stocks","Difference vs own drift","Holds up?"],
+    P.groups.map(g=>`<tr><td class="t">${g.name}</td><td>${g.n}</td><td>${pct(g.d,2)}</td><td class="t">${g.sig}</td></tr>`));
+}
+render();renderBest();renderP6();renderP2();renderP3();renderP4();renderP5();
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{render();renderBest();renderP6();renderP2();renderP3();renderP4();renderP5()},150)});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{render();renderBest();renderP6();renderP2();renderP3();renderP4();renderP5()});
+new MutationObserver(()=>{render();renderBest();renderP6();renderP2();renderP3();renderP4();renderP5()}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>

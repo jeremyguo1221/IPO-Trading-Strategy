@@ -1,0 +1,6 @@
+2015-18: chosen  n=82 cagr=-2.27 sh=-0.454 dd=-15.36 mean_trade=-0.7 days=5.0 capture=6.7% of ceiling 12.56%
+         21-day  n=82 cagr=-10.35 sh=-1.079 dd=-39.92 mean_trade=-5.19 days=21.0 capture=-27.6%
+2019-21: chosen  n=205 cagr=-7.3 sh=-0.748 dd=-27.94 mean_trade=-1.43 days=5.0 capture=-5.3% of ceiling 16.24%
+         21-day  n=190 cagr=-20.32 sh=-0.977 dd=-53.56 mean_trade=-3.59 days=21.0 capture=-15.3%
+2021-24: chosen  n=54 cagr=1.59 sh=0.384 dd=-3.9 mean_trade=1.83 days=5.0 capture=12.9% of ceiling 21.57%
+         21-day  n=54 cagr=4.52 sh=0.561 dd=-9.56 mean_trade=5.13 days=21.0 capture=34.9%

@@ -1,0 +1,36 @@
+# Phase 2 data quality log (2026-09-28T19:47:41-04:00)
+passed 1017 of 2307 IPOs; panel rows 174,267
+
+drop reasons:
+drop_reason
+no price data in database (delisted, renamed, or never listed)                    897
+day-1 open / offer price outside 0.3-5x (split-adjusted or bad data)              274
+bars exist before the IPO (ticker reused or not a new listing)                     44
+zero-volume day in first 60 bars                                                   30
+first bar more than 5 days after pricing                                           15
+close-to-close jump > 4x or < 0.25x in first 60 bars (possible split artifact)     13
+first trade after 2026-06-30 (no room for a full hold before data ends)            11
+stub first bar (day-1 volume < 10% of day 2)                                        6
+
+coverage:
+      universe  in_price_db  passed_checks  pct_in_db  pct_passed
+year                                                             
+2015       179           73             48       40.8        26.8
+2016       115           56             47       48.7        40.9
+2017       177           75             59       42.4        33.3
+2018       214          120             87       56.1        40.7
+2019       179          100             79       55.9        44.1
+2020       254          135            100       53.1        39.4
+2021       455          252            188       55.4        41.3
+2022       100           60             33       60.0        33.0
+2023       129           89             55       69.0        42.6
+2024       180          157            101       87.2        56.1
+2025       223          203            144       91.0        64.6
+2026       102           90             76       88.2        74.5
+
+by split:
+split
+holdout          324
+validation       268
+fresh_holdout    241
+train            184

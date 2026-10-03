@@ -1,0 +1,6 @@
+train identical to recorded run: True 57 24.29 24.29
+validation identical to recorded run: True 106 23.86 23.86
+regression after R9 code changes: True
+regression (phase-1 final) after exit changes: True
+regression phase 1 after per-trade overrides: True
+regression phase 4 (21-day hold, all eras) after per-trade overrides: True

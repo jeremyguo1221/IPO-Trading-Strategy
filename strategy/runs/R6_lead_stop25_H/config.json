@@ -1,0 +1,28 @@
+{
+ "name": "lead_stop25_H",
+ "signal": "rules",
+ "params": {
+  "from_day": 2,
+  "breakdown": [
+   "d1_low",
+   "offer"
+  ],
+  "hot_count_min": 25
+ },
+ "min_entry_day": 3,
+ "last_signal_day": 42,
+ "hold": 21,
+ "stop": 0.25,
+ "target": null,
+ "size": 0.07,
+ "vol_target": null,
+ "max_positions": 15,
+ "gross_cap": 1.0,
+ "hedge": true,
+ "borrow": 0.3,
+ "slippage": 0.0025,
+ "spy_slippage": 0.0002,
+ "min_price": 5.0,
+ "min_dollar_vol": 5000000.0,
+ "min_offer": 5.0
+}

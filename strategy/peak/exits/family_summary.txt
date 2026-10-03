@@ -1,0 +1,14 @@
+trail      n=10 best rank 28/53: trail20                objective=-1.584 eras sh=(-1.58,-1.58,-0.58) avg_days=9.81
+thesis     n= 8 best rank 18/53: ma5+thesis             objective=-1.311 eras sh=(-1.31,-1.30,-1.20) avg_days=4.13
+ma5        n= 6 best rank 18/53: ma5+thesis             objective=-1.311 eras sh=(-1.31,-1.30,-1.20) avg_days=4.13
+prev_high  n= 5 best rank 17/53: hold5+prev_high        objective=-1.289 eras sh=(-0.82,-1.29,-0.11) avg_days=4.65
+stop       n= 8 best rank 20/53: hold5+stop10           objective=-1.413 eras sh=(-0.76,-1.41,-0.77) avg_days=3.5
+tgt        n=25 best rank  3/53: hold15+tgt30           objective=-1.049 eras sh=(-0.98,-1.05,0.26) avg_days=13.15
+
+         cfg  objective  mean_sharpe  fresh_holdout_sharpe  holdout_sharpe  train_sharpe
+       hold5     -0.748      -0.2727                -0.454          -0.748         0.384
+       hold7     -0.957      -0.3457                -0.957          -0.783         0.703
+hold15+tgt30     -1.049      -0.5890                -0.979          -1.049         0.261
+        tgt5     -1.070      -0.6173                -1.070          -0.943         0.161
+      hold21     -1.079      -0.4983                -1.079          -0.977         0.561
+       tgt30     -1.097      -0.4823                -1.097          -0.888         0.538

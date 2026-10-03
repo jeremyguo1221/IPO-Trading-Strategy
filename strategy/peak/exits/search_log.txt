@@ -1,0 +1,20 @@
+entries per era: 2015-18=82, 2019-21=205, 2021-24=54 (validation entries saved, not used)
+round 0: evaluated 22 (total 22) | best hold=5|target=None|stop=None|trail=None|sig=None|thesis=False objective=-0.748 mean=-0.273 | improvement n/a
+round 1: evaluated 17 (total 39) | best hold=5|target=None|stop=None|trail=None|sig=None|thesis=False objective=-0.748 mean=-0.273 | improvement +0.000
+round 2: evaluated 14 (total 53) | best hold=5|target=None|stop=None|trail=None|sig=None|thesis=False objective=-0.748 mean=-0.273 | improvement +0.000
+stopped: plateau: improvement < 0.05 for 2 consecutive rounds
+
+top 10:
+                                                            id  round  objective  mean_sharpe  fresh_holdout_sharpe  fresh_holdout_cagr  fresh_holdout_max_dd  fresh_holdout_avg_days  holdout_sharpe  holdout_cagr  holdout_max_dd  holdout_avg_days  train_sharpe  train_cagr  train_max_dd  train_avg_days
+ hold=5|target=None|stop=None|trail=None|sig=None|thesis=False      0     -0.748      -0.2727                -0.454               -2.27                -15.36                    5.00          -0.748         -7.30          -27.94              5.00         0.384        1.59         -3.90            5.00
+ hold=7|target=None|stop=None|trail=None|sig=None|thesis=False      1     -0.957      -0.3457                -0.957               -5.43                -24.47                    7.00          -0.783         -9.17          -31.99              7.00         0.703        3.39         -3.77            7.00
+ hold=15|target=0.3|stop=None|trail=None|sig=None|thesis=False      1     -1.049      -0.5890                -0.979               -7.64                -30.26                   14.34          -1.049        -17.75          -49.39             14.54         0.261        1.55        -10.46           13.15
+hold=21|target=0.05|stop=None|trail=None|sig=None|thesis=False      1     -1.070      -0.6173                -1.070               -7.36                -28.63                    9.54          -0.943        -10.47          -27.56              6.65         0.161        0.61         -6.74            6.24
+hold=21|target=None|stop=None|trail=None|sig=None|thesis=False      0     -1.079      -0.4983                -1.079              -10.35                -39.92                   21.00          -0.977        -20.32          -53.56             21.00         0.561        4.52         -9.56           21.00
+ hold=21|target=0.3|stop=None|trail=None|sig=None|thesis=False      0     -1.097      -0.4823                -1.097              -10.28                -39.49                   19.79          -0.888        -18.19          -50.44             19.77         0.538        4.15         -9.80           17.83
+ hold=21|target=0.4|stop=None|trail=None|sig=None|thesis=False      1     -1.099      -0.4987                -1.099              -10.40                -40.33                   20.44          -0.944        -19.74          -52.96             20.83         0.547        4.33         -9.80           19.07
+ hold=21|target=0.2|stop=None|trail=None|sig=None|thesis=False      0     -1.102      -0.6183                -1.102              -10.14                -40.67                   17.89          -1.023        -19.37          -51.37             17.52         0.270        1.82         -9.70           15.43
+hold=15|target=None|stop=None|trail=None|sig=None|thesis=False      0     -1.109      -0.5813                -0.999               -7.94                -31.42                   15.00          -1.109        -18.77          -50.62             15.00         0.364        2.36        -10.70           15.00
+ hold=15|target=0.4|stop=None|trail=None|sig=None|thesis=False      2     -1.113      -0.6020                -1.009               -7.93                -31.38                   14.67          -1.113        -18.83          -50.69             14.94         0.316        1.98        -10.45           13.91
+
+21-day hold baseline: objective=-1.079 mean=-0.4983 2015-18 sh=-1.079 2019-21 sh=-0.977 2021-24 sh=0.561

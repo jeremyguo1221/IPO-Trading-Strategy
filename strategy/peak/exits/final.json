@@ -1,0 +1,204 @@
+{
+ "chosen": "hold=5|target=None|stop=None|trail=None|sig=None|thesis=False",
+ "baseline": "hold=21|target=None|stop=None|trail=None|sig=None|thesis=False",
+ "n_configs": 53,
+ "eras": {
+  "2015-18": {
+   "chosen": {
+    "trades": 82,
+    "cagr": -2.27,
+    "sharpe": -0.454,
+    "max_dd": -15.36,
+    "profit_factor": 0.74,
+    "mean_trade": -0.7,
+    "win_rate": 43.9,
+    "boot_p": 0.376,
+    "total_return": -8.24,
+    "avg_days": 5.0,
+    "ceiling_mean_gross_%": 12.56,
+    "achieved_mean_gross_%": 0.84,
+    "capture_ratio_%": 6.7
+   },
+   "baseline_21d": {
+    "trades": 82,
+    "cagr": -10.35,
+    "sharpe": -1.079,
+    "max_dd": -39.92,
+    "profit_factor": 0.436,
+    "mean_trade": -5.19,
+    "win_rate": 41.5,
+    "boot_p": 0.042,
+    "total_return": -34.07,
+    "avg_days": 21.0,
+    "ceiling_mean_gross_%": 12.56,
+    "achieved_mean_gross_%": -3.47,
+    "capture_ratio_%": -27.6
+   }
+  },
+  "2019-21": {
+   "chosen": {
+    "trades": 205,
+    "cagr": -7.3,
+    "sharpe": -0.748,
+    "max_dd": -27.94,
+    "profit_factor": 0.715,
+    "mean_trade": -1.43,
+    "win_rate": 47.3,
+    "boot_p": 0.241,
+    "total_return": -18.49,
+    "avg_days": 5.0,
+    "ceiling_mean_gross_%": 16.24,
+    "achieved_mean_gross_%": -0.86,
+    "capture_ratio_%": -5.3
+   },
+   "baseline_21d": {
+    "trades": 190,
+    "cagr": -20.32,
+    "sharpe": -0.977,
+    "max_dd": -53.56,
+    "profit_factor": 0.549,
+    "mean_trade": -3.59,
+    "win_rate": 46.3,
+    "boot_p": 0.118,
+    "total_return": -46.58,
+    "avg_days": 21.0,
+    "ceiling_mean_gross_%": 16.24,
+    "achieved_mean_gross_%": -2.49,
+    "capture_ratio_%": -15.3
+   }
+  },
+  "2021-24": {
+   "chosen": {
+    "trades": 54,
+    "cagr": 1.59,
+    "sharpe": 0.384,
+    "max_dd": -3.9,
+    "profit_factor": 1.322,
+    "mean_trade": 1.83,
+    "win_rate": 44.4,
+    "boot_p": 0.546,
+    "total_return": 4.45,
+    "avg_days": 5.0,
+    "ceiling_mean_gross_%": 21.57,
+    "achieved_mean_gross_%": 2.79,
+    "capture_ratio_%": 12.9
+   },
+   "baseline_21d": {
+    "trades": 54,
+    "cagr": 4.52,
+    "sharpe": 0.561,
+    "max_dd": -9.56,
+    "profit_factor": 1.544,
+    "mean_trade": 5.13,
+    "win_rate": 61.1,
+    "boot_p": 0.271,
+    "total_return": 13.28,
+    "avg_days": 21.0,
+    "ceiling_mean_gross_%": 21.57,
+    "achieved_mean_gross_%": 7.52,
+    "capture_ratio_%": 34.9
+   }
+  },
+  "2024-26": {
+   "chosen": {
+    "trades": 81,
+    "cagr": 3.42,
+    "sharpe": 0.558,
+    "max_dd": -6.61,
+    "profit_factor": 1.296,
+    "mean_trade": 0.94,
+    "win_rate": 64.2,
+    "boot_p": 0.368,
+    "total_return": 6.67,
+    "avg_days": 5.0,
+    "ceiling_mean_gross_%": 18.68,
+    "achieved_mean_gross_%": 1.47,
+    "capture_ratio_%": 7.9,
+    "stress": {
+     "borrow_60": {
+      "total_return": 3.12,
+      "cagr": 1.62,
+      "sharpe": 0.283,
+      "max_dd": -7.36
+     },
+     "borrow_100": {
+      "total_return": -1.42,
+      "cagr": -0.74,
+      "sharpe": -0.084,
+      "max_dd": -8.45
+     },
+     "slippage_50bps": {
+      "total_return": 3.65,
+      "cagr": 1.89,
+      "sharpe": 0.323,
+      "max_dd": -7.24
+     }
+    },
+    "dsr": 0.3338,
+    "hand_audit": [
+     {
+      "symbol": "SPCX",
+      "entry": "2026-06-17",
+      "exit": "2026-06-24",
+      "days": 5,
+      "engine": 0.21747118,
+      "hand": 0.21747118,
+      "match": "True"
+     },
+     {
+      "symbol": "MENS",
+      "entry": "2025-06-20",
+      "exit": "2025-06-26",
+      "days": 5,
+      "engine": -0.10129257,
+      "hand": -0.10129257,
+      "match": "True"
+     },
+     {
+      "symbol": "KARD",
+      "entry": "2026-06-23",
+      "exit": "2026-06-29",
+      "days": 5,
+      "engine": -0.12515491,
+      "hand": -0.12515491,
+      "match": "True"
+     },
+     {
+      "symbol": "CRCL",
+      "entry": "2025-06-09",
+      "exit": "2025-06-13",
+      "days": 5,
+      "engine": -0.0239278,
+      "hand": -0.0239278,
+      "match": "True"
+     },
+     {
+      "symbol": "MNTN",
+      "entry": "2025-05-27",
+      "exit": "2025-06-02",
+      "days": 5,
+      "engine": 0.0563181,
+      "hand": 0.0563181,
+      "match": "True"
+     }
+    ]
+   },
+   "baseline_21d": {
+    "trades": 81,
+    "cagr": 15.62,
+    "sharpe": 1.323,
+    "max_dd": -7.57,
+    "profit_factor": 2.122,
+    "mean_trade": 5.51,
+    "win_rate": 67.9,
+    "boot_p": 0.067,
+    "total_return": 33.22,
+    "avg_days": 21.0,
+    "ceiling_mean_gross_%": 18.68,
+    "achieved_mean_gross_%": 4.92,
+    "capture_ratio_%": 26.3
+   }
+  }
+ },
+ "verdict_better_than_21d": false
+}

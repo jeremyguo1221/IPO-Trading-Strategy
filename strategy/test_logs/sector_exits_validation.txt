@@ -1,0 +1,5 @@
+shuffle test: {"n": 500, "real_in_sample_gain_%": 0.33, "shuffled_in_sample_gain_p95_%": 1.15, "p_in_sample": 0.878, "real_loeo_gain_%": -0.723, "shuffled_loeo_gain_median_%": -0.078, "shuffled_loeo_gain_p95_%": 1.063, "p_loeo": 0.86}
+sector_specific  n=81 cagr=12.19 sharpe=1.325 dd=-6.78 mean_trade=3.91
+global_21d       n=81 cagr=15.62 sharpe=1.323 dd=-7.57 mean_trade=5.51
+global_5d        n=81 cagr=3.42 sharpe=0.558 dd=-6.61 mean_trade=0.94
+global_searched  n=81 cagr=3.42 sharpe=0.558 dd=-6.61 mean_trade=0.94

@@ -1,0 +1,510 @@
+<title>IPO Afterlife</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --page:#f5f6f4; --surface:#fcfcfb; --ink:#111416; --ink2:#4f5250; --muted:#85867f; --grid:#e3e2db; --axis:#c3c2b7;
+  --s1:#2a78d6; --s1-wash:rgba(42,120,214,.12); --s2:#eb6834;
+  --neg:#e34948; --pos:#2a78d6; --mid:#f0efec; --ring:#fcfcfb; --tip:#111416; --tip-ink:#ffffff;
+  --ff-d:"Archivo",system-ui,sans-serif; --ff-b:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --ff-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark; --page:#0f100f; --surface:#1a1a19; --ink:#f4f4f1; --ink2:#c3c2b7; --muted:#8f8e87; --grid:#2c2c2a; --axis:#44443f;
+    --s1:#3987e5; --s1-wash:rgba(57,135,229,.16); --s2:#d95926; --neg:#e66767; --pos:#3987e5; --mid:#383835; --ring:#1a1a19; --tip:#f4f4f1; --tip-ink:#111416;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark; --page:#0f100f; --surface:#1a1a19; --ink:#f4f4f1; --ink2:#c3c2b7; --muted:#8f8e87; --grid:#2c2c2a; --axis:#44443f;
+  --s1:#3987e5; --s1-wash:rgba(57,135,229,.16); --s2:#d95926; --neg:#e66767; --pos:#3987e5; --mid:#383835; --ring:#1a1a19; --tip:#f4f4f1; --tip-ink:#111416;
+}
+*{box-sizing:border-box}
+body{background:var(--page);color:var(--ink);font-family:var(--ff-b);font-size:15.5px;line-height:1.55;padding-inline:20px;padding-block:32px 64px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--ff-d);margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.015em;line-height:1.08}
+h2{font-size:22px;font-weight:800;letter-spacing:-.005em}
+h3{font-size:15px;font-weight:600}
+p{margin:0;max-width:70ch}
+.eyebrow{font-family:var(--ff-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.lede{color:var(--ink2);font-size:17px;margin-top:12px}
+.m{font-family:var(--ff-m);font-variant-numeric:tabular-nums}
+section{display:grid;gap:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.tile .v{font-family:var(--ff-d);font-size:32px;font-weight:800;line-height:1.1}
+.tile .l{font-size:13px;color:var(--ink2)}
+.findings{margin:0;padding-left:20px;display:grid;gap:10px;max-width:74ch}
+.findings b{font-weight:600}
+.fig{background:var(--surface);border:1px solid var(--grid);border-radius:10px;padding:18px 18px 12px;display:grid;gap:10px}
+.fig-h{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between}
+.fig-sub{font-size:13px;color:var(--ink2)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink2)}
+.key{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:4px;margin-right:6px}
+.key.sw{height:10px;width:10px;vertical-align:-1px}
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--ff-b);font-size:11.5px;fill:var(--muted)}
+.chart .lab{fill:var(--ink2);font-size:12px}
+.chart .val{fill:var(--ink);font-family:var(--ff-m);font-size:11.5px}
+.tip{position:absolute;pointer-events:none;background:var(--tip);color:var(--tip-ink);font-size:12.5px;line-height:1.4;padding:8px 10px;border-radius:6px;white-space:nowrap;z-index:5;transform:translate(-50%,calc(-100% - 12px))}
+.tip b{font-weight:600}
+.tip .m{font-size:12px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.note{font-size:13px;color:var(--ink2);max-width:74ch}
+.tbox{overflow-x:auto;border:1px solid var(--grid);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px 12px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);font-weight:600}
+td{font-family:var(--ff-m);font-variant-numeric:tabular-nums}
+td:first-child{font-family:var(--ff-b)}
+tr:last-child td{border-bottom:0}
+.heat td{text-align:center;font-weight:500}
+.sig{font-size:10.5px;vertical-align:2px;color:inherit;opacity:.8}
+.pill{display:inline-block;font-family:var(--ff-m);font-size:11px;padding:1px 7px;border-radius:99px;border:1px solid var(--axis);color:var(--ink2)}
+.caveats{margin:0;padding-left:20px;display:grid;gap:8px;font-size:14px;color:var(--ink2);max-width:76ch}
+details summary{cursor:pointer;font-size:13px;color:var(--ink2)}
+details summary:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+hr{border:0;border-top:1px solid var(--grid);margin:0}
+.multiples{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:18px 20px}
+.mini{display:grid;gap:2px}
+.mini h4{margin:0;font-size:13px;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.mini h4 span{font-family:var(--ff-m);font-weight:400;color:var(--ink2);font-size:12px}
+details.stk{background:var(--surface);border:1px solid var(--grid);border-radius:8px;padding:8px 12px}
+details.stk[open]{padding-bottom:12px}
+details.stk summary{font-size:14px;color:var(--ink)}
+details.stk .tbox{margin-top:8px;border:0}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">96 IPOs · Sep 2021 – Jul 2026 · first 121 trading days</div>
+    <h1>IPO Afterlife: what happens after the first-day pop</h1>
+    <p class="lede">How notable US IPOs from the last five years traded over their first six months: the day‑one pop, how much they swing, when they peak and bottom, and how they did against the S&amp;P 500 (SPY) over the same days.</p>
+  </header>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section>
+    <h2>What the data says</h2>
+    <ol class="findings" id="findings"></ol>
+  </section>
+
+  <section id="s-path">
+    <h2>The typical path</h2>
+    <div class="fig">
+      <div class="fig-h"><h3>Median return by trading day</h3><span class="fig-sub">% change, day 1 to day 121</span></div>
+      <div class="legend">
+        <span><i class="key" style="background:var(--s1)"></i>Price vs IPO offer price (band = middle 50% of stocks)</span>
+        <span><i class="key" style="background:var(--s2)"></i>Return from day‑1 close minus SPY</span>
+      </div>
+      <div class="chart" id="c-path"></div>
+    </div>
+    <p class="note">The sample shrinks from 96 stocks on day 1 to 76 at day 121, because recent IPOs don't have six months of data yet. Hover the chart to see the count for each day.</p>
+  </section>
+
+  <section id="s-windows">
+    <h2>Returns window by window</h2>
+    <div class="fig">
+      <div class="fig-h"><h3>Median return vs SPY in each window</h3><span class="fig-sub">close‑to‑close · whisker = 95% bootstrap interval · ● = significant at p&lt;0.05</span></div>
+      <div class="chart" id="c-windows"></div>
+    </div>
+    <div class="tbox"><table id="t-windows"></table></div>
+  </section>
+
+  <section id="s-grid">
+    <h2>Entry day × holding period</h2>
+    <p class="note">Median return vs SPY if you bought at the close of the entry day and held for the given number of trading days. Blue means the stocks beat SPY and red means they lagged. † marks p&lt;0.05.</p>
+    <div class="tbox"><table class="heat" id="t-grid"></table></div>
+  </section>
+
+  <section id="s-vol">
+    <h2>How much they move</h2>
+    <div class="two">
+      <div class="fig">
+        <div class="fig-h"><h3>Size of the typical daily move</h3><span class="fig-sub">median across stocks, by trading day</span></div>
+        <div class="legend">
+          <span><i class="key" style="background:var(--s1)"></i>Absolute close‑to‑close move</span>
+          <span><i class="key" style="background:var(--s2)"></i>High–low range</span>
+        </div>
+        <div class="chart" id="c-vol"></div>
+      </div>
+      <div class="fig">
+        <div class="fig-h"><h3>Trading volume</h3><span class="fig-sub">median, relative to each stock's day 2–21 average</span></div>
+        <div class="chart" id="c-volu"></div>
+      </div>
+    </div>
+    <div class="tbox"><table id="t-vol"></table></div>
+  </section>
+
+  <section id="s-dd">
+    <h2>Peaks, troughs and drawdowns</h2>
+    <div class="two">
+      <div class="fig">
+        <div class="fig-h"><h3>When the 6‑month high and low happen</h3><span class="fig-sub">number of stocks, by trading‑day window</span></div>
+        <div class="legend">
+          <span><i class="key sw" style="background:var(--s1)"></i>Day of highest close</span>
+          <span><i class="key sw" style="background:var(--s2)"></i>Day of lowest close</span>
+        </div>
+        <div class="chart" id="c-peaks"></div>
+      </div>
+      <div class="fig" style="align-content:start">
+        <div class="fig-h"><h3>Drawdown facts</h3><span class="fig-sub" id="dd-n"></span></div>
+        <div class="tiles" id="dd-tiles" style="grid-template-columns:repeat(2,1fr)"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="s-pop">
+    <h2>Does a big first day mean anything?</h2>
+    <div class="two">
+      <div class="fig">
+        <div class="fig-h"><h3>First‑day pop vs what came after</h3><span class="fig-sub">each dot is one IPO</span></div>
+        <div class="chart" id="c-pop"></div>
+        <div class="fig-sub">x: day‑1 close vs offer price · y: day‑1 close to day 121, minus SPY</div>
+      </div>
+      <div class="fig" style="align-content:start">
+        <div class="fig-h"><h3>Grouped by size of the pop</h3><span class="fig-sub">medians</span></div>
+        <div class="tbox" style="border:0"><table id="t-pop"></table></div>
+        <p class="note" id="pop-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s-cross">
+    <h2>By sector, listing year and size</h2>
+    <p class="note">Only stocks with a full 121 trading days are included. "vs offer" is the price at day 121 against the IPO price. "vs SPY" is the return from the day‑1 close to day 121, minus SPY. Groups with fewer than 5 stocks are shown but are too small to rely on.</p>
+    <div class="two">
+      <div class="tbox"><table id="t-year"></table></div>
+      <div class="tbox"><table id="t-size"></table></div>
+    </div>
+  </section>
+
+  <section id="s-sector">
+    <div class="eyebrow">Sector deep dive</div>
+    <h2>How different sectors move</h2>
+    <p class="note">Nine sectors, 4 to 18 stocks each. Every statistic needs at least 3 stocks; blank cells mean too few. With groups this small, one or two names can swing a median, so read each sector's stock list below its table before drawing conclusions.</p>
+    <ol class="findings" id="sec-findings"></ol>
+
+    <div class="fig">
+      <div class="fig-h"><h3>Return vs SPY from the day‑1 close, by sector</h3><span class="fig-sub">median by trading day · same scale in every panel</span></div>
+      <div class="legend">
+        <span><i class="key" style="background:var(--s1)"></i>Sector median</span>
+        <span><i class="key" style="background:var(--muted)"></i>All IPOs</span>
+      </div>
+      <div class="multiples" id="c-sec-paths"></div>
+    </div>
+
+    <h3>Returns by sector and window</h3>
+    <p class="note">The day‑1 pop is measured against the offer price. All the other columns are medians vs SPY. "Year‑adjusted" compares each stock with the median IPO from the same listing year, which removes the effect of hot vs cold markets. † marks the cells where the sector median is based on 3–4 stocks.</p>
+    <div class="tbox"><table class="heat" id="t-sec-returns"></table></div>
+
+    <div class="two">
+      <div class="fig">
+        <div class="fig-h"><h3>Annualized volatility</h3><span class="fig-sub">median of stocks, days 2–121</span></div>
+        <div class="chart" id="c-sec-vol"></div>
+      </div>
+      <div class="fig">
+        <div class="fig-h"><h3>Beta to SPY</h3><span class="fig-sub">median · 1.0 = moves one‑for‑one with SPY</span></div>
+        <div class="chart" id="c-sec-beta"></div>
+      </div>
+    </div>
+
+    <h3>How they move, by sector</h3>
+    <div class="tbox"><table id="t-sec-move"></table></div>
+
+    <h3>Is it the sector, or when the company listed?</h3>
+    <p class="note" id="sec-conf-note"></p>
+    <div class="two">
+      <div class="tbox"><table class="heat" id="t-sec-mix"></table></div>
+      <div class="tbox"><table id="t-sec-tests"></table></div>
+    </div>
+
+    <h3>Stocks in each sector</h3>
+    <div id="sec-stocks" style="display:grid;gap:8px"></div>
+  </section>
+
+  <section id="s-events">
+    <h2>Known IPO events</h2>
+    <div class="tbox"><table id="t-events"></table></div>
+  </section>
+
+  <section>
+    <h2>Limits of this analysis</h2>
+    <ul class="caveats">
+      <li><b>Survivorship.</b> Seven IPOs from the list (Olaplex, AvidXchange, Informatica, Udemy, HashiCorp, Zeekr, OneStream) are missing because the Zeus database only holds stocks that still trade. SK hynix (an already‑public company's US listing) and the Pershing Square USA fund are excluded as not being normal IPOs.</li>
+      <li><b>Small, clustered sample.</b> 96 stocks at most, and only 76 with a full six months. Many listed in two hot windows (late 2021 and mid‑2025) that both reversed sharply. So these results partly describe those two market cycles, not just IPOs in general.</li>
+      <li><b>Not risk‑adjusted.</b> "vs SPY" is a simple difference in returns. New IPOs are 5–6× as volatile as SPY, so this is not a beta‑adjusted alpha.</li>
+      <li><b>Big‑deal bias.</b> The list is limited to IPOs worth about $1B or more. Small‑cap IPOs, biotech IPOs and SPAC mergers can behave very differently.</li>
+      <li><b>Data fixes.</b> RENT and BIRD prices were corrected for 1‑for‑20 reverse splits. Stub first bars for BTGO and ETOR were dropped. KLAR, IBTA, CRBG and INIO are missing their real first day, so they're left out of the day‑1 and pop statistics.</li>
+      <li><b>Not a trading signal as is.</b> Shorting new IPOs is often expensive or impossible (high borrow fees, few shares to borrow), and the right tail is brutal: CoreWeave rose about 200% in its first six months.</li>
+    </ul>
+  </section>
+  <p class="note">Built from Zeus <span class="m">ohlcv_daily</span> (yfinance/Alpaca bars) and SPY from the same table. Source files: <span class="m">ipo_first_6_months/analyze.py</span> and <span class="m">analysis/*.csv</span>.</p>
+</div>
+
+<script>
+const R=/*__DATA__*/null;
+const $=id=>document.getElementById(id);
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const f1=v=>v==null||isNaN(v)?"–":(v>0?"+":v<0?"−":"")+Math.abs(v).toFixed(1)+"%";
+const f1u=v=>v==null?"–":Math.abs(v).toFixed(1)+"%";
+const NS="http://www.w3.org/2000/svg";
+const el=(tag,attrs={},parent)=>{const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e};
+const nice=(lo,hi,n=5)=>{const span=hi-lo||1,step0=span/n,mag=Math.pow(10,Math.floor(Math.log10(step0)));const step=[1,2,2.5,5,10].map(s=>s*mag).find(s=>span/s<=n)||mag*10;const a=Math.floor(lo/step)*step,b=Math.ceil(hi/step)*step;const t=[];for(let v=a;v<=b+1e-9;v+=step)t.push(+v.toFixed(6));return t};
+
+function tipFor(box){let t=box.querySelector(".tip");if(!t){t=document.createElement("div");t.className="tip";t.hidden=true;box.appendChild(t)}return t}
+function showTip(box,html,x,y){const t=tipFor(box);t.innerHTML=html;t.hidden=false;const w=box.clientWidth;t.style.left=Math.max(70,Math.min(w-70,x))+"px";t.style.top=y+"px"}
+function hideTip(box){const t=box.querySelector(".tip");if(t)t.hidden=true}
+
+// ---------- line chart with optional band, crosshair tooltip
+function lineChart(box,{x,series,band,yLabel,tipRows,height=300,yFmt=v=>v+"%",refLine,yRange,xTicks,minW=320}){
+  box.innerHTML="";const W=Math.max(minW,box.clientWidth),H=height,m={t:14,r:16,b:30,l:46};
+  const all=series.flatMap(s=>s.values).concat(band?band.lo.concat(band.hi):[]).filter(v=>v!=null);
+  if(refLine!=null)all.push(refLine);
+  const ticks=yRange?nice(yRange[0],yRange[1],4):nice(Math.min(0,...all),Math.max(...all));const y0=ticks[0],y1=ticks[ticks.length-1];
+  const xs=v=>m.l+(v-x[0])/(x[x.length-1]-x[0])*(W-m.l-m.r), ys=v=>m.t+(1-(v-y0)/(y1-y0))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  ticks.forEach(t=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(t),y2:ys(t),stroke:t===0?css("--axis"):css("--grid"),"stroke-width":1},svg);
+    const tx=el("text",{x:m.l-8,y:ys(t)+4,"text-anchor":"end"},svg);tx.textContent=yFmt(t)});
+  const xt=(xTicks||[1,21,42,63,84,105,121]).filter(v=>v>=x[0]&&v<=x[x.length-1]);
+  xt.forEach(t=>{const tx=el("text",{x:xs(t),y:H-10,"text-anchor":"middle"},svg);tx.textContent=t===1?"Day 1":t});
+  if(refLine!=null){el("line",{x1:m.l,x2:W-m.r,y1:ys(refLine),y2:ys(refLine),stroke:css("--muted"),"stroke-width":1},svg)}
+  if(band){let d="";x.forEach((v,i)=>d+=(i?"L":"M")+xs(v)+","+ys(band.hi[i]));for(let i=x.length-1;i>=0;i--)d+="L"+xs(x[i])+","+ys(band.lo[i]);
+    el("path",{d:d+"Z",fill:css("--s1-wash"),stroke:"none"},svg)}
+  series.forEach(s=>{let d="";s.values.forEach((v,i)=>{if(v!=null)d+=(d?"L":"M")+xs(x[i])+","+ys(v)});
+    el("path",{d,fill:"none",stroke:css(s.color),"stroke-width":s.thin?1.5:2,"stroke-linejoin":"round","stroke-linecap":"round"},svg);
+    if(s.noEnd)return;
+    let li=s.values.length-1;while(li>0&&s.values[li]==null)li--;el("circle",{cx:xs(x[li]),cy:ys(s.values[li]),r:4.5,fill:css(s.color),stroke:css("--ring"),"stroke-width":2},svg);
+    if(s.endLabel){const tx=el("text",{x:xs(x[li])-8,y:ys(s.values[li])+(s.endDy||-10),"text-anchor":"end",class:"val"},svg);tx.textContent=s.endLabel(s.values[li])}});
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:css("--axis"),"stroke-width":1,visibility:"hidden"},svg);
+  const dots=series.map(s=>el("circle",{r:4.5,fill:css(s.color),stroke:css("--ring"),"stroke-width":2,visibility:"hidden"},svg));
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  const move=ev=>{const r=svg.getBoundingClientRect(),px=(ev.clientX-r.left)*W/r.width;
+    let i=Math.round((px-m.l)/(W-m.l-m.r)*(x.length-1));i=Math.max(0,Math.min(x.length-1,i));
+    cross.setAttribute("x1",xs(x[i]));cross.setAttribute("x2",xs(x[i]));cross.setAttribute("visibility","visible");
+    series.forEach((s,k)=>{if(s.values[i]==null){dots[k].setAttribute("visibility","hidden");return}dots[k].setAttribute("cx",xs(x[i]));dots[k].setAttribute("cy",ys(s.values[i]));dots[k].setAttribute("visibility","visible")});
+    showTip(box,tipRows(i),xs(x[i])*r.width/W,Math.min(...series.map(s=>ys(s.values[i]??0)))*r.height/H)};
+  hit.addEventListener("pointermove",move);hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");dots.forEach(d=>d.setAttribute("visibility","hidden"));hideTip(box)});
+}
+
+// ---------- horizontal diverging bars with CI whiskers
+function divBars(box,rows,{height,tickFmt=t=>(t>0?"+":"")+t+"%"}={}){
+  box.innerHTML="";const W=Math.max(320,box.clientWidth),rowH=34,m={t:8,r:56,b:26,l:W<520?92:118},H=height||m.t+m.b+rows.length*rowH;
+  const vals=rows.flatMap(r=>[r.v,r.lo,r.hi]).filter(v=>v!=null);const ticks=nice(Math.min(0,...vals),Math.max(0,...vals),6);
+  const x0=ticks[0],x1=ticks[ticks.length-1],xs=v=>m.l+(v-x0)/(x1-x0)*(W-m.l-m.r);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  ticks.forEach(t=>{el("line",{x1:xs(t),x2:xs(t),y1:m.t,y2:H-m.b,stroke:t===0?css("--axis"):css("--grid"),"stroke-width":1},svg);
+    const tx=el("text",{x:xs(t),y:H-8,"text-anchor":"middle"},svg);tx.textContent=tickFmt(t)});
+  rows.forEach((r,i)=>{const cy=m.t+i*rowH+rowH/2,bh=16,a=xs(Math.min(0,r.v)),b=xs(Math.max(0,r.v)),w=Math.max(1,b-a);
+    const lab=el("text",{x:m.l-10,y:cy+4,"text-anchor":"end",class:"lab"},svg);lab.textContent=r.label;
+    const col=css(r.v<0?"--neg":"--pos"),rad=Math.min(4,w/2);
+    const d=r.v<0?`M${b},${cy-bh/2}H${a+rad}Q${a},${cy-bh/2} ${a},${cy-bh/2+rad}V${cy+bh/2-rad}Q${a},${cy+bh/2} ${a+rad},${cy+bh/2}H${b}Z`
+                 :`M${a},${cy-bh/2}H${b-rad}Q${b},${cy-bh/2} ${b},${cy-bh/2+rad}V${cy+bh/2-rad}Q${b},${cy+bh/2} ${b-rad},${cy+bh/2}H${a}Z`;
+    el("path",{d,fill:col},svg);
+    if(r.lo!=null){el("line",{x1:xs(r.lo),x2:xs(r.hi),y1:cy,y2:cy,stroke:css("--ink2"),"stroke-width":1.25},svg);
+      [r.lo,r.hi].forEach(v=>el("line",{x1:xs(v),x2:xs(v),y1:cy-5,y2:cy+5,stroke:css("--ink2"),"stroke-width":1.25},svg))}
+    const vx=r.v<0?Math.min(xs(r.lo??r.v),a)-6:Math.max(xs(r.hi??r.v),b)+6;
+    const vt=el("text",{x:vx,y:cy+4,"text-anchor":r.v<0?"end":"start",class:"val"},svg);vt.textContent=(r.txt??f1(r.v))+(r.sig?" ●":"");
+    const hit=el("rect",{x:m.l,y:cy-rowH/2,width:W-m.l-m.r,height:rowH,fill:"transparent"},svg);
+    hit.addEventListener("pointermove",ev=>{const rc=svg.getBoundingClientRect();showTip(box,r.tip,(ev.clientX-rc.left),(cy-8)*rc.height/H)});
+    hit.addEventListener("pointerleave",()=>hideTip(box))});
+}
+
+// ---------- grouped columns
+function columns(box,cats,series,{height=240}={}){
+  box.innerHTML="";const W=Math.max(320,box.clientWidth),H=height,m={t:18,r:8,b:30,l:34};
+  const mx=Math.max(...series.flatMap(s=>s.values));const ticks=nice(0,mx,4);const y1=ticks[ticks.length-1];
+  const ys=v=>m.t+(1-v/y1)*(H-m.t-m.b),band=(W-m.l-m.r)/cats.length,bw=Math.min(22,(band-14)/series.length-2);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  ticks.forEach(t=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(t),y2:ys(t),stroke:t===0?css("--axis"):css("--grid"),"stroke-width":1},svg);
+    const tx=el("text",{x:m.l-6,y:ys(t)+4,"text-anchor":"end"},svg);tx.textContent=t});
+  cats.forEach((c,i)=>{const cx=m.l+band*i+band/2;const tx=el("text",{x:cx,y:H-10,"text-anchor":"middle"},svg);tx.textContent=c;
+    const gw=series.length*bw+(series.length-1)*2;
+    series.forEach((s,k)=>{const v=s.values[i],x=cx-gw/2+k*(bw+2),top=ys(v),h=ys(0)-top,rad=Math.min(4,h/2,bw/2);
+      if(h>0)el("path",{d:`M${x},${ys(0)}V${top+rad}Q${x},${top} ${x+rad},${top}H${x+bw-rad}Q${x+bw},${top} ${x+bw},${top+rad}V${ys(0)}Z`,fill:css(s.color)},svg);
+      const hit=el("rect",{x:x-1,y:m.t,width:bw+2,height:H-m.t-m.b,fill:"transparent"},svg);
+      hit.addEventListener("pointermove",ev=>{const rc=svg.getBoundingClientRect();showTip(box,`<b>${s.name}</b><br>${c}: <span class="m">${v} stocks</span>`,(x+bw/2)*rc.width/W,top*rc.height/H)});
+      hit.addEventListener("pointerleave",()=>hideTip(box))})});
+}
+
+// ---------- scatter
+function scatter(box,pts,{height=300}={}){
+  box.innerHTML="";const W=Math.max(320,box.clientWidth),H=height,m={t:12,r:14,b:28,l:46};
+  const xt=nice(Math.min(0,...pts.map(p=>p.x)),Math.max(...pts.map(p=>p.x)),5),yt=nice(Math.min(...pts.map(p=>p.y)),Math.max(0,...pts.map(p=>p.y)),5);
+  const xs=v=>m.l+(v-xt[0])/(xt.at(-1)-xt[0])*(W-m.l-m.r),ys=v=>m.t+(1-(v-yt[0])/(yt.at(-1)-yt[0]))*(H-m.t-m.b);
+  const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"},box);
+  yt.forEach(t=>{el("line",{x1:m.l,x2:W-m.r,y1:ys(t),y2:ys(t),stroke:t===0?css("--axis"):css("--grid"),"stroke-width":1},svg);const tx=el("text",{x:m.l-8,y:ys(t)+4,"text-anchor":"end"},svg);tx.textContent=t+"%"});
+  xt.forEach(t=>{if(t===0)el("line",{x1:xs(0),x2:xs(0),y1:m.t,y2:H-m.b,stroke:css("--axis"),"stroke-width":1},svg);const tx=el("text",{x:xs(t),y:H-8,"text-anchor":"middle"},svg);tx.textContent=t+"%"});
+  pts.forEach(p=>{const c=el("circle",{cx:xs(p.x),cy:ys(p.y),r:4.5,fill:css("--s1"),"fill-opacity":.85,stroke:css("--ring"),"stroke-width":2},svg);
+    const hit=el("circle",{cx:xs(p.x),cy:ys(p.y),r:10,fill:"transparent"},svg);
+    hit.addEventListener("pointermove",()=>{const rc=svg.getBoundingClientRect();c.setAttribute("r",6);showTip(box,`<b>${p.s}</b><br>Day‑1 pop <span class="m">${f1(p.x)}</span><br>After, vs SPY <span class="m">${f1(p.y)}</span>`,xs(p.x)*rc.width/W,ys(p.y)*rc.height/H)});
+    hit.addEventListener("pointerleave",()=>{c.setAttribute("r",4.5);hideTip(box)})});
+}
+
+function table(id,head,rows){$(id).innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>`}
+const star=p=>p!=null&&p<0.05?' <span class="sig">†</span>':"";
+
+function renderStatic(){
+  const H=R.headline,D1=R.day1,DD=R.drawdown;
+  $("tiles").innerHTML=[
+    [f1(D1.offer_to_close.median),"median day‑1 pop, offer price to close"],
+    [f1(H.six_vs_offer.median),"median at day 121 vs offer price"],
+    [f1(H.six_ex_from_d1.median),"median from day‑1 close to day 121, minus SPY"],
+    [H.six_ex_from_d1.pct_pos.toFixed(0)+"%","of IPOs beat SPY after day 1"],
+  ].map(([v,l])=>`<div class="tile"><span class="v">${v}</span><span class="l">${l}</span></div>`).join("");
+
+  const W=R.windows, sigW=W.filter(w=>w.ex_p<0.05).length;
+  const pb=R.pop.buckets, big=pb.find(b=>b.bucket.startsWith(">")), broke=pb.find(b=>b.bucket.startsWith("Broke"));
+  const yr=Object.fromEntries(R.by_year.map(r=>[r.group,r]));
+  const volFirst=R.vol[0],volLast=R.vol[R.vol.length-1];
+  $("findings").innerHTML=[
+    `<b>The pop happens at the open.</b> The median IPO opened ${f1(D1.offer_to_open.median)} above its offer price and ${D1.offer_to_open.pct_pos.toFixed(0)}% opened higher. From open to close the median move was ${f1(D1.open_to_close.median)}, and ${D1.closed_below_open.toFixed(0)}% closed below where they opened. Buying at the first trade gained nothing on day 1.`,
+    `<b>After day 1, most IPOs fall behind the market steadily.</b> From the day‑1 close to day 121, the median IPO trailed SPY by ${f1u(H.six_ex_from_d1.median)} (mean ${f1(H.six_ex_from_d1.mean)}), and only ${H.six_ex_from_d1.pct_pos.toFixed(0)}% beat it. The median return vs SPY was negative in 7 of the 8 windows, and ${sigW} of those were statistically significant. The decline doesn't level off: the biggest drops came in days 43–63 and days 95–121.`,
+    `<b>Buyers at the offer price roughly broke even. Buyers at the day‑1 close lost.</b> At day 121 the median stock was ${f1(H.six_vs_offer.median)} vs its offer price, but the mean was ${f1(H.six_vs_offer.mean)}. A few big winners (CoreWeave, Loar, Circle, Arm) pull the average up. ${H.six_vs_offer.pct_pos.toFixed(0)}% were above their offer price at six months.`,
+    `<b>Volatility falls after week 1, then stays high.</b> In days 2–5 the median stock moved ${volFirst.median_abs_daily_move}% a day, ${volFirst.median_annualized_vol}% annualized. It then settles near 2.5% a day, about 65% annualized, for the rest of the six months. That's 5–6× SPY. About a quarter of all days are moves of more than 5%.`,
+    `<b>Most IPOs have a deep drawdown.</b> The median worst fall from a prior high was ${f1(DD.median_max_drawdown)} within six months. ${DD.pct_ever_below_offer}% traded below their offer price at some point, typically first by day ${DD.median_first_day_below_offer}. The six‑month low most often came in days 95–121, just before the usual 180‑day lock‑up expiry.`,
+    `<b>Bigger pops tend to be followed by bigger declines.</b> IPOs that popped more than 40% then trailed SPY by a median ${f1u(big.after_ex_median)}. Those that closed at or below their offer price trailed by only ${f1u(broke.after_ex_median)}. The overall correlation is weak (Spearman ${R.pop.spearman}, p=${R.pop.spearman_p}), so treat this as a tendency, not a rule.`,
+    `<b>Timing of the listing matters.</b> IPOs from the hot 2021 and 2025 markets trailed SPY by a median ${f1u(yr["2021"].ex_median)} and ${f1u(yr["2025"].ex_median)}. The quieter 2023–2024 group was up about 18–19% vs their offer prices after six months, though it still trailed SPY by a median of about 12%.`,
+    `<b>Sector matters less than timing.</b> Six‑month returns differ much more by listing year (p=${R.sector.year_test.p}) than by sector (p=${R.sector.tests.find(t=>t.metric==="ex_6m").p}). Sectors do differ in how their stocks move: volatility and beta vary a lot by sector. See the sector deep dive below.`,
+    `<b>Early strength doesn't carry forward.</b> How a stock did vs SPY in days 2–21 barely predicts days 22–121 (Spearman ${R.momentum.spearman}, p=${R.momentum.p}). When analyst coverage starts (around day ${R.quiet.typical_trading_day}), prices don't get a boost: the median move vs SPY was ${f1(R.quiet.median)} over the surrounding eight days.`,
+  ].map(s=>`<li>${s}</li>`).join("");
+
+  table("t-windows",["Window","Stocks","Median return","Median vs SPY","95% interval","% beat SPY","p‑value"],
+    W.map(w=>[w.window,w.n,f1(w.raw_median),f1(w.ex_median)+star(w.ex_p),`${f1(w.ex_ci_lo)} to ${f1(w.ex_ci_hi)}`,w.ex_pct_pos.toFixed(0)+"%",w.ex_p.toFixed(3)]));
+
+  // heat grid
+  const G=R.grid,entries=[...new Set(G.map(g=>g.entry_day))],holds=[...new Set(G.map(g=>g.hold_days))];
+  const lim=Math.max(...G.map(g=>Math.abs(g.ex_median)));
+  const cell=g=>{if(!g)return`<td style="color:var(--muted)">–</td>`;const t=Math.min(1,Math.abs(g.ex_median)/lim),hue=g.ex_median<0?"--neg":"--pos";
+    const bg=`color-mix(in srgb, var(${hue}) ${Math.round(t*85)}%, var(--mid))`;const ink=t>0.55?"#fff":"var(--ink)";
+    return `<td style="background:${bg};color:${ink}" title="n=${g.n}, ${g.ex_pct_pos}% beat SPY, p=${g.ex_p}">${f1(g.ex_median)}${g.ex_p<0.05?" †":""}</td>`};
+  $("t-grid").innerHTML=`<thead><tr><th>Buy at close of</th>${holds.map(h=>`<th>Hold ${h} days</th>`).join("")}</tr></thead><tbody>${
+    entries.map(e=>`<tr><td style="text-align:left;font-family:var(--ff-b)">Day ${e}</td>${holds.map(h=>cell(G.find(g=>g.entry_day===e&&g.hold_days===h))).join("")}</tr>`).join("")}</tbody>`;
+
+  table("t-vol",["Trading days","Stocks","Median daily move","Median high–low range","Days moving >5%","Annualized vol","SPY vol, same days"],
+    R.vol.map(v=>[v.days,v.n,v.median_abs_daily_move+"%",v.median_intraday_range+"%",v.share_days_over_5pct+"%",v.median_annualized_vol+"%",v.spy_annualized_vol+"%"]));
+
+  $("dd-n").textContent=`${DD.n} IPOs with a full six months`;
+  $("dd-tiles").innerHTML=[
+    [f1(DD.median_max_drawdown),"median max drawdown"],
+    [DD.pct_dd_over_50+"%","fell 50%+ from a high"],
+    [DD.pct_ever_below_offer+"%","traded below the offer price"],
+    ["Day "+DD.median_first_day_below_offer,"median first day below the offer price"],
+  ].map(([v,l])=>`<div class="tile"><span class="v" style="font-size:26px">${v}</span><span class="l">${l}</span></div>`).join("");
+
+  table("t-pop",["Day‑1 pop","Stocks","Median pop","After, vs SPY","Day 121 vs offer"],
+    pb.map(b=>[b.bucket,b.n,f1(b.pop_median),f1(b.after_ex_median),f1(b.vs_offer_median)]));
+  $("pop-note").textContent=`The biggest poppers ended up about flat vs their offer price (${f1(big.vs_offer_median)}). The IPO price was about right, and day‑1 buyers paid the premium.`;
+
+  const cross=(id,label,rows)=>table(id,[label,"Stocks","vs offer","vs SPY","% beat SPY"],
+    rows.map(r=>[r.group+(r.n<5?' <span class="pill">small n</span>':""),r.n,f1(r.vs_offer_median),f1(r.ex_median),r.pct_beat_spy.toFixed(0)+"%"]));
+  cross("t-year","Listing year",R.by_year);
+  cross("t-size","Valuation at IPO",R.by_size);
+
+  table("t-events",["Event","Typical timing","What happened"],[
+    ["Pricing & first trade","Day 1",`Median ${f1(D1.offer_to_open.median)} to the open, ${f1(D1.open_to_close.median)} open to close. Day‑1 volume ≈ ${R.volume_day1_vs_d2_21}× the day 2–21 average.`],
+    ["Research quiet period ends","25 calendar days ≈ trading day "+R.quiet.typical_trading_day,`Median ${f1(R.quiet.median)} vs SPY from 3 days before to 5 days after (p=${R.quiet.p}). No boost from analyst initiations.`],
+    ["First earnings as a public company","Usually days 40–70","Falls around days 43–63, one of the weakest windows (median −7% vs SPY). This dataset doesn't include exact earnings dates."],
+    ["Lock‑up expiry","~180 calendar days ≈ day 124","Outside the 121‑day window. Volume rises in the final weeks (about 0.78× the early average by day 121, up from about 0.55×), and the six‑month low most often lands here."],
+  ]);
+  document.querySelectorAll("#t-events td:last-child").forEach(td=>{td.style.whiteSpace="normal";td.style.textAlign="left";td.style.fontFamily="var(--ff-b)";td.style.minWidth="280px"});
+  document.querySelectorAll("#t-events td:nth-child(2)").forEach(td=>{td.style.fontFamily="var(--ff-b)";td.style.textAlign="left"});
+}
+
+function renderCharts(){
+  const P=R.path;
+  lineChart($("c-path"),{x:P.day,band:{lo:P.offer_p25,hi:P.offer_p75},
+    series:[{values:P.offer_med,color:"--s1",endLabel:v=>f1(v)+" vs offer",endDy:-12},{values:P.ex_med,color:"--s2",endLabel:v=>f1(v)+" vs SPY",endDy:18}],
+    tipRows:i=>`<b>Trading day ${P.day[i]}</b> · <span class="m">${P.n[i]} stocks</span><br>vs offer <span class="m">${f1(P.offer_med[i])}</span> (middle 50%: ${f1(P.offer_p25[i])} to ${f1(P.offer_p75[i])})<br>from day‑1 close, minus SPY <span class="m">${f1(P.ex_med[i])}</span><br>above offer price <span class="m">${P.pct_above_offer[i].toFixed(0)}%</span>`});
+
+  divBars($("c-windows"),R.windows.map(w=>({label:w.window,v:w.ex_median,lo:w.ex_ci_lo,hi:w.ex_ci_hi,sig:w.ex_p<0.05,
+    tip:`<b>${w.window}</b> · <span class="m">${w.n} stocks</span><br>median vs SPY <span class="m">${f1(w.ex_median)}</span><br>95% interval <span class="m">${f1(w.ex_ci_lo)} to ${f1(w.ex_ci_hi)}</span><br>beat SPY <span class="m">${w.ex_pct_pos.toFixed(0)}%</span> · p=<span class="m">${w.ex_p.toFixed(3)}</span>`})));
+
+  const V=R.vol_daily;
+  lineChart($("c-vol"),{x:V.map(v=>v.day),height:250,series:[{values:V.map(v=>v.abs_move),color:"--s1"},{values:V.map(v=>v.range),color:"--s2"}],
+    tipRows:i=>`<b>Trading day ${V[i].day}</b><br>median move <span class="m">${V[i].abs_move}%</span><br>median high–low range <span class="m">${V[i].range}%</span>`});
+  const U=R.volume_daily.filter(v=>v.day>=2);
+  lineChart($("c-volu"),{x:U.map(v=>v.day),height:250,yFmt:v=>v+"×",refLine:1,series:[{values:U.map(v=>v.rel),color:"--s1",endLabel:v=>v.toFixed(2)+"×"}],
+    tipRows:i=>`<b>Trading day ${U[i].day}</b><br>volume <span class="m">${U[i].rel.toFixed(2)}×</span> the day 2–21 average<br><span style="opacity:.75">Day 1 (not shown): ${R.volume_day1_vs_d2_21}×</span>`});
+
+  columns($("c-peaks"),R.drawdown.hist_labels,[{name:"Highest close",values:R.drawdown.peak_day_hist,color:"--s1"},{name:"Lowest close",values:R.drawdown.trough_day_hist,color:"--s2"}]);
+  scatter($("c-pop"),R.pop.points.map(p=>({s:p.symbol,x:p.pop,y:p.after_ex})));
+}
+
+// ================================================================ sector deep dive
+const SX=R.sector, ST=Object.fromEntries(SX.table.map(r=>[r.sector,r]));
+const secOrder=[...SX.table].sort((a,b)=>(b.ex_6m??-1e9)-(a.ex_6m??-1e9)).map(r=>r.sector);
+const ff=(v,d=1,suf="%")=>v==null?"–":v.toFixed(d)+suf;
+const heatBg=(v,lim)=>{if(v==null)return"";const t=Math.min(1,Math.abs(v)/lim);return`background:color-mix(in srgb, var(${v<0?"--neg":"--pos"}) ${Math.round(t*85)}%, var(--mid));color:${t>0.55?"#fff":"var(--ink)"}`};
+
+function renderSectorStatic(){
+  const kw=m=>SX.tests.find(t=>t.metric===m);
+  const F=ST["Financials & Fintech"],HC=ST["Healthcare"],SE=ST["Semiconductors & AI hardware"],AU=ST["Autos & Mobility"],CO=ST["Consumer"],IN=ST["Industrials & Aerospace"],EN=ST["Energy & Power"];
+  const fin25=SX.mix.counts[SX.mix.sectors.indexOf("Financials & Fintech")][SX.mix.years.indexOf(2025)];
+  const vols=SX.table.filter(r=>r.ann_vol!=null&&r.n>=4).sort((a,b)=>b.ann_vol-a.ann_vol);
+  const corrs=SX.table.map(r=>r.corr).filter(v=>v!=null);
+  $("sec-findings").innerHTML=[
+    `<b>Listing year explains returns better than sector does.</b> Six‑month returns vs SPY differ strongly by listing year (Kruskal–Wallis p=${SX.year_test.p}) but not significantly by sector (p=${kw("ex_6m").p}). After adjusting for listing year the sector gap shrinks further (p=${kw("ex_6m_yr_adj").p}). Fintech is the clearest case. On raw numbers it's the worst sector (${f1(F.ex_6m)} vs SPY, ${F.pct_beat_spy}% beat SPY), but ${fin25} of its ${F.n} IPOs listed in 2025 (Circle, Bullish, Gemini, Figure, eToro, Chime, Klarna). Compared with other IPOs from the same years it's only ${f1(F.ex_6m_yr_adj)}.`,
+    `<b>Semiconductors and Healthcare held up best, on small samples.</b> Semis finished ${f1(SE.ex_6m)} vs SPY (${f1(SE.ex_6m_yr_adj)} year‑adjusted, ${SE.n_full} stocks: Arm, Astera Labs, Credo, GlobalFoundries). Healthcare ended ${f1(HC.vs_offer_6m)} vs its offer prices and ${f1(HC.ex_6m_yr_adj)} year‑adjusted (${HC.n_full} stocks). Each rests on a handful of names, so treat these as leads to check, not established patterns.`,
+    `<b>Sectors differ most in how much they swing.</b> ${vols[0].sector} was the most volatile (${ff(vols[0].ann_vol,0)} annualized, ${ff(AU.pct_days_gt5,0)} of days moving 5%+, median max drawdown ${f1(AU.max_dd)}). Healthcare was the calmest normal sector (${ff(HC.ann_vol,0)} annualized, ${ff(HC.pct_days_gt5,0)} of days over 5%, drawdown ${f1(HC.max_dd)}). Beta to SPY is the one movement measure that differs significantly across sectors (p=${kw("beta").p}). Fintech (${F.beta.toFixed(1)}) and Semis (${SE.beta.toFixed(1)}) move most with the market; Healthcare (${HC.beta.toFixed(1)}) about one‑for‑one.`,
+    `<b>Most of each day's move is specific to the company.</b> Median correlation with SPY is only ${Math.min(...corrs).toFixed(2)}–${Math.max(...corrs).toFixed(2)} by sector, so the market explains roughly 5–18% of daily moves. High beta here means big swings when the market moves, not that these stocks track the market closely.`,
+    `<b>Sectors weaken at different points in the six months.</b> Semis (${f1(SE.ex_2_21)}) and Autos (${f1(AU.ex_2_21)}) outperformed in weeks 2–4, then gave it back in days 22–63. Healthcare did the reverse: weak first month, then ${f1(HC.ex_22_63)} in days 22–63, with its median low as early as day ${HC.trough_day}. Consumer's worst stretch was days 22–63 (${f1(CO.ex_22_63)}). Fintech's decline sped up late (${f1(F.ex_64_121)} in days 64–121), and its median low came on day ${F.trough_day}.`,
+    `<b>Day‑1 pops vary by sector, but not significantly.</b> Industrials popped most (median ${f1(IN.pop)}), then Energy (${f1(EN.pop)}) and Semis (${f1(SE.pop)}). Consumer (${f1(CO.pop)}) and Autos (${f1(AU.pop)}) popped least. The differences aren't statistically meaningful (p=${kw("pop").p}).`,
+  ].map(s=>`<li>${s}</li>`).join("");
+
+  // returns heat table
+  const cols=[["pop","Day‑1 pop",60],["ex_2_21","Days 2–21",40],["ex_22_63","Days 22–63",40],["ex_64_121","Days 64–121",40],["ex_6m","Day 1 → 121",60],["ex_6m_yr_adj","Year‑adjusted",60]];
+  $("t-sec-returns").innerHTML=`<thead><tr><th>Sector</th><th>Stocks</th>${cols.map(c=>`<th>${c[1]}</th>`).join("")}<th>% beat SPY</th></tr></thead><tbody>${
+    secOrder.map(s=>{const r=ST[s];return`<tr><td style="text-align:left;font-family:var(--ff-b)">${s}</td><td>${r.n}</td>${
+      cols.map(([k,,lim])=>`<td style="${heatBg(r[k],lim)}" title="${r[k+"_n"]} stocks">${f1(r[k])}${r[k]!=null&&r[k+"_n"]<5?" †":""}</td>`).join("")}<td>${r.pct_beat_spy==null?"–":r.pct_beat_spy+"%"}</td></tr>`}).join("")}</tbody>`;
+
+  // movement table
+  table("t-sec-move",["Sector","Stocks","Annualized vol","Daily move, wk 1","Daily move, after day 21","Days moving >5%","High–low range","Beta","Corr. w/ SPY","Max drawdown","Fell below offer","Median low on day","Day‑1 volume ×"],
+    [...SX.table].sort((a,b)=>(b.ann_vol??0)-(a.ann_vol??0)).map(r=>[r.sector,r.n,ff(r.ann_vol,0),ff(r.abs_move_wk1),ff(r.abs_move_after),ff(r.pct_days_gt5,0),ff(r.hl_range),
+      r.beta==null?"–":r.beta.toFixed(2),r.corr==null?"–":r.corr.toFixed(2),f1(r.max_dd),r.pct_below_offer==null?"–":r.pct_below_offer+"%",r.trough_day==null?"–":r.trough_day,
+      r.vol_day1_mult==null?"–":r.vol_day1_mult.toFixed(1)+"×"]));
+
+  // confounding
+  $("sec-conf-note").textContent=`Sectors didn't list evenly over time. Fintech is concentrated in 2025, Consumer in 2021 and 2023, and Industrials are the biggest group of 2026 listings (9 of 22, most without six months of data yet). Because listing year has a strong effect on returns (p=${SX.year_test.p}), a sector's raw result partly reflects when its companies listed. The test table asks whether each measure differs across sectors more than chance would explain.`;
+  const mx=Math.max(...SX.mix.counts.flat());
+  $("t-sec-mix").innerHTML=`<thead><tr><th>Sector</th>${SX.mix.years.map(y=>`<th>${y}</th>`).join("")}</tr></thead><tbody>${
+    SX.mix.sectors.map((s,i)=>`<tr><td style="text-align:left;font-family:var(--ff-b)">${s}</td>${SX.mix.counts[i].map(c=>{const t=c/mx;
+      return `<td style="${c?`background:color-mix(in srgb, var(--s1) ${Math.round(15+t*70)}%, var(--mid));color:${t>0.5?"#fff":"var(--ink)"}`:"color:var(--muted)"}">${c||"·"}</td>`}).join("")}</tr>`).join("")}</tbody>`;
+  const LBL={pop:"Day‑1 pop",ex_2_21:"Return vs SPY, days 2–21",ex_22_63:"Return vs SPY, days 22–63",ex_64_121:"Return vs SPY, days 64–121",ex_6m:"Return vs SPY, day 1→121",
+    ex_6m_yr_adj:"Same, year‑adjusted",ann_vol:"Annualized volatility",abs_move_after:"Daily move after day 21",beta:"Beta to SPY",max_dd:"Max drawdown"};
+  table("t-sec-tests",["Does it differ by sector?","p‑value","Verdict"],
+    SX.tests.map(t=>[LBL[t.metric]||t.metric,t.p.toFixed(3),t.p<0.05?'<span class="pill">yes</span>':t.p<0.10?'<span class="pill">weak</span>':'<span class="pill">no</span>']).concat([["Return vs SPY by <i>listing year</i> (for comparison)",SX.year_test.p.toFixed(4),'<span class="pill">yes</span>']]));
+  document.querySelectorAll("#t-sec-tests td:first-child").forEach(td=>td.style.whiteSpace="normal");
+
+  // per-stock lists
+  $("sec-stocks").innerHTML=secOrder.map(s=>{const rows=SX.stocks.filter(x=>x.sector===s).sort((a,b)=>(b.ex_6m??-1e9)-(a.ex_6m??-1e9));
+    return `<details class="stk"><summary><b>${s}</b> · ${rows.length} IPOs</summary><div class="tbox"><table><thead><tr><th>Company</th><th>Listed</th><th>Day‑1 pop</th><th>Day 121 vs offer</th><th>vs SPY from day 1</th><th>Annualized vol</th><th>Beta</th><th>Max drawdown</th></tr></thead><tbody>${
+      rows.map(x=>`<tr><td>${x.company} <span class="m" style="color:var(--muted);font-size:12px">${x.symbol}</span></td><td>${x.year}</td><td>${f1(x.pop)}</td><td>${f1(x.vs_offer_6m)}</td><td>${f1(x.ex_6m)}</td><td>${ff(x.ann_vol,0)}</td><td>${x.beta==null?"–":x.beta.toFixed(2)}</td><td>${f1(x.max_dd)}</td></tr>`).join("")}</tbody></table></div></details>`}).join("");
+}
+
+const SHORT={"Semiconductors & AI hardware":"Semiconductors","Industrials & Aerospace":"Industrials","Financials & Fintech":"Financials","Real Estate & Infra":"Real estate","Autos & Mobility":"Autos","Energy & Power":"Energy"};
+function renderSectorCharts(){
+  const days=SX.days,all=Object.values(SX.paths).flatMap(p=>p.values).concat(SX.all_path).filter(v=>v!=null);
+  const yr=[Math.min(...all),Math.max(...all)],box=$("c-sec-paths");box.innerHTML="";
+  secOrder.forEach(s=>{const p=SX.paths[s],r=ST[s];let li=p.values.length-1;while(li>0&&p.values[li]==null)li--;
+    const wrap=document.createElement("div");wrap.className="mini";
+    wrap.innerHTML=`<h4>${s}<span>${r.n} IPOs · day ${days[li]}: ${f1(p.values[li])}</span></h4><div class="chart"></div>`;box.appendChild(wrap);
+    lineChart(wrap.querySelector(".chart"),{x:days,height:170,yRange:yr,xTicks:[1,63,121],minW:240,
+      series:[{values:SX.all_path,color:"--muted",thin:true,noEnd:true},{values:p.values,color:"--s1"}],
+      tipRows:i=>`<b>${s}</b> · day ${days[i]}<br>sector median <span class="m">${f1(p.values[i])}</span> (${p.n[i]} stocks)<br>all IPOs <span class="m">${f1(SX.all_path[i])}</span>`})});
+  const vr=[...SX.table].filter(r=>r.ann_vol!=null).sort((a,b)=>b.ann_vol-a.ann_vol);
+  divBars($("c-sec-vol"),vr.map(r=>({label:SHORT[r.sector]||r.sector,
+    v:r.ann_vol,txt:r.ann_vol.toFixed(0)+"%",tip:`<b>${r.sector}</b><br>annualized vol <span class="m">${r.ann_vol.toFixed(0)}%</span> (${r.ann_vol_n} stocks)<br>days moving 5%+ <span class="m">${ff(r.pct_days_gt5,0)}</span>`})),{tickFmt:t=>t+"%"});
+  const br=[...SX.table].filter(r=>r.beta!=null).sort((a,b)=>b.beta-a.beta);
+  divBars($("c-sec-beta"),br.map(r=>({label:SHORT[r.sector]||r.sector,
+    v:r.beta,txt:r.beta.toFixed(2),tip:`<b>${r.sector}</b><br>median beta <span class="m">${r.beta.toFixed(2)}</span> (${r.beta_n} stocks)<br>median correlation with SPY <span class="m">${r.corr.toFixed(2)}</span>`})),{tickFmt:t=>t.toFixed(1)});
+}
+
+renderStatic();renderCharts();renderSectorStatic();renderSectorCharts();
+const _rc=renderCharts;renderCharts=function(){_rc();renderSectorCharts()};
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(renderCharts,120)});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",renderCharts);
+new MutationObserver(renderCharts).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>

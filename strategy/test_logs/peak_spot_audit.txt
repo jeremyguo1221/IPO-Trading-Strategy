@@ -1,0 +1,6 @@
+YDDL   signal day  2: fires=True earlier_fires=[] entry_open=5.50 63d_peak=8.89 eff=0.6187 (recorded 0.6187) -> OK
+YSWY   signal day 11: fires=True earlier_fires=[] entry_open=26.12 63d_peak=29.08 eff=0.8982 (recorded 0.8982) -> OK
+BLSH   signal day  2: fires=True earlier_fires=[] entry_open=75.35 63d_peak=118.00 eff=0.6386 (recorded 0.6386) -> OK
+AKTS   signal day  2: fires=True earlier_fires=[] entry_open=23.05 63d_peak=29.16 eff=0.7905 (recorded 0.7905) -> OK
+BBNX   signal day  3: fires=True earlier_fires=[] entry_open=22.89 63d_peak=24.50 eff=0.9343 (recorded 0.9343) -> OK
+ALL OK

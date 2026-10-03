@@ -1,0 +1,10 @@
+{
+ "n": 500,
+ "real_in_sample_gain_%": 0.33,
+ "shuffled_in_sample_gain_p95_%": 1.15,
+ "p_in_sample": 0.878,
+ "real_loeo_gain_%": -0.723,
+ "shuffled_loeo_gain_median_%": -0.078,
+ "shuffled_loeo_gain_p95_%": 1.063,
+ "p_loeo": 0.86
+}

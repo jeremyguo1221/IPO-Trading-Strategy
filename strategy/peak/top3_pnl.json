@@ -1,0 +1,128 @@
+{
+ "A_m40_p5_k10": {
+  "train": {
+   "note": "",
+   "trades": 54,
+   "cagr": 4.52,
+   "sharpe": 0.561,
+   "max_dd": -9.56,
+   "profit_factor": 1.544,
+   "mean_trade": 5.13,
+   "win_rate": 61.1
+  },
+  "validation": {
+   "note": "",
+   "trades": 81,
+   "cagr": 15.62,
+   "sharpe": 1.323,
+   "max_dd": -7.57,
+   "profit_factor": 2.122,
+   "mean_trade": 5.51,
+   "win_rate": 67.9
+  },
+  "holdout": {
+   "note": "previously used (phase 1)",
+   "trades": 190,
+   "cagr": -20.32,
+   "sharpe": -0.977,
+   "max_dd": -53.56,
+   "profit_factor": 0.549,
+   "mean_trade": -3.59,
+   "win_rate": 46.3
+  },
+  "fresh_holdout": {
+   "note": "previously used (phase 2)",
+   "trades": 82,
+   "cagr": -10.35,
+   "sharpe": -1.079,
+   "max_dd": -39.92,
+   "profit_factor": 0.436,
+   "mean_trade": -5.19,
+   "win_rate": 41.5
+  }
+ },
+ "A_m40_p5_k5": {
+  "train": {
+   "note": "",
+   "trades": 53,
+   "cagr": 4.35,
+   "sharpe": 0.544,
+   "max_dd": -9.56,
+   "profit_factor": 1.525,
+   "mean_trade": 5.03,
+   "win_rate": 60.4
+  },
+  "validation": {
+   "note": "",
+   "trades": 81,
+   "cagr": 15.62,
+   "sharpe": 1.323,
+   "max_dd": -7.57,
+   "profit_factor": 2.122,
+   "mean_trade": 5.51,
+   "win_rate": 67.9
+  },
+  "holdout": {
+   "note": "previously used (phase 1)",
+   "trades": 189,
+   "cagr": -20.1,
+   "sharpe": -0.965,
+   "max_dd": -53.2,
+   "profit_factor": 0.553,
+   "mean_trade": -3.57,
+   "win_rate": 46.6
+  },
+  "fresh_holdout": {
+   "note": "previously used (phase 2)",
+   "trades": 81,
+   "cagr": -10.65,
+   "sharpe": -1.117,
+   "max_dd": -40.67,
+   "profit_factor": 0.419,
+   "mean_trade": -5.4,
+   "win_rate": 40.7
+  }
+ },
+ "A_m20_p15_k5": {
+  "train": {
+   "note": "",
+   "trades": 55,
+   "cagr": 0.63,
+   "sharpe": 0.114,
+   "max_dd": -13.77,
+   "profit_factor": 1.052,
+   "mean_trade": 1.55,
+   "win_rate": 63.6
+  },
+  "validation": {
+   "note": "",
+   "trades": 77,
+   "cagr": 12.5,
+   "sharpe": 1.116,
+   "max_dd": -7.12,
+   "profit_factor": 1.926,
+   "mean_trade": 4.52,
+   "win_rate": 66.2
+  },
+  "holdout": {
+   "note": "previously used (phase 1)",
+   "trades": 172,
+   "cagr": -11.63,
+   "sharpe": -0.544,
+   "max_dd": -47.54,
+   "profit_factor": 0.712,
+   "mean_trade": -2.76,
+   "win_rate": 51.7
+  },
+  "fresh_holdout": {
+   "note": "previously used (phase 2)",
+   "trades": 59,
+   "cagr": -8.42,
+   "sharpe": -0.959,
+   "max_dd": -33.87,
+   "profit_factor": 0.436,
+   "mean_trade": -5.28,
+   "win_rate": 45.8
+  }
+ }
+}

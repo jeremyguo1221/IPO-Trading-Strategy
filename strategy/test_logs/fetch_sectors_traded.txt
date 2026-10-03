@@ -1,0 +1,26 @@
+0/422
+100/422
+200/422
+300/422
+400/422
+done: 422 symbols, 0 request errors
+bucket
+Health Care               136
+Technology                109
+Consumer                   70
+Unknown                    41
+Finance                    37
+Industrial & Resources     29
+nasdaq_sector
+Health Care               136
+Technology                108
+Consumer Discretionary     63
+NaN                        41
+Finance                    34
+Industrials                24
+Consumer Staples            7
+Real Estate                 3
+Utilities                   2
+Miscellaneous               2
+Energy                      1
+Telecommunications          1

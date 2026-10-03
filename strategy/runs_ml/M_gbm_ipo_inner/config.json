@@ -1,0 +1,28 @@
+{
+ "name": "M_gbm_ipo_inner",
+ "signal": "lookup",
+ "params": {
+  "table": "<1467 decisions>"
+ },
+ "min_entry_day": 3,
+ "last_signal_day": 20,
+ "hold": 21,
+ "stop": null,
+ "target": null,
+ "size": 0.07,
+ "vol_target": null,
+ "range_target": 0.186,
+ "max_positions": 15,
+ "gross_cap": 1.0,
+ "hedge": true,
+ "hedge_symbol": "SPY",
+ "borrow": 0.3,
+ "slippage": 0.0025,
+ "spy_slippage": 0.0002,
+ "min_price": 5.0,
+ "min_dollar_vol": 5000000.0,
+ "min_offer": 5.0,
+ "family": "gbm",
+ "feature_set": "ipo",
+ "threshold_mode": "inner"
+}

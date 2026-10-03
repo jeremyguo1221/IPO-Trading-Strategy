@@ -1,0 +1,26 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy
+collecting ... collected 18 items
+
+test_engine.py::test_known_answer_short_profit_with_exact_costs PASSED   [  5%]
+test_engine.py::test_short_loss_when_price_rises PASSED                  [ 11%]
+test_engine.py::test_stop_intraday_fills_at_stop PASSED                  [ 16%]
+test_engine.py::test_gap_through_stop_fills_at_open PASSED               [ 22%]
+test_engine.py::test_stop_on_entry_day PASSED                            [ 27%]
+test_engine.py::test_profit_target_and_gap_down PASSED                   [ 33%]
+test_engine.py::test_hedge_leg_pnl PASSED                                [ 38%]
+test_engine.py::test_missing_bar_is_carried_not_crashed PASSED           [ 44%]
+test_engine.py::test_capacity_limits_respected PASSED                    [ 50%]
+test_engine.py::test_no_lookahead_future_corruption[params0] PASSED      [ 55%]
+test_engine.py::test_no_lookahead_future_corruption[params1] PASSED      [ 61%]
+test_engine.py::test_no_lookahead_future_corruption[params2] PASSED      [ 66%]
+test_engine.py::test_no_lookahead_future_corruption[params3] PASSED      [ 72%]
+test_engine.py::test_no_lookahead_future_corruption[params4] PASSED      [ 77%]
+test_engine.py::test_view_cannot_see_future PASSED                       [ 83%]
+test_engine.py::test_accounting_identity_real_run PASSED                 [ 88%]
+test_engine.py::test_independent_vectorized_cross_check PASSED           [ 94%]
+test_engine.py::test_zeus_metrics_known_values PASSED                    [100%]
+
+============================= 18 passed in 2.11s ==============================

@@ -1,0 +1,12 @@
+entry day 11: 78 train trades, mean net -1.90%, median 0.22%
+  pop              rho=-0.062 p=0.587 | mean net by tercile low/mid/high: -1.54% / -1.71% / -2.46%
+  ext              rho=-0.035 p=0.760 | mean net by tercile low/mid/high: -2.75% / -1.73% / -1.23%
+  run              rho=+0.072 p=0.529 | mean net by tercile low/mid/high: +0.32% / -8.49% / +2.46%
+  open_to_close_d1 rho=-0.083 p=0.471 | mean net by tercile low/mid/high: +0.70% / -6.97% / +0.56%
+  vol              rho=+0.243 p=0.032 | mean net by tercile low/mid/high: -9.33% / +3.79% / -0.17%
+  log_dollar_vol   rho=-0.091 p=0.427 | mean net by tercile low/mid/high: -1.32% / -0.98% / -3.40%
+  log_deal         rho=-0.177 p=0.121 | mean net by tercile low/mid/high: +1.45% / -3.80% / -3.35%
+  offer            rho=-0.110 p=0.337 | mean net by tercile low/mid/high: +0.07% / -1.78% / -3.99%
+  hot_count        rho=+0.353 p=0.002 | mean net by tercile low/mid/high: -9.22% / -5.23% / +8.74%
+  hot_pop          rho=+0.201 p=0.082 | mean net by tercile low/mid/high: -4.07% / -7.07% / +6.26%
+  d1_range         rho=+0.322 p=0.004 | mean net by tercile low/mid/high: -7.37% / -2.69% / +4.35%

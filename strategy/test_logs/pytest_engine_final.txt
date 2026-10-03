@@ -1,0 +1,28 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Jeremy Guo\Desktop\Current Coding Project\ipo_first_6_months\strategy
+collecting ... collected 20 items
+
+test_engine.py::test_known_answer_short_profit_with_exact_costs PASSED   [  5%]
+test_engine.py::test_short_loss_when_price_rises PASSED                  [ 10%]
+test_engine.py::test_stop_intraday_fills_at_stop PASSED                  [ 15%]
+test_engine.py::test_gap_through_stop_fills_at_open PASSED               [ 20%]
+test_engine.py::test_stop_on_entry_day PASSED                            [ 25%]
+test_engine.py::test_profit_target_and_gap_down PASSED                   [ 30%]
+test_engine.py::test_hedge_leg_pnl PASSED                                [ 35%]
+test_engine.py::test_hedge_uses_selected_instrument PASSED               [ 40%]
+test_engine.py::test_range_scaled_sizing PASSED                          [ 45%]
+test_engine.py::test_missing_bar_is_carried_not_crashed PASSED           [ 50%]
+test_engine.py::test_capacity_limits_respected PASSED                    [ 55%]
+test_engine.py::test_no_lookahead_future_corruption[params0] PASSED      [ 60%]
+test_engine.py::test_no_lookahead_future_corruption[params1] PASSED      [ 65%]
+test_engine.py::test_no_lookahead_future_corruption[params2] PASSED      [ 70%]
+test_engine.py::test_no_lookahead_future_corruption[params3] PASSED      [ 75%]
+test_engine.py::test_no_lookahead_future_corruption[params4] PASSED      [ 80%]
+test_engine.py::test_view_cannot_see_future PASSED                       [ 85%]
+test_engine.py::test_accounting_identity_real_run PASSED                 [ 90%]
+test_engine.py::test_independent_vectorized_cross_check PASSED           [ 95%]
+test_engine.py::test_zeus_metrics_known_values PASSED                    [100%]
+
+============================= 20 passed in 2.15s ==============================

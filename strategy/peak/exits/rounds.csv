@@ -1,0 +1,4 @@
+round,evaluated_this_round,evaluated_total,best_id,best_objective,best_mean_sharpe,improvement
+0,22,22,hold=5|target=None|stop=None|trail=None|sig=None|thesis=False,-0.748,-0.2727,
+1,17,39,hold=5|target=None|stop=None|trail=None|sig=None|thesis=False,-0.748,-0.2727,0.0
+2,14,53,hold=5|target=None|stop=None|trail=None|sig=None|thesis=False,-0.748,-0.2727,0.0

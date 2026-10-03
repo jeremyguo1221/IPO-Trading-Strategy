@@ -1,0 +1,475 @@
+{
+ "train": {
+  "metrics": {
+   "trades": 57,
+   "start": "2021-10-05",
+   "end": "2024-08-27",
+   "total_return": 25.97,
+   "cagr": 8.31,
+   "sharpe": 0.876,
+   "sortino": 0.886,
+   "max_dd": -8.32,
+   "calmar": 1.016,
+   "win_rate": 64.9,
+   "profit_factor": 1.925,
+   "mean_trade": 5.61,
+   "median_trade": 6.97,
+   "best_trade": 58.5,
+   "worst_trade": -51.1,
+   "trade_t": 1.93,
+   "avg_gross": 12.1,
+   "avg_positions": 1.57,
+   "pct_stopped": 0.0,
+   "yearly": {
+    "2021": 7.67,
+    "2022": 5.48,
+    "2023": 2.48,
+    "2024": 8.23
+   },
+   "pct_years_pos": 100.0,
+   "boot_p": 0.133,
+   "n_days": 728,
+   "daily_sr": 0.05515953706311176,
+   "skew": 0.7283906232758833,
+   "kurt": 13.57480011761288
+  },
+  "stress": {
+   "borrow_60": {
+    "trades": 57,
+    "total_return": 12.88,
+    "cagr": 4.27,
+    "sharpe": 0.481,
+    "max_dd": -9.18,
+    "profit_factor": 1.41
+   },
+   "borrow_100": {
+    "trades": 57,
+    "total_return": -2.65,
+    "cagr": -0.92,
+    "sharpe": -0.047,
+    "max_dd": -15.56,
+    "profit_factor": 0.927
+   },
+   "slippage_50bps": {
+    "trades": 57,
+    "total_return": 23.25,
+    "cagr": 7.49,
+    "sharpe": 0.796,
+    "max_dd": -8.49,
+    "profit_factor": 1.809
+   },
+   "zero_cost": {
+    "trades": 57,
+    "total_return": 43.52,
+    "cagr": 13.3,
+    "sharpe": 1.346,
+    "max_dd": -7.6,
+    "profit_factor": 2.807
+   },
+   "unhedged": {
+    "trades": 57,
+    "total_return": 9.65,
+    "cagr": 3.24,
+    "sharpe": 0.357,
+    "max_dd": -11.47,
+    "profit_factor": 1.294
+   }
+  },
+  "null_sharpe_p95": 0.694799999999999,
+  "null_sharpe_median": -0.0025,
+  "null_pct_below_strategy": 96.5,
+  "dsr": 0.4919193117764037,
+  "scorecard": {
+   "CAGR >= 15%": {
+    "value": 8.31,
+    "pass": false
+   },
+   "Sharpe >= 1.0": {
+    "value": 0.876,
+    "pass": false
+   },
+   "Max drawdown <= 25%": {
+    "value": -8.32,
+    "pass": true
+   },
+   "Profit factor >= 1.3": {
+    "value": 1.925,
+    "pass": true
+   },
+   ">= 75% of years positive": {
+    "value": 100.0,
+    "pass": true
+   },
+   ">= 30 trades": {
+    "value": 57,
+    "pass": true
+   },
+   "Bootstrap p < 0.05": {
+    "value": 0.133,
+    "pass": false
+   },
+   "Profitable at 60%/yr borrow": {
+    "value": 12.88,
+    "pass": true
+   },
+   "Sharpe > 95th pct of shuffled null": {
+    "value": [
+     0.876,
+     0.695
+    ],
+    "pass": true
+   },
+   "Deflated Sharpe prob > 0.9": {
+    "value": 0.492,
+    "pass": false
+   }
+  },
+  "passes_all": false
+ },
+ "validation": {
+  "metrics": {
+   "trades": 105,
+   "start": "2024-07-29",
+   "end": "2026-07-22",
+   "total_return": 28.99,
+   "cagr": 13.72,
+   "sharpe": 0.982,
+   "sortino": 1.346,
+   "max_dd": -11.04,
+   "calmar": 1.26,
+   "win_rate": 61.0,
+   "profit_factor": 1.693,
+   "mean_trade": 2.99,
+   "median_trade": 3.56,
+   "best_trade": 33.9,
+   "worst_trade": -33.1,
+   "trade_t": 1.94,
+   "avg_gross": 32.9,
+   "avg_positions": 4.23,
+   "pct_stopped": 0.0,
+   "yearly": {
+    "2024": -3.61,
+    "2025": 6.61,
+    "2026": 25.52
+   },
+   "pct_years_pos": 66.7,
+   "boot_p": 0.143,
+   "n_days": 497,
+   "daily_sr": 0.06186112659408224,
+   "skew": -0.03572761495087086,
+   "kurt": 5.981860467587678
+  },
+  "stress": {
+   "borrow_60": {
+    "trades": 105,
+    "total_return": 5.27,
+    "cagr": 2.63,
+    "sharpe": 0.254,
+    "max_dd": -16.24,
+    "profit_factor": 1.111
+   },
+   "borrow_100": {
+    "trades": 105,
+    "total_return": -20.05,
+    "cagr": -10.69,
+    "sharpe": -0.719,
+    "max_dd": -28.45,
+    "profit_factor": 0.636
+   },
+   "slippage_50bps": {
+    "trades": 105,
+    "total_return": 23.9,
+    "cagr": 11.44,
+    "sharpe": 0.837,
+    "max_dd": -12.05,
+    "profit_factor": 1.558
+   },
+   "zero_cost": {
+    "trades": 105,
+    "total_return": 64.02,
+    "cagr": 28.4,
+    "sharpe": 1.85,
+    "max_dd": -9.3,
+    "profit_factor": 2.78
+   },
+   "unhedged": {
+    "trades": 105,
+    "total_return": 15.26,
+    "cagr": 7.44,
+    "sharpe": 0.497,
+    "max_dd": -14.2,
+    "profit_factor": 1.311
+   }
+  },
+  "null_sharpe_p95": 1.2890499999999998,
+  "null_sharpe_median": 0.543,
+  "null_pct_below_strategy": 85.5,
+  "dsr": 0.43566773640544304,
+  "scorecard": {
+   "CAGR >= 15%": {
+    "value": 13.72,
+    "pass": false
+   },
+   "Sharpe >= 1.0": {
+    "value": 0.982,
+    "pass": false
+   },
+   "Max drawdown <= 25%": {
+    "value": -11.04,
+    "pass": true
+   },
+   "Profit factor >= 1.3": {
+    "value": 1.693,
+    "pass": true
+   },
+   ">= 75% of years positive": {
+    "value": 66.7,
+    "pass": false
+   },
+   ">= 30 trades": {
+    "value": 105,
+    "pass": true
+   },
+   "Bootstrap p < 0.05": {
+    "value": 0.143,
+    "pass": false
+   },
+   "Profitable at 60%/yr borrow": {
+    "value": 5.27,
+    "pass": true
+   },
+   "Sharpe > 95th pct of shuffled null": {
+    "value": [
+     0.982,
+     1.289
+    ],
+    "pass": false
+   },
+   "Deflated Sharpe prob > 0.9": {
+    "value": 0.436,
+    "pass": false
+   }
+  },
+  "passes_all": false
+ },
+ "holdout": {
+  "metrics": {
+   "trades": 166,
+   "start": "2019-04-08",
+   "end": "2021-11-26",
+   "total_return": -41.17,
+   "cagr": -18.23,
+   "sharpe": -0.979,
+   "sortino": -1.226,
+   "max_dd": -51.15,
+   "calmar": -0.357,
+   "win_rate": 45.2,
+   "profit_factor": 0.595,
+   "mean_trade": -3.22,
+   "median_trade": -1.97,
+   "best_trade": 49.5,
+   "worst_trade": -79.6,
+   "trade_t": -1.94,
+   "avg_gross": 41.6,
+   "avg_positions": 4.98,
+   "pct_stopped": 0.0,
+   "yearly": {
+    "2019": -9.36,
+    "2020": -19.64,
+    "2021": -19.23
+   },
+   "pct_years_pos": 0.0,
+   "boot_p": 0.11,
+   "n_days": 667,
+   "daily_sr": -0.06166241983806274,
+   "skew": -0.41926565718763953,
+   "kurt": 8.639979804426376
+  },
+  "stress": {
+   "borrow_60": {
+    "trades": 166,
+    "total_return": -58.63,
+    "cagr": -28.45,
+    "sharpe": -1.674,
+    "max_dd": -63.47,
+    "profit_factor": 0.431
+   },
+   "borrow_100": {
+    "trades": 165,
+    "total_return": -74.48,
+    "cagr": -40.43,
+    "sharpe": -2.602,
+    "max_dd": -76.32,
+    "profit_factor": 0.279
+   },
+   "slippage_50bps": {
+    "trades": 166,
+    "total_return": -45.13,
+    "cagr": -20.36,
+    "sharpe": -1.118,
+    "max_dd": -53.91,
+    "profit_factor": 0.557
+   },
+   "zero_cost": {
+    "trades": 167,
+    "total_return": -5.34,
+    "cagr": -2.06,
+    "sharpe": -0.012,
+    "max_dd": -34.08,
+    "profit_factor": 0.948
+   },
+   "unhedged": {
+    "trades": 167,
+    "total_return": -59.85,
+    "cagr": -29.25,
+    "sharpe": -1.557,
+    "max_dd": -64.56,
+    "profit_factor": 0.449
+   }
+  },
+  "null_sharpe_p95": -0.3710500000000003,
+  "null_sharpe_median": -0.9524999999999999,
+  "null_pct_below_strategy": 47.0,
+  "dsr": 0.0003272934506936196,
+  "scorecard": {
+   "CAGR >= 15%": {
+    "value": -18.23,
+    "pass": false
+   },
+   "Sharpe >= 1.0": {
+    "value": -0.979,
+    "pass": false
+   },
+   "Max drawdown <= 25%": {
+    "value": -51.15,
+    "pass": false
+   },
+   "Profit factor >= 1.3": {
+    "value": 0.595,
+    "pass": false
+   },
+   ">= 75% of years positive": {
+    "value": 0.0,
+    "pass": false
+   },
+   ">= 30 trades": {
+    "value": 166,
+    "pass": true
+   },
+   "Bootstrap p < 0.05": {
+    "value": 0.11,
+    "pass": false
+   },
+   "Profitable at 60%/yr borrow": {
+    "value": -58.63,
+    "pass": false
+   },
+   "Sharpe > 95th pct of shuffled null": {
+    "value": [
+     -0.979,
+     -0.371
+    ],
+    "pass": false
+   },
+   "Deflated Sharpe prob > 0.9": {
+    "value": 0.0,
+    "pass": false
+   }
+  },
+  "passes_all": false
+ },
+ "placebo_random_established": {
+  "trades": 984,
+  "mean_gross_%": -1.706,
+  "mean_net_%": -4.726
+ },
+ "spot_audit": [
+  {
+   "symbol": "BRCB",
+   "entry_date": "2025-09-25",
+   "exit_date": "2025-10-23",
+   "entry_open_raw": 24.7,
+   "exit_close_raw": 25.8,
+   "exit_reason": "time",
+   "engine_net_ret": -0.04269239,
+   "hand_net_ret": -0.04269239,
+   "match": "True"
+  },
+  {
+   "symbol": "ULCC",
+   "entry_date": "2021-05-21",
+   "exit_date": "2021-06-21",
+   "entry_open_raw": 19.29,
+   "exit_close_raw": 19.1,
+   "exit_reason": "time",
+   "engine_net_ret": -0.01241408,
+   "hand_net_ret": -0.01241408,
+   "match": "True"
+  },
+  {
+   "symbol": "CVRX",
+   "entry_date": "2021-07-07",
+   "exit_date": "2021-08-04",
+   "entry_open_raw": 23.0,
+   "exit_close_raw": 22.12,
+   "exit_reason": "time",
+   "engine_net_ret": 0.02920973,
+   "hand_net_ret": 0.02920973,
+   "match": "True"
+  },
+  {
+   "symbol": "NRDS",
+   "entry_date": "2021-11-26",
+   "exit_date": "2021-12-27",
+   "entry_open_raw": 22.01,
+   "exit_close_raw": 14.83,
+   "exit_reason": "time",
+   "engine_net_ret": 0.31925614,
+   "hand_net_ret": 0.31925614,
+   "match": "True"
+  },
+  {
+   "symbol": "KMTS",
+   "entry_date": "2025-03-10",
+   "exit_date": "2025-04-07",
+   "entry_open_raw": 20.44,
+   "exit_close_raw": 22.78,
+   "exit_reason": "time",
+   "engine_net_ret": -0.31585099,
+   "hand_net_ret": -0.31585099,
+   "match": "True"
+  }
+ ],
+ "selected_run_id": "R9_lead_rangesize_H",
+ "config": {
+  "name": "lead_rangesize_H",
+  "signal": "rules",
+  "params": {
+   "from_day": 2,
+   "breakdown": [
+    "d1_low",
+    "offer"
+   ],
+   "hot_count_min": 25
+  },
+  "min_entry_day": 3,
+  "last_signal_day": 42,
+  "hold": 21,
+  "stop": null,
+  "target": null,
+  "size": 0.07,
+  "vol_target": null,
+  "range_target": 0.186,
+  "max_positions": 15,
+  "gross_cap": 1.0,
+  "hedge": true,
+  "hedge_symbol": "SPY",
+  "borrow": 0.3,
+  "slippage": 0.0025,
+  "spy_slippage": 0.0002,
+  "min_price": 5.0,
+  "min_dollar_vol": 5000000.0,
+  "min_offer": 5.0
+ },
+ "n_configurations_tried": 39
+}

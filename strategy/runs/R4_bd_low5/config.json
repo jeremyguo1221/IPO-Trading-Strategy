@@ -1,0 +1,24 @@
+{
+ "name": "bd_low5",
+ "signal": "rules",
+ "params": {
+  "from_day": 6,
+  "breakdown": "low5"
+ },
+ "min_entry_day": 3,
+ "last_signal_day": 42,
+ "hold": 21,
+ "stop": null,
+ "target": null,
+ "size": 0.07,
+ "vol_target": null,
+ "max_positions": 15,
+ "gross_cap": 1.0,
+ "hedge": false,
+ "borrow": 0.3,
+ "slippage": 0.0025,
+ "spy_slippage": 0.0002,
+ "min_price": 5.0,
+ "min_dollar_vol": 5000000.0,
+ "min_offer": 5.0
+}

@@ -1,0 +1,11 @@
+run_id,train_sharpe,validation_sharpe,robust
+R9_lead_rangesize_H,0.876,0.982,0.876
+R5_bd_any_hot25_H,0.861,0.851,0.851
+R7_lead_hotpop_H,0.824,1.072,0.824
+R6_lead_size12_H,0.918,0.738,0.738
+R4_bd_offer_H,0.768,0.724,0.724
+R4_bd_d1low_H,0.717,0.751,0.717
+R9_lead_hot_or_H,0.72,0.573,0.573
+R5_bd_any_H,0.613,0.573,0.573
+R8_hotpop_iwm_H,0.491,1.157,0.491
+R8_lead_iwm_H,0.442,1.109,0.442

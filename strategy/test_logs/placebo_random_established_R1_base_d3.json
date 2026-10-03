@@ -1,0 +1,13 @@
+{
+ "run_id": "R1_base_d3",
+ "placebo_trades": 819,
+ "distinct_stocks": 286,
+ "mean_gross_short_ret_%": -0.068,
+ "gross_t_stat": -0.13,
+ "gross_p": 0.8966,
+ "mean_net_ret_%": -3.062,
+ "mean_gross_minus_approx_costs_%": -3.068,
+ "net_minus_that_%": 0.0064,
+ "win_rate_%": 37.2,
+ "verdict": "PASS"
+}

@@ -1,0 +1,41 @@
+bucket,exit,trades,era_balanced_mean_%,pooled_mean_%,win_rate_%
+Consumer,hold3,58,2.53,1.79,53.4
+Consumer,hold5,58,3.48,2.34,53.4
+Consumer,hold7,58,3.09,1.67,55.2
+Consumer,hold10,58,3.64,2.32,48.3
+Consumer,hold15,58,1.45,0.38,44.8
+Consumer,hold21,58,-0.25,-1.93,46.6
+Consumer,target20,58,-1.66,-3.16,48.3
+Consumer,hold15+target30,58,-0.07,-0.44,44.8
+Consumer,hold5+prev_high,58,2.55,1.55,44.8
+Consumer,thesis_stop,58,-1.88,-2.65,32.8
+Health Care,hold3,115,-2.35,-1.87,44.3
+Health Care,hold5,115,-0.06,-0.73,48.7
+Health Care,hold7,115,-0.59,-1.6,47.8
+Health Care,hold10,115,-1.67,-2.98,46.1
+Health Care,hold15,115,-1.07,-2.53,50.4
+Health Care,hold21,115,-0.07,-0.71,49.6
+Health Care,target20,115,-0.5,-0.54,51.3
+Health Care,hold15+target30,115,-0.27,-2.06,50.4
+Health Care,hold5+prev_high,115,-0.59,-1.02,45.2
+Health Care,thesis_stop,115,-2.28,-2.91,34.8
+Other,hold3,69,-1.79,-3.18,37.7
+Other,hold5,69,-0.49,-1.27,46.4
+Other,hold7,69,-0.2,-0.98,50.7
+Other,hold10,69,0.28,-1.18,47.8
+Other,hold15,69,0.87,-0.76,43.5
+Other,hold21,69,0.41,-1.68,49.3
+Other,target20,69,-0.47,-2.24,50.7
+Other,hold15+target30,69,-0.06,-1.45,43.5
+Other,hold5+prev_high,69,-2.32,-2.81,37.7
+Other,thesis_stop,69,-3.04,-3.72,27.5
+Technology,hold3,99,-3.57,-2.5,45.5
+Technology,hold5,99,-2.97,-2.18,38.4
+Technology,hold7,99,-2.79,-2.43,38.4
+Technology,hold10,99,-3.61,-3.51,41.4
+Technology,hold15,99,-4.66,-4.05,40.4
+Technology,hold21,99,-4.07,-4.93,44.4
+Technology,target20,99,-4.89,-4.92,46.5
+Technology,hold15+target30,99,-4.23,-3.67,40.4
+Technology,hold5+prev_high,99,-4.85,-3.41,32.3
+Technology,thesis_stop,99,-4.2,-3.74,24.2

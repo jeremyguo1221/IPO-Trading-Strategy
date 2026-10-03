@@ -1,0 +1,319 @@
+<title>IPO Ledger 2021–2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --ink:#15212b; --muted:#5b6b73; --line:#d9e0e0;
+  --accent:#1f5f7a; --accent-soft:#e1eef2; --bar:#2c7a96; --bar2:#9cc6d4;
+  --s-tech:#3b6fb6; --s-semi:#6a4fb0; --s-fin:#1f8a70; --s-health:#c0485f; --s-cons:#c7822a;
+  --s-ind:#56697a; --s-energy:#a0761a; --s-auto:#2d8a9e; --s-re:#8a5a3c;
+  --font-d:"Archivo",system-ui,sans-serif; --font-b:"IBM Plex Sans",system-ui,sans-serif; --font-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark; --bg:#0f161b; --surface:#151f26; --ink:#e3eaed; --muted:#93a4ad; --line:#26343d;
+    --accent:#7cc0d8; --accent-soft:#17303a; --bar:#5fb0cc; --bar2:#2b5566;
+    --s-tech:#7ea6e6; --s-semi:#a88ee8; --s-fin:#5cc7a6; --s-health:#ec8397; --s-cons:#e5ab5c;
+    --s-ind:#9fb1c0; --s-energy:#d4ad52; --s-auto:#68c3d6; --s-re:#c99776;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark; --bg:#0f161b; --surface:#151f26; --ink:#e3eaed; --muted:#93a4ad; --line:#26343d;
+  --accent:#7cc0d8; --accent-soft:#17303a; --bar:#5fb0cc; --bar2:#2b5566;
+  --s-tech:#7ea6e6; --s-semi:#a88ee8; --s-fin:#5cc7a6; --s-health:#ec8397; --s-cons:#e5ab5c;
+  --s-ind:#9fb1c0; --s-energy:#d4ad52; --s-auto:#68c3d6; --s-re:#c99776;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-b);font-size:15px;line-height:1.5;padding-inline:20px;padding-block:28px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:28px}
+h1,h2{font-family:var(--font-d);text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:18px;font-weight:700}
+.eyebrow{font-family:var(--font-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{color:var(--muted);max-width:68ch;margin:8px 0 0}
+.num{font-family:var(--font-m);font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.stat b{display:block;font-family:var(--font-m);font-size:24px;font-weight:500}
+.stat span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.sectors{display:grid;gap:8px;margin-top:12px}
+.srow{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:12px;align-items:center;font-size:13px;cursor:pointer;border-radius:6px;padding:3px 6px;background:none;border:0;color:inherit;font:inherit;text-align:left}
+.srow:hover,.srow:focus-visible{background:var(--accent-soft);outline:none}
+.srow.on{background:var(--accent-soft)}
+.track{height:12px;background:var(--bg);border-radius:3px;position:relative;overflow:hidden}
+.fill{position:absolute;inset:0 auto 0 0;border-radius:3px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:1px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls input,.controls select{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.controls input{flex:1 1 220px}
+.controls label{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.controls button{font:inherit;font-size:13px;padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.controls button:focus-visible,.controls input:focus-visible,.controls select:focus-visible,th button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:13.5px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:var(--surface);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;white-space:nowrap}
+th button{all:unset;cursor:pointer}
+th.r,td.r{text-align:right}
+tbody tr:hover{background:var(--accent-soft)}
+td.co b{font-weight:600}
+td.co small{display:block;color:var(--muted);font-size:12px}
+.tick{font-family:var(--font-m);font-size:12px;color:var(--muted)}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.tier{font-family:var(--font-m);font-size:11px;padding:2px 6px;border-radius:4px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.tier.mega{background:var(--accent);color:var(--surface)}
+.na{color:var(--muted)}
+.notes{font-size:13px;color:var(--muted);max-width:80ch}
+.notes li{margin-bottom:4px}
+.count{font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.fill{transition:width .3s ease}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Sep 28 2021 → Sep 28 2026 · Notable IPOs</div>
+    <h1>IPO Ledger, 2021–2026</h1>
+    <p class="lede">Notable US‑listed IPOs from the past five years (plus a few global giants), grouped by sector with valuation at the offer price and amount raised. SPACs and micro‑caps are left out. Click a sector bar to filter, or click a column header to sort.</p>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <section class="panel">
+    <h2>By sector</h2>
+    <div class="count">Bar length shows combined valuation at IPO for the current filters. SpaceX and SK hynix make Industrials and Semis much longer than the rest. Try "Year" or "Size" to compare the others.</div>
+    <div class="sectors" id="sectors"></div>
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search company, ticker or note…" aria-label="Search">
+      <select id="yr" aria-label="Year"><option value="">All years</option></select>
+      <select id="tier" aria-label="Size tier">
+        <option value="">All sizes</option><option>Mega ≥$50B</option><option>Large $10–50B</option><option>Mid $5–10B</option><option>Small &lt;$5B</option><option>Not disclosed</option>
+      </select>
+      <label><input id="us" type="checkbox"> US‑listed only</label>
+      <button id="reset" type="button">Clear filters</button>
+    </div>
+    <div class="count" id="count"></div>
+    <div class="tablebox">
+      <table>
+        <thead><tr>
+          <th><button data-k="date">IPO date</button></th>
+          <th><button data-k="name">Company</button></th>
+          <th><button data-k="sector">Sector</button></th>
+          <th class="r"><button data-k="price">Offer price</button></th>
+          <th class="r"><button data-k="raised">Raised</button></th>
+          <th class="r"><button data-k="val">Valuation at IPO</button></th>
+          <th><button data-k="tier">Size</button></th>
+          <th><button data-k="type">Deal type</button></th>
+          <th>Notes</th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>How to read this</h2>
+    <ul class="notes">
+      <li><b>Scope.</b> These are operating companies with roughly $1B or more in value at IPO, or about $500M+ raised. The full universe is much larger: 2021 alone had about 1,000 US listings, most of them SPACs. For every name, including micro‑caps and SPACs, see <a href="https://stockanalysis.com/ipos/2026/" target="_blank" rel="noopener">stockanalysis.com</a>.</li>
+      <li><b>Valuation</b> is the approximate market value at the offer price. Sources differ on whether they count basic or fully diluted shares, so figures can vary by 10–20%. “n/d” means I couldn't confirm a figure.</li>
+      <li><b>Raised</b> is the base deal size in USD and does not include the greenshoe.</li>
+      <li><b>Deal type.</b> A carve‑out is a subsidiary floated by its parent. An ADR listing means the company already traded at home (for example SK hynix in Korea). Direct listings raised no new capital.</li>
+      <li>2025–2026 figures come from Renaissance Capital, IPOScoop, company press releases and news coverage as of Sep 2026. Earlier figures are from widely reported pricing data. Check any number in the S‑1/424B4 before relying on it.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const SECT={
+  "Technology":"--s-tech","Semiconductors & AI hardware":"--s-semi","Financials & Fintech":"--s-fin","Healthcare":"--s-health",
+  "Consumer":"--s-cons","Industrials & Aerospace":"--s-ind","Energy & Power":"--s-energy","Autos & Mobility":"--s-auto","Real Estate & Infra":"--s-re"
+};
+// [date, name, ticker, sector, offer price (local), raised $B, valuation $B (null = n/d), type, note, us-listed]
+const D=[
+["2021-09-29","Warby Parker","WRBY","Consumer","$40 ref",0,6.8,"Direct listing","Value at first trade",1],
+["2021-09-30","Olaplex","OLPX","Consumer","$21",1.55,13.6,"IPO","Advent-backed hair care",1],
+["2021-10-13","AvidXchange","AVDX","Financials & Fintech","$25",0.66,4.9,"IPO","AP automation payments",1],
+["2021-10-14","GitLab","GTLB","Technology","$77",0.80,11.0,"IPO","DevOps software",1],
+["2021-10-21","Portillo's","PTLO","Consumer","$20",0.41,1.4,"IPO","Restaurant chain",1],
+["2021-10-27","Informatica","INFA","Technology","$26",0.84,7.4,"IPO","Data management; re-IPO after 2015 buyout",1],
+["2021-10-27","Rent the Runway","RENT","Consumer","$21",0.36,1.7,"IPO","Clothing rental",1],
+["2021-10-28","GlobalFoundries","GFS","Semiconductors & AI hardware","$47",2.6,25.0,"IPO","Chip foundry; Mubadala-owned",1],
+["2021-10-28","Fluence Energy","FLNC","Energy & Power","$28",0.94,4.8,"IPO","Battery storage (Siemens/AES JV)",1],
+["2021-10-29","Udemy","UDMY","Technology","$29",0.42,4.0,"IPO","Online learning",1],
+["2021-11-03","Allbirds","BIRD","Consumer","$15",0.30,2.2,"IPO","Footwear",1],
+["2021-11-04","NerdWallet","NRDS","Financials & Fintech","$18",0.12,1.4,"IPO","Personal finance site",1],
+["2021-11-04","Arhaus","ARHS","Consumer","$12",0.36,1.7,"IPO","Home furnishings",1],
+["2021-11-10","Rivian","RIVN","Autos & Mobility","$78",11.9,66.5,"IPO","EV maker; ~$77B fully diluted. Largest US IPO 2021–2025",1],
+["2021-11-17","Braze","BRZE","Technology","$65",0.52,6.0,"IPO","Customer engagement software",1],
+["2021-11-18","Sweetgreen","SG","Consumer","$28",0.36,3.1,"IPO","Salad chain",1],
+["2021-12-08","HashiCorp","HCP","Technology","$80",1.22,14.0,"IPO","Cloud infrastructure software; later bought by IBM",1],
+["2021-12-09","Nu Holdings (Nubank)","NU","Financials & Fintech","$9",2.6,41.5,"IPO","Brazilian digital bank",1],
+["2021-12-15","Samsara","IOT","Technology","$23",0.81,11.5,"IPO","IoT fleet software",1],
+["2022-01-13","TPG","TPG","Financials & Fintech","$29",1.0,9.0,"IPO","Private equity firm",1],
+["2022-01-27","Credo Technology","CRDO","Semiconductors & AI hardware","$10",0.20,1.5,"IPO","High-speed connectivity chips",1],
+["2022-01-27","LG Energy Solution","373220.KS","Energy & Power","₩300,000",10.7,59.0,"Non-US IPO","Korea's largest IPO; EV batteries",0],
+["2022-05-06","Bausch + Lomb","BLCO","Healthcare","$18",0.63,6.3,"Carve-out","Spun from Bausch Health",1],
+["2022-09-15","Corebridge Financial","CRBG","Financials & Fintech","$21",1.68,13.6,"Carve-out","AIG life & retirement unit",1],
+["2022-09-29","Porsche AG","P911.DE","Autos & Mobility","€82.50",9.4,73.0,"Non-US IPO","Frankfurt; carved out of VW",0],
+["2022-10-26","Mobileye","MBLY","Autos & Mobility","$21",1.0,17.0,"Carve-out","Intel's driver-assist unit",1],
+["2023-02-09","Nextracker","NXT","Energy & Power","$24",0.64,3.5,"Carve-out","Solar trackers; from Flex",1],
+["2023-05-04","Kenvue","KVUE","Consumer","$22",3.8,41.0,"Carve-out","J&J consumer health (Tylenol, Band-Aid)",1],
+["2023-05-26","Atmus Filtration","ATMU","Industrials & Aerospace","$19.50",0.28,1.6,"Carve-out","From Cummins",1],
+["2023-06-15","Cava","CAVA","Consumer","$22",0.32,2.5,"IPO","Mediterranean restaurant chain",1],
+["2023-06-29","Savers Value Village","SVV","Consumer","$18",0.40,2.9,"IPO","Thrift retailer",1],
+["2023-06-29","Kodiak Gas Services","KGS","Energy & Power","$16",0.26,1.2,"IPO","Gas compression",1],
+["2023-07-19","Oddity Tech","ODD","Consumer","$35",0.42,2.0,"IPO","AI-driven beauty brands",1],
+["2023-09-14","Arm Holdings","ARM","Semiconductors & AI hardware","$51",4.87,54.5,"IPO","Chip designs; SoftBank-owned",1],
+["2023-09-19","Instacart (Maplebear)","CART","Technology","$30",0.66,9.9,"IPO","Grocery delivery",1],
+["2023-09-20","Klaviyo","KVYO","Technology","$30",0.58,9.2,"IPO","Marketing automation",1],
+["2023-10-11","Birkenstock","BIRK","Consumer","$46",1.48,8.6,"IPO","L Catterton-backed footwear",1],
+["2024-02-01","Amer Sports","AS","Consumer","$13",1.37,6.3,"IPO","Arc'teryx, Salomon, Wilson",1],
+["2024-03-20","Astera Labs","ALAB","Semiconductors & AI hardware","$36",0.71,5.5,"IPO","AI data-center connectivity",1],
+["2024-03-21","Reddit","RDDT","Technology","$34",0.75,6.4,"IPO","Social platform",1],
+["2024-04-12","UL Solutions","ULS","Industrials & Aerospace","$28",0.95,5.6,"Carve-out","Safety testing & certification",1],
+["2024-04-18","Ibotta","IBTA","Technology","$88",0.58,2.7,"IPO","Performance marketing",1],
+["2024-04-25","Rubrik","RBRK","Technology","$32",0.75,5.6,"IPO","Data security",1],
+["2024-04-25","Loar Holdings","LOAR","Industrials & Aerospace","$28",0.31,2.5,"IPO","Aircraft components",1],
+["2024-05-01","Viking Holdings","VIK","Consumer","$24",1.54,10.3,"IPO","Cruise line",1],
+["2024-05-10","Zeekr","ZK","Autos & Mobility","$21",0.44,5.1,"IPO","Geely's premium EV brand",1],
+["2024-06-07","Waystar","WAY","Healthcare","$21",0.97,3.6,"IPO","Healthcare payments software",1],
+["2024-06-14","Tempus AI","TEM","Healthcare","$37",0.41,6.1,"IPO","AI precision medicine",1],
+["2024-06-27","Webtoon Entertainment","WBTN","Technology","$21",0.32,2.7,"IPO","Digital comics; Naver-backed",1],
+["2024-07-24","OneStream","OS","Technology","$20",0.49,4.6,"IPO","Finance software; KKR-backed",1],
+["2024-07-25","Lineage","LINE","Real Estate & Infra","$78",4.44,18.0,"IPO","Cold-storage REIT; largest IPO of 2024",1],
+["2024-10-02","StandardAero","SARO","Industrials & Aerospace","$24",1.44,8.0,"IPO","Aircraft engine MRO; Carlyle-backed",1],
+["2024-10-09","KinderCare","KLC","Consumer","$24",0.58,2.8,"IPO","Child care",1],
+["2024-10-22","Hyundai Motor India","HYUNDAI.NS","Autos & Mobility","₹1,960",3.3,19.0,"Non-US IPO","India's largest IPO",0],
+["2024-10-24","Ingram Micro","INGM","Technology","$22",0.24,5.0,"IPO","IT distribution; re-IPO",1],
+["2024-10-25","WeRide","WRD","Autos & Mobility","$15.50",0.44,4.4,"IPO","Chinese robotaxi",1],
+["2024-11-27","Pony AI","PONY","Autos & Mobility","$13",0.26,5.3,"IPO","Chinese robotaxi",1],
+["2024-12-12","ServiceTitan","TTAN","Technology","$71",0.63,6.3,"IPO","Software for trades businesses",1],
+["2025-01-24","Venture Global","VG","Energy & Power","$25",1.75,60.0,"IPO","LNG exporter; priced well below range",1],
+["2025-01-28","Smithfield Foods","SFD","Consumer","$20",0.52,7.9,"IPO","Pork producer; WH Group-owned",1],
+["2025-02-13","SailPoint","SAIL","Technology","$23",1.38,12.8,"IPO","Identity security; Thoma Bravo re-IPO",1],
+["2025-03-28","CoreWeave","CRWV","Technology","$40",1.5,23.0,"IPO","AI cloud; fully diluted value",1],
+["2025-05-14","eToro","ETOR","Financials & Fintech","$52",0.62,4.2,"IPO","Retail trading platform",1],
+["2025-05-22","Hinge Health","HNGE","Healthcare","$32",0.44,2.6,"IPO","Digital physical therapy",1],
+["2025-06-05","Circle Internet","CRCL","Financials & Fintech","$31",1.05,6.9,"IPO","USDC stablecoin issuer",1],
+["2025-06-06","Omada Health","OMDA","Healthcare","$19",0.15,1.1,"IPO","Virtual chronic-care",1],
+["2025-06-11","Voyager Technologies","VOYG","Industrials & Aerospace","$31",0.38,1.9,"IPO","Defense & space tech",1],
+["2025-06-12","Chime","CHYM","Financials & Fintech","$27",0.86,11.6,"IPO","Consumer neobank",1],
+["2025-06-18","Caris Life Sciences","CAI","Healthcare","$21",0.49,5.3,"IPO","Molecular diagnostics",1],
+["2025-07-31","Figma","FIG","Technology","$33",1.21,18.8,"IPO","Design software; after failed Adobe deal",1],
+["2025-08-07","Firefly Aerospace","FLY","Industrials & Aerospace","$45",0.87,6.3,"IPO","Rockets & lunar landers",1],
+["2025-08-13","Bullish","BLSH","Financials & Fintech","$37",1.11,5.4,"IPO","Crypto exchange",1],
+["2025-09-10","Klarna","KLAR","Financials & Fintech","$40",1.37,15.1,"IPO","Buy now, pay later",1],
+["2025-09-11","Figure Technology","FIGR","Financials & Fintech","$25",0.79,5.3,"IPO","Blockchain lending",1],
+["2025-09-12","Gemini","GEMI","Financials & Fintech","$28",0.43,3.3,"IPO","Crypto exchange",1],
+["2025-09-17","StubHub","STUB","Consumer","$23.50",0.80,8.6,"IPO","Ticket resale",1],
+["2025-09-18","Netskope","NTSK","Technology","$19",0.91,7.3,"IPO","Cloud security",1],
+["2025-10-01","Fermi","FRMI","Real Estate & Infra","$21",0.79,12.5,"IPO","AI data-center/power REIT; pre-revenue",1],
+["2025-10-30","Navan","NAVN","Technology","$25",0.92,6.2,"IPO","Corporate travel & expense",1],
+["2025-11-05","Beta Technologies","BETA","Industrials & Aerospace","$34",1.02,6.6,"IPO","Electric aircraft",1],
+["2025-12-17","Medline","MDLN","Healthcare","$29",6.27,38.0,"IPO","Medical supplies; largest IPO of 2025",1],
+["2026-01-22","BitGo","BTGO","Financials & Fintech","$18",0.21,null,"IPO","Crypto custody",1],
+["2026-01-23","EquipmentShare","EQPT","Industrials & Aerospace","$24.50",0.75,6.0,"IPO","Equipment rental tech; value is marketed target",1],
+["2026-01-29","York Space Systems","YSS","Industrials & Aerospace","$34",0.63,null,"IPO","Satellite maker",1],
+["2026-02-05","Forgent Power Solutions","FPS","Industrials & Aerospace","$27",1.51,8.2,"IPO","Electrical gear for data centers",1],
+["2026-02-05","Bob's Discount Furniture","BOBS","Consumer","$17",0.33,2.2,"IPO","Bain Capital-backed retailer",1],
+["2026-02-11","SOLV Energy","MWH","Energy & Power","$25",0.51,null,"IPO","Solar & storage construction",1],
+["2026-03-06","MiniMed","MMED","Healthcare","$20",0.56,5.6,"Carve-out","Medtronic diabetes unit; priced below range",1],
+["2026-03-12","PayPay","PAYP","Financials & Fintech","$16",0.88,12.4,"ADR IPO","SoftBank's Japanese payments app; ~$14.7B at first trade",1],
+["2026-04-16","Madison Air Solutions","MAIR","Industrials & Aerospace","$27",2.23,13.2,"IPO","Air-quality/HVAC; biggest industrial IPO since 1999",1],
+["2026-04-16","Arxis","ARXS","Industrials & Aerospace","$28",1.13,11.0,"IPO","Aerospace components; Arcline-backed",1],
+["2026-04-24","X-Energy","XE","Energy & Power","$23",1.02,null,"IPO","Small modular nuclear reactors; ~$11.5B after day-1 pop",1],
+["2026-04-29","Pershing Square","PS / PSUS","Financials & Fintech","$50",5.0,null,"IPO","Bill Ackman's manager + closed-end fund, combined deal",1],
+["2026-05-07","HawkEye 360","HAWK","Industrials & Aerospace","$26",0.42,null,"IPO","RF satellite intelligence",1],
+["2026-05-13","Fervo Energy","FRVO","Energy & Power","$27",1.89,null,"IPO","Geothermal power",1],
+["2026-05-14","Cerebras Systems","CBRS","Semiconductors & AI hardware","$185",5.55,56.4,"IPO","AI chips; fully diluted; +108% day 1",1],
+["2026-05-14","Blackstone Digital Infrastructure Trust","BXDC","Real Estate & Infra","$20",1.75,null,"IPO","Data-center investment trust",1],
+["2026-05-27","Powerlaw","PWRL","Financials & Fintech","$35",1.51,null,"IPO","",1],
+["2026-06-04","Quantinuum","QNT","Technology","$60",1.68,null,"Carve-out","Quantum computing; Honeywell majority-owned",1],
+["2026-06-04","INNIO","INIO","Industrials & Aerospace","$27",2.43,25.5,"IPO","Gas engines for data-center power",1],
+["2026-06-12","SpaceX","SPCX","Industrials & Aerospace","$135",75.0,1745,"IPO","Largest IPO ever (~$85.7B incl. greenshoe)",1],
+["2026-06-25","Doncasters","DPC","Industrials & Aerospace","$33",0.92,null,"IPO","Aero-engine components",1],
+["2026-07-01","Bending Spoons","BSP","Technology","$29",1.68,19.5,"IPO","Italian app acquirer (Evernote, Vimeo)",1],
+["2026-07-01","Lime (Neutron Holdings)","LIME","Autos & Mobility","$25",0.18,1.8,"IPO","E-scooters & bikes",1],
+["2026-07-10","SK hynix","SKHY","Semiconductors & AI hardware","$149",26.5,1086,"ADR listing","Memory chips; already listed in Korea",1],
+["2026-07-16","Csquare","CSQR","Real Estate & Infra","$21",1.05,3.25,"IPO","Brookfield data centers; priced below range",1],
+["2026-07-30","Jersey Mike's","JMKE","Consumer","$23",1.0,7.3,"IPO","Sandwich chain; Blackstone-owned",1],
+];
+
+const rows=D.map(r=>({date:r[0],name:r[1],tick:r[2],sector:r[3],price:r[4],raised:r[5],val:r[6],type:r[7],note:r[8],us:!!r[9]}));
+const tierOf=v=>v==null?"Not disclosed":v>=50?"Mega ≥$50B":v>=10?"Large $10–50B":v>=5?"Mid $5–10B":"Small <$5B";
+const tierRank={"Mega ≥$50B":4,"Large $10–50B":3,"Mid $5–10B":2,"Small <$5B":1,"Not disclosed":0};
+rows.forEach(r=>r.tier=tierOf(r.val));
+const fmtB=v=>v==null?'<span class="na">n/d</span>':v>=1000?`$${(v/1000).toFixed(2)}T`:v>=10?`$${v.toFixed(1)}B`:v>=1?`$${v.toFixed(1)}B`:v===0?'—':`$${Math.round(v*1000)}M`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);
+
+const st={q:"",yr:"",tier:"",us:false,sector:"",sort:"date",dir:-1};
+try{const s=JSON.parse(localStorage.getItem("ipo-ledger")||"{}");Object.assign(st,s);}catch(e){}
+const save=()=>{try{localStorage.setItem("ipo-ledger",JSON.stringify(st))}catch(e){}};
+
+[...new Set(rows.map(r=>r.date.slice(0,4)))].sort().reverse().forEach(y=>{const o=document.createElement("option");o.value=o.textContent=y;$("yr").appendChild(o)});
+
+function filtered(ignoreSector){
+  const q=st.q.trim().toLowerCase();
+  return rows.filter(r=>(!q||(r.name+" "+r.tick+" "+r.note+" "+r.type).toLowerCase().includes(q))
+    &&(!st.yr||r.date.startsWith(st.yr))&&(!st.tier||r.tier===st.tier)&&(!st.us||r.us)
+    &&(ignoreSector||!st.sector||r.sector===st.sector));
+}
+
+function render(){
+  $("q").value=st.q;$("yr").value=st.yr;$("tier").value=st.tier;$("us").checked=st.us;
+  const base=filtered(true), list=filtered(false);
+  // stats
+  const tr=list.reduce((a,r)=>a+r.raised,0), tv=list.reduce((a,r)=>a+(r.val||0),0);
+  const top=[...list].filter(r=>r.val!=null).sort((a,b)=>b.val-a.val)[0];
+  const exSpace=list.filter(r=>r.tick!=="SPCX"&&r.tick!=="SKHY").reduce((a,r)=>a+r.raised,0);
+  $("stats").innerHTML=[
+    [list.length,"Deals shown"],
+    [fmtB(tr),"Capital raised"],
+    [fmtB(exSpace),"Raised excl. SpaceX & SK hynix"],
+    [top?esc(top.name):"—","Largest by valuation"]
+  ].map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("");
+  // sectors
+  const agg={};Object.keys(SECT).forEach(k=>agg[k]={n:0,raised:0,val:0});
+  base.forEach(r=>{const a=agg[r.sector];a.n++;a.raised+=r.raised;a.val+=r.val||0});
+  const max=Math.max(1,...Object.values(agg).map(a=>a.val));
+  $("sectors").innerHTML=Object.entries(agg).sort((a,b)=>b[1].val-a[1].val).map(([k,a])=>
+    `<button type="button" class="srow${st.sector===k?" on":""}" data-s="${esc(k)}" aria-pressed="${st.sector===k}">
+      <span><i class="dot" style="background:var(${SECT[k]})"></i>${esc(k)}</span>
+      <span class="track"><span class="fill" style="width:${(a.val/max*100).toFixed(1)}%;background:var(${SECT[k]})"></span></span>
+      <span class="num" style="font-size:12px;white-space:nowrap">${a.n} deals · ${fmtB(a.raised)} raised · ${fmtB(a.val)} value</span>
+    </button>`).join("");
+  // table
+  const k=st.sort,d=st.dir;
+  list.sort((a,b)=>{let x=a[k],y=b[k];
+    if(k==="tier"){x=tierRank[x];y=tierRank[y]}
+    if(k==="price"){x=parseFloat(String(x).replace(/[^0-9.]/g,""))||0;y=parseFloat(String(y).replace(/[^0-9.]/g,""))||0}
+    if(k==="val"){x=x??-1;y=y??-1}
+    return (x>y?1:x<y?-1:0)*d});
+  $("rows").innerHTML=list.map(r=>`<tr>
+    <td class="num">${r.date}</td>
+    <td class="co"><b>${esc(r.name)}</b> <span class="tick">${esc(r.tick)}</span>${r.us?"":"<small>Non-US listing</small>"}</td>
+    <td><span class="chip" style="color:var(${SECT[r.sector]})">${esc(r.sector)}</span></td>
+    <td class="r num">${esc(r.price)}</td>
+    <td class="r num">${r.raised?fmtB(r.raised):'<span class="na">none</span>'}</td>
+    <td class="r num">${fmtB(r.val)}</td>
+    <td><span class="tier${r.tier.startsWith("Mega")?" mega":""}">${esc(r.tier)}</span></td>
+    <td>${esc(r.type)}</td>
+    <td class="notes" style="font-size:12.5px">${esc(r.note)}</td></tr>`).join("")||`<tr><td colspan="9" class="na">No IPOs match these filters. Clear filters to see all ${rows.length}.</td></tr>`;
+  $("count").textContent=`Showing ${list.length} of ${rows.length} IPOs${st.sector?` in ${st.sector}`:""} · sorted by ${k} ${d>0?"ascending":"descending"}`;
+  document.querySelectorAll("th button").forEach(b=>b.textContent=b.textContent.replace(/ [▲▼]$/,"")+(b.dataset.k===k?(d>0?" ▲":" ▼"):""));
+  save();
+}
+$("q").addEventListener("input",e=>{st.q=e.target.value;render()});
+$("yr").addEventListener("change",e=>{st.yr=e.target.value;render()});
+$("tier").addEventListener("change",e=>{st.tier=e.target.value;render()});
+$("us").addEventListener("change",e=>{st.us=e.target.checked;render()});
+$("reset").addEventListener("click",()=>{Object.assign(st,{q:"",yr:"",tier:"",us:false,sector:""});render()});
+$("sectors").addEventListener("click",e=>{const b=e.target.closest(".srow");if(!b)return;st.sector=st.sector===b.dataset.s?"":b.dataset.s;render()});
+document.querySelector("thead").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const k=b.dataset.k;
+  if(st.sort===k)st.dir*=-1;else{st.sort=k;st.dir=(k==="name"||k==="sector"||k==="type")?1:-1}render()});
+render();
+</script>

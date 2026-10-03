@@ -1,0 +1,93 @@
+96 IPOs in sample; max trading day 128
+
+DAY 1: {'offer_to_open': {'n': 90, 'median': np.float64(20.15), 'mean': np.float64(26.01), 'pct_pos': np.float64(82.2), 'ci_lo': np.float64(14.12), 'ci_hi': np.float64(23.44), 'p': np.float64(0.0)}, 'open_to_close': {'n': 90, 'median': np.float64(-0.14), 'mean': np.float64(0.26), 'pct_pos': np.float64(44.4), 'ci_lo': np.float64(-1.72), 'ci_hi': np.float64(1.21), 'p': np.float64(0.8514)}, 'offer_to_close': {'n': 90, 'median': np.float64(17.48), 'mean': np.float64(26.36), 'pct_pos': np.float64(80.0), 'ci_lo': np.float64(11.46), 'ci_hi': np.float64(24.89), 'p': np.float64(0.0)}, 'intraday_range': {'n': 90, 'median': np.float64(13.67), 'mean': np.float64(16.76), 'pct_pos': np.float64(98.9), 'ci_lo': np.float64(10.94), 'ci_hi': np.float64(17.03), 'p': np.float64(0.0)}, 'broke_issue_close': np.float64(18.9), 'opened_below_offer': np.float64(11.1), 'closed_below_open': np.float64(51.1)}
+
+WINDOWS:
+      window  n  raw_median  ex_median  ex_pct_pos  ex_ci_lo  ex_ci_hi   ex_p
+      Day 2 96        0.62       0.96        55.2     -1.39      1.76 0.6452
+   Days 3–5 95       -1.37      -1.47        38.9     -4.64     -0.05 0.0475
+  Days 6–10 95       -0.69      -1.03        44.2     -2.19      0.82 0.4292
+ Days 11–21 94       -2.74      -4.02        39.4     -6.60     -0.63 0.0355
+ Days 22–42 88       -4.69      -4.79        29.5     -9.66     -2.53 0.0001
+ Days 43–63 83       -6.01      -6.95        36.1    -10.87     -1.56 0.0016
+ Days 64–94 79       -5.30      -6.59        39.2    -10.49     -0.01 0.1016
+Days 95–121 76       -8.65     -10.36        31.6    -14.71     -4.64 0.0013
+
+VOL:
+   days  n  median_abs_daily_move  median_intraday_range  share_days_over_5pct  median_annualized_vol  spy_annualized_vol
+   2–5 95                   4.34                   8.49                  43.7                   88.8                10.0
+  6–10 95                   2.58                   6.28                  26.1                   61.0                10.5
+ 11–21 94                   2.76                   6.53                  25.2                   64.4                12.3
+ 22–42 90                   2.64                   6.11                  23.9                   69.0                14.0
+ 43–63 84                   2.44                   5.70                  22.7                   62.6                13.1
+ 64–94 79                   2.48                   5.55                  23.1                   65.9                13.9
+95–121 77                   2.55                   5.70                  25.3                   67.9                13.9
+
+VOLUME day1 vs d2-21 avg: 9.26
+
+DRAWDOWN: {'n': 76, 'median_max_drawdown': np.float64(-54.4), 'pct_dd_over_30': np.float64(80.3), 'pct_dd_over_50': np.float64(56.6), 'pct_ever_below_offer': np.float64(78.7), 'median_first_day_below_offer': 12.0, 'peak_day_hist': [11, 15, 15, 8, 6, 7, 14], 'trough_day_hist': [1, 3, 8, 6, 7, 10, 41], 'hist_labels': ['Day 1', '2–5', '6–21', '22–42', '43–63', '64–94', '95–121']}
+
+GRID:
+  entry_day  hold_days  n  ex_median  ex_mean  ex_pct_pos   ex_p  raw_median
+         1          5 95      -2.52    -1.86        44.2 0.1436       -2.15
+         1         21 94      -3.95    -3.34        37.2 0.0306       -3.16
+         1         63 83     -19.12   -13.11        31.3 0.0000      -16.54
+         2          5 95      -2.35    -2.21        33.7 0.0107       -2.57
+         2         21 92      -5.82    -6.17        32.6 0.0006       -6.38
+         2         63 83     -20.40   -14.37        31.3 0.0000      -15.39
+         5          5 95      -1.03     0.42        44.2 0.4292       -0.69
+         5         21 92      -5.19    -4.50        37.0 0.0011       -5.10
+         5         63 82     -22.14   -14.45        31.7 0.0000      -20.37
+        10          5 94      -1.18    -2.93        40.4 0.0035       -0.56
+        10         21 91      -5.02    -6.09        35.2 0.0030       -5.42
+        10         63 81     -21.48   -13.61        30.9 0.0001      -16.31
+        21          5 92      -1.14    -1.33        42.4 0.0638       -0.93
+        21         21 88      -4.79    -6.38        29.5 0.0001       -4.69
+        21         63 79     -19.11   -12.96        34.2 0.0001      -19.30
+        42          5 87      -1.39     0.03        39.1 0.2998       -1.70
+        42         21 83      -6.95    -6.49        36.1 0.0016       -6.01
+        42         63 77     -16.42   -12.84        28.6 0.0001      -16.55
+        63          5 82      -2.10    -1.08        42.7 0.2394       -1.02
+        63         21 79      -1.64    -1.85        46.8 0.5543        0.91
+
+POP BUCKETS:
+            bucket  n  pop_median  after_median  after_ex_median  vs_offer_median  pct_after_pos
+Broke issue (≤0%) 13        -4.0           4.5            -12.6             -8.7           53.8
+            0–15% 20         8.8         -32.2            -35.8            -27.1           20.0
+           15–40% 23        26.9         -20.9            -17.4             -4.2           34.8
+             >40% 16        73.3         -46.2            -43.4             -0.6           18.8 
+spearman -0.215 0.0698
+
+MOMENTUM: {'spearman': np.float64(0.125), 'p': np.float64(0.2829), 'n': 76, 'halves': [{'group': 'Bottom half days 2–21', 'n': 38, 'late_median': -36.0, 'late_mean': -23.5}, {'group': 'Top half days 2–21', 'n': 38, 'late_median': -18.8, 'late_mean': -17.3}]}
+
+QUIET PERIOD: {'typical_trading_day': 18, 'n': 92, 'median': np.float64(-3.74), 'mean': np.float64(-1.82), 'pct_pos': np.float64(37.0), 'ci_lo': np.float64(-5.82), 'ci_hi': np.float64(-0.73), 'p': np.float64(0.0298), 'raw_median': np.float64(-2.99)}
+
+BY SECTOR:
+                        group  n  vs_offer_median  ex_median  pct_beat_spy
+            Autos & Mobility  4             -4.7        4.0          50.0
+                    Consumer 17            -11.5      -29.7          11.8
+              Energy & Power  4             -6.9      -10.2          50.0
+        Financials & Fintech 12            -30.1      -54.9           0.0
+                  Healthcare  7             29.3      -17.4          28.6
+     Industrials & Aerospace 10            -11.5      -34.0          30.0
+         Real Estate & Infra  2            -47.3      -58.3           0.0
+Semiconductors & AI hardware  4             18.0       13.3          75.0
+                  Technology 16            -20.8      -33.7          18.8
+
+BY YEAR:
+ group  n  vs_offer_median  ex_median  pct_beat_spy
+ 2021 14            -49.5      -48.6           7.1
+ 2022  5            -14.9      -11.1          40.0
+ 2023 11             18.4      -11.4          27.3
+ 2024 18             19.2      -12.3          44.4
+ 2025 23            -26.5      -52.6           8.7
+ 2026  5            -32.2      -53.9          20.0
+
+BY SIZE:
+  group  n  vs_offer_median  ex_median  pct_beat_spy
+  <$3B 19             -4.2      -33.7          15.8
+ $3–8B 30            -16.5      -28.0          26.7
+$8–20B 17            -15.0      -38.8          17.6
+ >$20B  8              0.2      -24.5          37.5
+
+HEADLINE: {'n_total': 96, 'n_full': 76, 'six_vs_offer': {'n': 75, 'median': np.float64(-14.9), 'mean': np.float64(-0.37), 'pct_pos': np.float64(40.0), 'ci_lo': np.float64(-26.49), 'ci_hi': np.float64(7.12), 'p': np.float64(0.2225)}, 'six_ex_from_d1': {'n': 76, 'median': np.float64(-29.65), 'mean': np.float64(-23.43), 'pct_pos': np.float64(22.4), 'ci_lo': np.float64(-40.34), 'ci_hi': np.float64(-17.36), 'p': np.float64(0.0)}, 'six_ex_from_offer': {'n': 72, 'median': np.float64(-18.26), 'mean': np.float64(-3.16), 'pct_pos': np.float64(41.7), 'ci_lo': np.float64(-31.69), 'ci_hi': np.float64(4.39), 'p': np.float64(0.079)}}

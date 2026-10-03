@@ -1,0 +1,12 @@
+bucket mapping: {"trades_per_raw_bucket": {"Health Care": 115, "Technology": 99, "Consumer": 58, "Unknown": 28, "Finance": 24, "Industrial & Resources": 17}, "merged_into_Other": ["Unknown", "Finance", "Industrial & Resources"], "trades_per_bucket": {"Health Care": 115, "Technology": 99, "Other": 69, "Consumer": 58}}
+global best exit: hold5 (-0.10%/trade) | per-sector: {'Consumer': 'hold10', 'Health Care': 'hold5', 'Other': 'hold15', 'Technology': 'hold7'} (0.23%/trade in-sample)
+
+leave-one-era-out:
+held_out_era global_exit  global_mean_%  sector_mean_%  sector_minus_global_%
+     2015-18      hold21          -5.19          -4.89                   0.30
+     2019-21       hold5          -1.43          -2.77                  -1.34
+     2021-24       hold5           1.83           0.70                  -1.13
+
+shuffle test: {"n": 500, "real_in_sample_gain_%": 0.33, "shuffled_in_sample_gain_p95_%": 1.15, "p_in_sample": 0.878, "real_loeo_gain_%": -0.723, "shuffled_loeo_gain_median_%": -0.078, "shuffled_loeo_gain_p95_%": 1.063, "p_loeo": 0.86}
+
+passes leave-one-era-out + shuffle checks: False

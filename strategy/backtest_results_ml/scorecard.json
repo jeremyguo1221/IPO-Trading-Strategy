@@ -1,0 +1,371 @@
+{
+ "selected": "M_logit_all_fixed",
+ "family": "logit",
+ "feature_set": "all",
+ "threshold_mode": "fixed",
+ "n_trials_total": 51,
+ "sim": {
+  "hedge": true,
+  "range_target": 0.186,
+  "hold": 21,
+  "last_signal_day": 20
+ },
+ "dev_oos": {
+  "metrics": {
+   "trades": 232,
+   "start": "2020-01-31",
+   "end": "2026-07-24",
+   "total_return": -17.1,
+   "cagr": -2.85,
+   "sharpe": -0.142,
+   "sortino": -0.162,
+   "max_dd": -44.04,
+   "calmar": -0.044,
+   "win_rate": 52.2,
+   "profit_factor": 0.848,
+   "mean_trade": -0.11,
+   "median_trade": 1.92,
+   "best_trade": 61.3,
+   "worst_trade": -77.7,
+   "trade_t": -0.07,
+   "avg_gross": 20.9,
+   "avg_positions": 2.85,
+   "pct_stopped": 0.0,
+   "yearly": {
+    "2020": -21.11,
+    "2021": -18.95,
+    "2022": -1.68,
+    "2023": 3.36,
+    "2024": -3.08,
+    "2025": 5.33,
+    "2026": 24.95
+   },
+   "pct_years_pos": 42.9,
+   "boot_p": 0.714,
+   "n_days": 1628,
+   "daily_sr": -0.008945133004156064,
+   "skew": -0.4548854861116506,
+   "kurt": 9.929147413363445,
+   "yearly_sharpe": {
+    "2020": -0.995,
+    "2021": -1.094,
+    "2022": -0.154,
+    "2023": 0.538,
+    "2024": -0.272,
+    "2025": 0.574,
+    "2026": 3.034
+   }
+  },
+  "stress": {
+   "borrow_60": {
+    "trades": 232,
+    "total_return": -42.55,
+    "cagr": -8.2,
+    "sharpe": -0.556,
+    "max_dd": -57.22,
+    "profit_factor": 0.617
+   },
+   "borrow_100": {
+    "trades": 230,
+    "total_return": -68.26,
+    "cagr": -16.24,
+    "sharpe": -1.215,
+    "max_dd": -74.07,
+    "profit_factor": 0.375
+   },
+   "slippage_50bps": {
+    "trades": 232,
+    "total_return": -19.07,
+    "cagr": -3.21,
+    "sharpe": -0.172,
+    "max_dd": -44.05,
+    "profit_factor": 0.83
+   },
+   "zero_cost": {
+    "trades": 233,
+    "total_return": 35.4,
+    "cagr": 4.79,
+    "sharpe": 0.412,
+    "max_dd": -28.41,
+    "profit_factor": 1.309
+   },
+   "unhedged": {
+    "trades": 231,
+    "total_return": -46.2,
+    "cagr": -9.13,
+    "sharpe": -0.568,
+    "max_dd": -65.72,
+    "profit_factor": 0.59
+   }
+  },
+  "null_sharpe_p95": 0.26049999999999984,
+  "null_sharpe_median": -0.155,
+  "null_pct_below_strategy": 52.0,
+  "dsr": 0.00045052125795770295,
+  "scorecard": {
+   "CAGR >= 15%": {
+    "value": -2.85,
+    "pass": false
+   },
+   "Sharpe >= 1.0": {
+    "value": -0.142,
+    "pass": false
+   },
+   "Max drawdown <= 25%": {
+    "value": -44.04,
+    "pass": false
+   },
+   "Profit factor >= 1.3": {
+    "value": 0.848,
+    "pass": false
+   },
+   ">= 75% of years positive": {
+    "value": 42.9,
+    "pass": false
+   },
+   ">= 30 trades": {
+    "value": 232,
+    "pass": true
+   },
+   "Bootstrap p < 0.05": {
+    "value": 0.714,
+    "pass": false
+   },
+   "Profitable at 60%/yr borrow": {
+    "value": -42.55,
+    "pass": false
+   },
+   "Sharpe > 95th pct of shuffled null": {
+    "value": [
+     -0.142,
+     0.26
+    ],
+    "pass": false
+   },
+   "Deflated Sharpe prob > 0.9": {
+    "value": 0.0,
+    "pass": false
+   }
+  },
+  "passes_all": false
+ },
+ "top_features_ic": {
+  "log_dollar_vol": 0.123,
+  "d1_turnover": 0.107,
+  "rvol": 0.088,
+  "d1_oc": -0.08,
+  "d1_range": 0.076,
+  "vol_ratio": 0.069,
+  "hot_count": 0.069,
+  "dd_from_high": -0.067,
+  "ret5": 0.066,
+  "spy_vol20": 0.066
+ },
+ "top_features_importance": {
+  "cohort_below_offer": 0.0228,
+  "ext": 0.0161,
+  "hot_count": 0.014,
+  "vol_ratio": 0.0134,
+  "log_deal": 0.0107,
+  "below_d1low": 0.0099,
+  "d1_range": 0.0081,
+  "pop": 0.0081,
+  "d1_turnover": 0.0075,
+  "dist_d1low": 0.0043
+ },
+ "fresh_holdout": {
+  "metrics": {
+   "trades": 67,
+   "start": "2015-01-27",
+   "end": "2019-02-06",
+   "total_return": -34.18,
+   "cagr": -9.86,
+   "sharpe": -1.388,
+   "sortino": -1.387,
+   "max_dd": -37.5,
+   "calmar": -0.27,
+   "win_rate": 43.3,
+   "profit_factor": 0.377,
+   "mean_trade": -5.45,
+   "median_trade": -2.92,
+   "best_trade": 38.2,
+   "worst_trade": -153.2,
+   "trade_t": -1.73,
+   "avg_gross": 11.5,
+   "avg_positions": 1.32,
+   "pct_stopped": 0.0,
+   "yearly": {
+    "2015": -0.07,
+    "2016": -10.0,
+    "2017": -4.58,
+    "2018": -24.13,
+    "2019": 1.09
+   },
+   "pct_years_pos": 20.0,
+   "boot_p": 0.014,
+   "n_days": 1015,
+   "daily_sr": -0.08742965835578076,
+   "skew": -0.8365831424366659,
+   "kurt": 11.08822693190874,
+   "yearly_sharpe": {
+    "2015": 0.017,
+    "2016": -1.576,
+    "2017": -0.753,
+    "2018": -2.731,
+    "2019": 2.932
+   }
+  },
+  "stress": {
+   "borrow_60": {
+    "trades": 67,
+    "total_return": -43.23,
+    "cagr": -13.11,
+    "sharpe": -1.874,
+    "max_dd": -45.21,
+    "profit_factor": 0.272
+   },
+   "borrow_100": {
+    "trades": 67,
+    "total_return": -53.47,
+    "cagr": -17.3,
+    "sharpe": -2.509,
+    "max_dd": -54.7,
+    "profit_factor": 0.178
+   },
+   "slippage_50bps": {
+    "trades": 67,
+    "total_return": -36.11,
+    "cagr": -10.53,
+    "sharpe": -1.486,
+    "max_dd": -39.11,
+    "profit_factor": 0.352
+   },
+   "zero_cost": {
+    "trades": 67,
+    "total_return": -21.46,
+    "cagr": -5.82,
+    "sharpe": -0.795,
+    "max_dd": -28.07,
+    "profit_factor": 0.571
+   },
+   "unhedged": {
+    "trades": 67,
+    "total_return": -36.96,
+    "cagr": -10.82,
+    "sharpe": -1.504,
+    "max_dd": -39.64,
+    "profit_factor": 0.335
+   }
+  },
+  "null_sharpe_p95": -0.45610000000000134,
+  "null_sharpe_median": -1.12,
+  "null_pct_below_strategy": 27.500000000000004,
+  "dsr": 7.26358360621259e-08,
+  "scorecard": {
+   "CAGR >= 15%": {
+    "value": -9.86,
+    "pass": false
+   },
+   "Sharpe >= 1.0": {
+    "value": -1.388,
+    "pass": false
+   },
+   "Max drawdown <= 25%": {
+    "value": -37.5,
+    "pass": false
+   },
+   "Profit factor >= 1.3": {
+    "value": 0.377,
+    "pass": false
+   },
+   ">= 75% of years positive": {
+    "value": 20.0,
+    "pass": false
+   },
+   ">= 30 trades": {
+    "value": 67,
+    "pass": true
+   },
+   "Bootstrap p < 0.05": {
+    "value": 0.014,
+    "pass": true
+   },
+   "Profitable at 60%/yr borrow": {
+    "value": -43.23,
+    "pass": false
+   },
+   "Sharpe > 95th pct of shuffled null": {
+    "value": [
+     -1.388,
+     -0.456
+    ],
+    "pass": false
+   },
+   "Deflated Sharpe prob > 0.9": {
+    "value": 0.0,
+    "pass": false
+   }
+  },
+  "passes_all": false,
+  "placebo": {
+   "trades": 201,
+   "mean_gross_%": 0.236,
+   "mean_net_%": -2.761
+  },
+  "threshold": 0.5,
+  "candidates_shorted_pct": 19.0,
+  "oos_ic": -0.0251
+ },
+ "spot_audit": [
+  {
+   "symbol": "STNE",
+   "entry_date": "2018-11-01",
+   "exit_date": "2018-11-30",
+   "entry_open_raw": 28.98,
+   "exit_close_raw": 23.57,
+   "engine_net_ret": 0.18184314,
+   "hand_net_ret": 0.18184314,
+   "match": "True"
+  },
+  {
+   "symbol": "CTMX",
+   "entry_date": "2015-10-12",
+   "exit_date": "2015-11-09",
+   "entry_open_raw": 12.95,
+   "exit_close_raw": 12.26,
+   "engine_net_ret": 0.07571242,
+   "hand_net_ret": 0.07571242,
+   "match": "True"
+  },
+  {
+   "symbol": "VERI",
+   "entry_date": "2017-05-16",
+   "exit_date": "2017-06-14",
+   "entry_open_raw": 11.48,
+   "exit_close_raw": 12.41,
+   "engine_net_ret": -0.09354915,
+   "hand_net_ret": -0.09354915,
+   "match": "True"
+  },
+  {
+   "symbol": "ALRM",
+   "entry_date": "2015-06-30",
+   "exit_date": "2015-07-29",
+   "entry_open_raw": 16.0,
+   "exit_close_raw": 18.025,
+   "engine_net_ret": -0.13386971,
+   "hand_net_ret": -0.13386971,
+   "match": "True"
+  },
+  {
+   "symbol": "SNAP",
+   "entry_date": "2017-03-06",
+   "exit_date": "2017-04-03",
+   "entry_open_raw": 28.17,
+   "exit_close_raw": 22.35,
+   "engine_net_ret": 0.16819989,
+   "hand_net_ret": 0.16819989,
+   "match": "True"
+  }
+ ]
+}

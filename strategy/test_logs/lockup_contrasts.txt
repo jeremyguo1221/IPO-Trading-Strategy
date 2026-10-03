@@ -1,0 +1,18 @@
+ALL pre     event -2.96% vs placebo -1.31% -> diff -1.66% [-4.13,+0.82] p=0.1096
+ALL event   event +0.05% vs placebo +0.10% -> diff -0.05% [-0.68,+0.55] p=0.1845
+ALL post5   event +0.65% vs placebo -0.80% -> diff +1.45% [-0.19,+3.29] p=0.1518
+ALL post20  event -0.57% vs placebo -0.54% -> diff -0.02% [-1.86,+1.85] p=0.1349
+ALL post40  event -1.16% vs placebo -3.18% -> diff +2.02% [-0.15,+4.20] p=0.0
+ALL around  event -0.72% vs placebo -1.07% -> diff +0.35% [-2.23,+2.73] p=0.0508
+overhang                 low          around diff +1.29% p=0.2769 | pre diff -0.54% p=0.8631 | post40 diff +4.22% p=0.0057
+overhang                 mid          around diff +1.32% p=0.0372 | pre diff -2.95% p=0.2179 | post40 diff +1.00% p=0.0702
+overhang                 high         around diff -1.84% p=0.9773 | pre diff -0.15% p=0.4904 | post40 diff -0.08% p=0.0795
+deal size                small        around diff -3.45% p=0.6471 | pre diff -0.18% p=0.686 | post40 diff -1.19% p=0.7695
+deal size                mid          around diff -0.21% p=0.7844 | pre diff -4.99% p=0.0212 | post40 diff +4.18% p=0.0008
+deal size                large        around diff +4.72% p=0.0001 | pre diff +0.19% p=0.9862 | post40 diff +3.08% p=0.0001
+price vs offer going in  below offer  around diff +6.24% p=0.0 | pre diff -0.49% p=0.7016 | post40 diff +7.19% p=0.0
+price vs offer going in  0-50% above  around diff -0.77% p=0.8014 | pre diff +0.14% p=0.4429 | post40 diff -1.64% p=0.583
+price vs offer going in  50%+ above   around diff -10.83% p=0.0024 | pre diff -6.61% p=0.0507 | post40 diff -4.16% p=0.7594
+price vs offer 70 days before (clean) below offer  around diff +0.15% p=0.2769 | pre diff -3.76% p=0.1175 | post40 diff +1.46% p=0.0249
+price vs offer 70 days before (clean) 0-50% above  around diff -0.32% p=0.1401 | pre diff -0.47% p=0.3555 | post40 diff +1.00% p=0.1065
+price vs offer 70 days before (clean) 50%+ above   around diff +1.53% p=0.4252 | pre diff -0.16% p=0.7791 | post40 diff +4.18% p=0.0009

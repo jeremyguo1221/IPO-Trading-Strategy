@@ -1,0 +1,93 @@
+symbol,reason
+AADX,lock-up expiry beyond available price data
+AGBK,lock-up expiry beyond available price data
+AGMB,lock-up expiry beyond available price data
+AKTS,not enough bars before/after expiry
+ALMR,lock-up expiry beyond available price data
+AMPL,no lock-up date in Nasdaq deal data
+ANDG,not enough bars before/after expiry
+APC,lock-up expiry beyond available price data
+ARXS,lock-up expiry beyond available price data
+ASAN,no lock-up date in Nasdaq deal data
+AVEX,lock-up expiry beyond available price data
+AVLN,lock-up expiry beyond available price data
+BOBS,lock-up expiry beyond available price data
+BTGO,not enough bars before/after expiry
+BUDA,not enough bars before/after expiry
+BXDC,lock-up expiry beyond available price data
+CBRS,lock-up expiry beyond available price data
+CDNL,not enough bars before/after expiry
+COAG,lock-up expiry beyond available price data
+COIN,no lock-up date in Nasdaq deal data
+DETX,lock-up expiry beyond available price data
+DPC,lock-up expiry beyond available price data
+DSC,lock-up expiry beyond available price data
+EIKN,lock-up expiry beyond available price data
+ELMT,lock-up expiry beyond available price data
+ELOX,lock-up expiry beyond available price data
+EQPT,not enough bars before/after expiry
+EROC,lock-up expiry beyond available price data
+EROK,lock-up expiry beyond available price data
+EXYN,lock-up expiry beyond available price data
+FCBM,lock-up expiry beyond available price data
+FISN,lock-up expiry beyond available price data
+FPS,lock-up expiry beyond available price data
+FRBT,lock-up expiry beyond available price data
+FRVO,lock-up expiry beyond available price data
+GCDT,not enough bars before/after expiry
+GENB,lock-up expiry beyond available price data
+GMRS,lock-up expiry beyond available price data
+GMTL,lock-up expiry beyond available price data
+HAWK,lock-up expiry beyond available price data
+HMH,lock-up expiry beyond available price data
+INIO,lock-up expiry beyond available price data
+JAGU,lock-up expiry beyond available price data
+JAN,lock-up expiry beyond available price data
+KARD,lock-up expiry beyond available price data
+KLRA,lock-up expiry beyond available price data
+LCLN,lock-up expiry beyond available price data
+LFTO,lock-up expiry beyond available price data
+LIFE,not enough bars before/after expiry
+LMRI,not enough bars before/after expiry
+MAIR,lock-up expiry beyond available price data
+MANE,lock-up expiry beyond available price data
+MDLN,not enough bars before/after expiry
+MMED,lock-up expiry beyond available price data
+MOBI,lock-up expiry beyond available price data
+MWC,lock-up expiry beyond available price data
+MWH,lock-up expiry beyond available price data
+NHP,lock-up expiry beyond available price data
+ODTX,lock-up expiry beyond available price data
+OFRM,lock-up expiry beyond available price data
+OPTH,lock-up expiry beyond available price data
+PAYP,lock-up expiry beyond available price data
+PBLS,lock-up expiry beyond available price data
+PICS,not enough bars before/after expiry
+PLTR,no lock-up date in Nasdaq deal data
+PPHC,not enough bars before/after expiry
+PS,lock-up expiry beyond available price data
+QNT,lock-up expiry beyond available price data
+RBLX,no lock-up date in Nasdaq deal data
+REA,lock-up expiry beyond available price data
+ROC,lock-up expiry beyond available price data
+SBMT,lock-up expiry beyond available price data
+SGP,lock-up expiry beyond available price data
+SHAZ,lock-up expiry beyond available price data
+SIND,lock-up expiry beyond available price data
+SPCX,lock-up expiry beyond available price data
+SPOT,no lock-up date in Nasdaq deal data
+SPTX,lock-up expiry beyond available price data
+SRFM,no lock-up date in Nasdaq deal data
+SSMR,lock-up expiry beyond available price data
+SUJA,lock-up expiry beyond available price data
+SWMR,lock-up expiry beyond available price data
+VIDA,lock-up expiry beyond available price data
+WHK,lock-up expiry beyond available price data
+WLTH,not enough bars before/after expiry
+WOOF,not enough bars before/after expiry
+WORK,no lock-up date in Nasdaq deal data
+WRBY,no lock-up date in Nasdaq deal data
+XE,lock-up expiry beyond available price data
+YSS,not enough bars before/after expiry
+YSWY,lock-up expiry beyond available price data
+ZIP,no lock-up date in Nasdaq deal data

@@ -1,0 +1,20 @@
+TRAIN only (IPOs Oct 2021 - Jun 2024 with 63+ bars): 156 IPOs
+
+peak day (first 63 trading days) distribution:
+peak_day
+(0, 1]      47
+(1, 2]       6
+(2, 5]      15
+(5, 10]      7
+(10, 21]    16
+(21, 42]    35
+(42, 63]    30
+
+median peak vs offer: 40.5%   vs day-1 close: 26.6%
+
+entry efficiency = entry open / 63-day peak high (1.00 = shorted exactly at the top)
+      eff_d3  eff_d6  eff_d11  eff_d22  eff_random  eff_best_possible
+mean   0.753   0.748    0.733    0.725       0.723              0.885
+25%    0.669   0.684    0.659    0.607       0.644              0.856
+50%    0.784   0.768    0.770    0.780       0.766              0.914
+75%    0.874   0.861    0.851    0.866       0.842              0.974

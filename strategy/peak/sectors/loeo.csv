@@ -1,0 +1,4 @@
+held_out_era,global_exit,sector_exits,trades,global_mean_%,sector_mean_%,sector_minus_global_%
+2015-18,hold21,"{""Consumer"": ""hold10"", ""Health Care"": ""hold21"", ""Other"": ""hold10"", ""Technology"": ""hold21""}",82,-5.19,-4.89,0.3000000000000007
+2019-21,hold5,"{""Consumer"": ""hold10"", ""Health Care"": ""hold15+target30"", ""Other"": ""hold21"", ""Technology"": ""hold7""}",205,-1.43,-2.77,-1.34
+2021-24,hold5,"{""Consumer"": ""hold3"", ""Health Care"": ""hold5"", ""Other"": ""hold5"", ""Technology"": ""hold3""}",54,1.83,0.7,-1.1300000000000001

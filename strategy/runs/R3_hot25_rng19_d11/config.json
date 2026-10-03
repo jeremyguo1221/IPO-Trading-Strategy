@@ -1,0 +1,25 @@
+{
+ "name": "hot25_rng19_d11",
+ "signal": "rules",
+ "params": {
+  "entry_day": 11,
+  "hot_count_min": 25,
+  "d1_range_min": 0.186
+ },
+ "min_entry_day": 3,
+ "last_signal_day": 42,
+ "hold": 21,
+ "stop": null,
+ "target": null,
+ "size": 0.07,
+ "vol_target": null,
+ "max_positions": 15,
+ "gross_cap": 1.0,
+ "hedge": false,
+ "borrow": 0.3,
+ "slippage": 0.0025,
+ "spy_slippage": 0.0002,
+ "min_price": 5.0,
+ "min_dollar_vol": 5000000.0,
+ "min_offer": 5.0
+}

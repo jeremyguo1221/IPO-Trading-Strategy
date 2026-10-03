@@ -1,0 +1,42 @@
+eligible IPOs: {'train': 129, 'validation': 147}
+A_m20_p5_k5        train fire=65.1% gain=3.33 eff=78.4 | val fire=68.0% gain=4.17 [2.03,6.44] eff=78.3
+A_m20_p5_k10       train fire=65.9% gain=3.55 eff=78.3 | val fire=68.0% gain=4.17 [2.04,6.43] eff=78.3
+A_m20_p10_k5       train fire=51.2% gain=3.81 eff=78.0 | val fire=58.5% gain=3.11 [0.88,5.47] eff=77.6
+A_m20_p10_k10      train fire=53.5% gain=3.9 eff=77.6 | val fire=61.2% gain=3.05 [0.85,5.41] eff=78.0
+A_m20_p15_k5       train fire=42.6% gain=4.32 eff=76.0 | val fire=46.9% gain=2.29 [0.01,4.58] eff=74.3
+A_m20_p15_k10      train fire=46.5% gain=3.93 eff=76.0 | val fire=51.7% gain=1.7 [-0.51,4.04] eff=75.3
+A_m40_p5_k5        train fire=41.1% gain=5.22 eff=75.4 | val fire=49.7% gain=4.19 [1.53,6.78] eff=78.1
+A_m40_p5_k10       train fire=41.9% gain=5.43 eff=75.4 | val fire=49.7% gain=4.19 [1.78,6.6] eff=78.1
+A_m40_p10_k5       train fire=37.2% gain=5.17 eff=73.3 | val fire=44.9% gain=2.85 [0.43,5.29] eff=77.0
+A_m40_p10_k10      train fire=38.8% gain=5.24 eff=73.3 | val fire=46.3% gain=2.89 [0.46,5.38] eff=77.6
+A_m40_p15_k5       train fire=31.0% gain=6.37 eff=73.3 | val fire=37.4% gain=1.78 [-1.04,4.41] eff=74.6
+A_m40_p15_k10      train fire=34.1% gain=5.83 eff=73.3 | val fire=40.8% gain=1.49 [-1.09,3.93] eff=76.4
+A_m60_p5_k5        train fire=25.6% gain=8.68 eff=75.3 | val fire=32.0% gain=5.93 [2.65,9.17] eff=79.4
+A_m60_p5_k10       train fire=26.4% gain=8.92 eff=74.6 | val fire=32.0% gain=5.93 [2.71,9.16] eff=79.4
+A_m60_p10_k5       train fire=22.5% gain=7.79 eff=72.7 | val fire=28.6% gain=4.68 [1.16,8.3] eff=78.0
+A_m60_p10_k10      train fire=24.0% gain=7.88 eff=72.7 | val fire=29.3% gain=4.44 [1.13,7.88] eff=77.9
+A_m60_p15_k5       train fire=20.2% gain=9.11 eff=73.3 | val fire=24.5% gain=3.46 [-0.34,7.17] eff=72.6
+A_m60_p15_k10      train fire=22.5% gain=8.37 eff=72.7 | val fire=27.2% gain=2.74 [-0.86,6.07] eff=74.4
+B_v0               train fire=52.7% gain=0.57 eff=80.1 | val fire=52.4% gain=3.33 [1.17,5.64] eff=83.5
+B_v1.5             train fire=17.8% gain=1.82 eff=85.1 | val fire=10.9% gain=7.27 [4.43,10.21] eff=88.8
+B_v2.0             train fire=10.1% gain=2.48 eff=85.7 | val fire=5.4% gain=6.78 [2.7,10.44] eff=88.8
+C_r20              train fire=20.2% gain=4.07 eff=74.1 | val fire=23.8% gain=5.4 [2.23,8.74] eff=74.6
+C_r40              train fire=7.0% gain=5.81 eff=53.1 | val fire=6.8% gain=12.55 [7.78,17.82] eff=65.4
+D_n5               train fire=53.5% gain=-0.2 eff=81.0 | val fire=57.8% gain=0.55 [-0.9,1.91] eff=79.8
+D_n10              train fire=42.6% gain=-1.31 eff=79.1 | val fire=48.3% gain=-0.94 [-2.47,0.5] eff=79.3
+
+baselines: {'train_fixed_d3_gain': 2.29, 'train_fixed_d6_gain': 2.03, 'train_fixed_d11_gain': 0.35, 'train_fixed_d22_gain': 0.29, 'train_oracle_eff_median': 92.0, 'validation_fixed_d3_gain': 3.65, 'validation_fixed_d6_gain': 1.36, 'validation_fixed_d11_gain': 2.34, 'validation_fixed_d22_gain': -0.36, 'validation_oracle_eff_median': 93.6}
+
+top 5 on TRAIN (fire >= 40%):
+         rule  train_fire_rate  train_gain_mean  train_eff_median  train_pct_within_10pct  train_days_from_peak_median  validation_fire_rate  validation_gain_mean  validation_gain_ci_lo  validation_gain_ci_hi  validation_eff_median  train_fwd21_net_mean  validation_fwd21_net_mean
+ A_m40_p5_k10             41.9             5.43              75.4                    11.1                         -9.0                  49.7                  4.19                   1.78                   6.60                   78.1                  5.13                       4.49
+  A_m40_p5_k5             41.1             5.22              75.4                    11.3                         -9.0                  49.7                  4.19                   1.53                   6.78                   78.1                  5.03                       4.49
+ A_m20_p15_k5             42.6             4.32              76.0                     0.0                          0.0                  46.9                  2.29                   0.01                   4.58                   74.3                  1.55                       3.23
+A_m20_p15_k10             46.5             3.93              76.0                     0.0                          1.0                  51.7                  1.70                  -0.51                   4.04                   75.3                  1.92                       2.97
+A_m20_p10_k10             53.5             3.90              77.6                     0.0                         -2.0                  61.2                  3.05                   0.85                   5.41                   78.0                  1.40                       4.29
+
+P&L A_m40_p5_k10: train: n=54 cagr=4.52 sh=0.561 dd=-9.56 | validation: n=81 cagr=15.62 sh=1.323 dd=-7.57 | holdout: n=190 cagr=-20.32 sh=-0.977 dd=-53.56 | fresh_holdout: n=82 cagr=-10.35 sh=-1.079 dd=-39.92
+
+P&L A_m40_p5_k5: train: n=53 cagr=4.35 sh=0.544 dd=-9.56 | validation: n=81 cagr=15.62 sh=1.323 dd=-7.57 | holdout: n=189 cagr=-20.1 sh=-0.965 dd=-53.2 | fresh_holdout: n=81 cagr=-10.65 sh=-1.117 dd=-40.67
+
+P&L A_m20_p15_k5: train: n=55 cagr=0.63 sh=0.114 dd=-13.77 | validation: n=77 cagr=12.5 sh=1.116 dd=-7.12 | holdout: n=172 cagr=-11.63 sh=-0.544 dd=-47.54 | fresh_holdout: n=59 cagr=-8.42 sh=-0.959 dd=-33.87

@@ -1,0 +1,32 @@
+selected M_logit_all_fixed (worst-year OOS Sharpe -1.094)
+
+DEV_OOS: n=232 cagr=-2.85 sharpe=-0.142 dd=-44.04 pf=0.848 yearly_sharpe={2020: -0.995, 2021: -1.094, 2022: -0.154, 2023: 0.538, 2024: -0.272, 2025: 0.574, 2026: 3.034} passes_all=False
+  FAIL  CAGR >= 15%                            -2.85
+  FAIL  Sharpe >= 1.0                          -0.142
+  FAIL  Max drawdown <= 25%                    -44.04
+  FAIL  Profit factor >= 1.3                   0.848
+  FAIL  >= 75% of years positive               42.9
+  PASS  >= 30 trades                           232
+  FAIL  Bootstrap p < 0.05                     0.714
+  FAIL  Profitable at 60%/yr borrow            -42.55
+  FAIL  Sharpe > 95th pct of shuffled null     (-0.142, 0.26)
+  FAIL  Deflated Sharpe prob > 0.9             0.0
+  stress: {"borrow_60": {"trades": 232, "total_return": -42.55, "cagr": -8.2, "sharpe": -0.556, "max_dd": -57.22, "profit_factor": 0.617}, "borrow_100": {"trades": 230, "total_return": -68.26, "cagr": -16.24, "sharpe": -1.215, "max_dd": -74.07, "profit_factor": 0.375}, "slippage_50bps": {"trades": 232, "total_return": -19.07, "cagr": -3.21, "sharpe": -0.172, "max_dd": -44.05, "profit_factor": 0.83}, "zero_cost": {"trades": 233, "total_return": 35.4, "cagr": 4.79, "sharpe": 0.412, "max_dd": -28.41, "profit_factor": 1.309}, "unhedged": {"trades": 231, "total_return": -46.2, "cagr": -9.13, "sharpe": -0.568, "max_dd": -65.72, "profit_factor": 0.59}}
+
+FRESH_HOLDOUT: n=67 cagr=-9.86 sharpe=-1.388 dd=-37.5 pf=0.377 yearly_sharpe={2015: 0.017, 2016: -1.576, 2017: -0.753, 2018: -2.731, 2019: 2.932} passes_all=False
+  FAIL  CAGR >= 15%                            -9.86
+  FAIL  Sharpe >= 1.0                          -1.388
+  FAIL  Max drawdown <= 25%                    -37.5
+  FAIL  Profit factor >= 1.3                   0.377
+  FAIL  >= 75% of years positive               20.0
+  PASS  >= 30 trades                           67
+  PASS  Bootstrap p < 0.05                     0.014
+  FAIL  Profitable at 60%/yr borrow            -43.23
+  FAIL  Sharpe > 95th pct of shuffled null     (-1.388, -0.456)
+  FAIL  Deflated Sharpe prob > 0.9             0.0
+  stress: {"borrow_60": {"trades": 67, "total_return": -43.23, "cagr": -13.11, "sharpe": -1.874, "max_dd": -45.21, "profit_factor": 0.272}, "borrow_100": {"trades": 67, "total_return": -53.47, "cagr": -17.3, "sharpe": -2.509, "max_dd": -54.7, "profit_factor": 0.178}, "slippage_50bps": {"trades": 67, "total_return": -36.11, "cagr": -10.53, "sharpe": -1.486, "max_dd": -39.11, "profit_factor": 0.352}, "zero_cost": {"trades": 67, "total_return": -21.46, "cagr": -5.82, "sharpe": -0.795, "max_dd": -28.07, "profit_factor": 0.571}, "unhedged": {"trades": 67, "total_return": -36.96, "cagr": -10.82, "sharpe": -1.504, "max_dd": -39.64, "profit_factor": 0.335}}
+  placebo: {'trades': 201, 'mean_gross_%': np.float64(0.236), 'mean_net_%': np.float64(-2.761)}
+
+top features by |OOS IC|: {'log_dollar_vol': 0.123, 'd1_turnover': 0.107, 'rvol': 0.088, 'd1_oc': -0.08, 'd1_range': 0.076, 'vol_ratio': 0.069, 'hot_count': 0.069, 'dd_from_high': -0.067, 'ret5': 0.066, 'spy_vol20': 0.066}
+top permutation importance: {'cohort_below_offer': 0.0228, 'ext': 0.0161, 'hot_count': 0.014, 'vol_ratio': 0.0134, 'log_deal': 0.0107, 'below_d1low': 0.0099, 'd1_range': 0.0081, 'pop': 0.0081, 'd1_turnover': 0.0075, 'dist_d1low': 0.0043}
+spot audit: [('STNE', np.True_), ('CTMX', np.True_), ('VERI', np.True_), ('ALRM', np.True_), ('SNAP', np.True_)]

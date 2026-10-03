@@ -1,0 +1,26 @@
+<string>:8: UserWarning: obj.round has no effect with datetime, timedelta, or period dtypes. Use obj.dt.round(...) instead.
+train yearly {'2021': 7.67, '2022': 5.48, '2023': 2.48, '2024': 8.23} null median -0.0 dsr 0.492
+validation yearly {'2024': -3.61, '2025': 6.61, '2026': 25.52} null median 0.54 dsr 0.436
+holdout yearly {'2019': -9.36, '2020': -19.64, '2021': -19.23} null median -0.95 dsr 0.0
+         n  mean_net    win
+q                          
+2019Q2  13     0.110  0.769
+2019Q3  14    -0.084  0.429
+2019Q4   8    -0.082  0.375
+2020Q1   8    -0.018  0.375
+2020Q2   2     0.121  1.000
+2020Q3  20    -0.073  0.250
+2020Q4  21    -0.086  0.286
+2021Q1  22    -0.023  0.545
+2021Q2  25    -0.031  0.480
+2021Q3  29    -0.001  0.517
+2021Q4   4    -0.116  0.250
+holdout worst trades:
+symbol entry_date  net_ret  gross_ret  hedge_pnl
+  INMD 2019-08-12   -0.796     -0.794      0.003
+  CRBU 2021-07-28   -0.781     -0.770      0.001
+   ZIM 2021-02-01   -0.661     -0.669      0.004
+  FTHM 2020-08-04   -0.635     -0.706      0.007
+  AMPL 2021-10-11   -0.537     -0.605      0.007
+  ADPT 2019-08-06   -0.529     -0.521      0.003
+mean hedge contribution per trade (as % notional): 2.85

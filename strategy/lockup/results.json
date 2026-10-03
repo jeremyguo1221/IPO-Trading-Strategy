@@ -1,0 +1,785 @@
+{
+ "n_events": 925,
+ "excluded": {
+  "lock-up expiry beyond available price data": 67,
+  "not enough bars before/after expiry": 15,
+  "no lock-up date in Nasdaq deal data": 10
+ },
+ "lockup_days": {
+  "180.0": 919,
+  "119.0": 1,
+  "139.0": 1,
+  "172.0": 1,
+  "169.0": 1,
+  "141.0": 1
+ },
+ "median_event_trading_day": 124.0,
+ "volume": {
+  "expiry_day_median_ratio": 1.2,
+  "first_week_median_ratio": 1.22
+ },
+ "windows": {
+  "pre": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": -2.96,
+    "median_%": -4.09,
+    "pct_negative": 61.3,
+    "ci_lo_%": -4.4,
+    "ci_hi_%": -1.37,
+    "wilcoxon_p": 0.0
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": -2.41,
+    "median_%": -3.72,
+    "pct_negative": 59.5,
+    "ci_lo_%": -3.95,
+    "ci_hi_%": -0.84,
+    "wilcoxon_p": 0.0
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": -1.31,
+    "median_%": -4.07,
+    "pct_negative": 60.4,
+    "ci_lo_%": -3.13,
+    "ci_hi_%": 0.55,
+    "wilcoxon_p": 0.0
+   }
+  },
+  "event": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": 0.05,
+    "median_%": 0.17,
+    "pct_negative": 48.2,
+    "ci_lo_%": -0.44,
+    "ci_hi_%": 0.54,
+    "wilcoxon_p": 0.2395
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": 0.15,
+    "median_%": 0.22,
+    "pct_negative": 46.7,
+    "ci_lo_%": -0.34,
+    "ci_hi_%": 0.65,
+    "wilcoxon_p": 0.1048
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": 0.1,
+    "median_%": -0.02,
+    "pct_negative": 50.4,
+    "ci_lo_%": -0.24,
+    "ci_hi_%": 0.43,
+    "wilcoxon_p": 0.8444
+   }
+  },
+  "post5": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": 0.65,
+    "median_%": -0.5,
+    "pct_negative": 52.6,
+    "ci_lo_%": -0.77,
+    "ci_hi_%": 2.29,
+    "wilcoxon_p": 0.3377
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": 0.97,
+    "median_%": -0.14,
+    "pct_negative": 50.3,
+    "ci_lo_%": -0.39,
+    "ci_hi_%": 2.68,
+    "wilcoxon_p": 0.9389
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": -0.8,
+    "median_%": -1.32,
+    "pct_negative": 57.8,
+    "ci_lo_%": -1.58,
+    "ci_hi_%": -0.0,
+    "wilcoxon_p": 0.0
+   }
+  },
+  "post20": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": -0.57,
+    "median_%": -0.87,
+    "pct_negative": 53.3,
+    "ci_lo_%": -1.7,
+    "ci_hi_%": 0.61,
+    "wilcoxon_p": 0.0362
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": 0.44,
+    "median_%": 0.08,
+    "pct_negative": 49.3,
+    "ci_lo_%": -0.74,
+    "ci_hi_%": 1.64,
+    "wilcoxon_p": 0.9019
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": -0.54,
+    "median_%": -2.13,
+    "pct_negative": 56.4,
+    "ci_lo_%": -2.0,
+    "ci_hi_%": 0.95,
+    "wilcoxon_p": 0.0002
+   }
+  },
+  "post40": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": -1.16,
+    "median_%": -2.06,
+    "pct_negative": 56.0,
+    "ci_lo_%": -2.54,
+    "ci_hi_%": 0.3,
+    "wilcoxon_p": 0.0001
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": -0.69,
+    "median_%": -1.37,
+    "pct_negative": 54.2,
+    "ci_lo_%": -2.17,
+    "ci_hi_%": 0.82,
+    "wilcoxon_p": 0.0054
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": -3.18,
+    "median_%": -5.41,
+    "pct_negative": 64.6,
+    "ci_lo_%": -4.86,
+    "ci_hi_%": -1.53,
+    "wilcoxon_p": 0.0
+   }
+  },
+  "around": {
+   "abnormal": {
+    "n": 925,
+    "mean_%": -0.72,
+    "median_%": -1.67,
+    "pct_negative": 54.3,
+    "ci_lo_%": -2.19,
+    "ci_hi_%": 0.82,
+    "wilcoxon_p": 0.0217
+   },
+   "raw": {
+    "n": 925,
+    "mean_%": 0.69,
+    "median_%": -0.73,
+    "pct_negative": 51.7,
+    "ci_lo_%": -0.93,
+    "ci_hi_%": 2.28,
+    "wilcoxon_p": 0.9309
+   },
+   "placebo_abnormal": {
+    "n": 925,
+    "mean_%": -1.07,
+    "median_%": -3.5,
+    "pct_negative": 59.1,
+    "ci_lo_%": -2.87,
+    "ci_hi_%": 0.82,
+    "wilcoxon_p": 0.0
+   }
+  }
+ },
+ "by": {
+  "unlocked_supply (overhang tercile)": {
+   "low": {
+    "n": 268,
+    "mean_%": -0.32,
+    "median_%": 0.0,
+    "pct_negative": 50.0,
+    "ci_lo_%": -2.57,
+    "ci_hi_%": 1.81,
+    "wilcoxon_p": 0.9692,
+    "placebo": {
+     "n": 268,
+     "mean_%": -1.61,
+     "median_%": -1.43,
+     "pct_negative": 54.5,
+     "ci_lo_%": -4.36,
+     "ci_hi_%": 1.17,
+     "wilcoxon_p": 0.047
+    },
+    "pre": {
+     "n": 268,
+     "mean_%": -2.89,
+     "median_%": -3.11,
+     "pct_negative": 59.3,
+     "ci_lo_%": -5.28,
+     "ci_hi_%": -0.34,
+     "wilcoxon_p": 0.0007
+    },
+    "pre_placebo": {
+     "n": 268,
+     "mean_%": -2.35,
+     "median_%": -3.8,
+     "pct_negative": 63.1,
+     "ci_lo_%": -4.93,
+     "ci_hi_%": 0.22,
+     "wilcoxon_p": 0.0004
+    }
+   },
+   "mid": {
+    "n": 267,
+    "mean_%": 1.26,
+    "median_%": -0.72,
+    "pct_negative": 52.1,
+    "ci_lo_%": -1.28,
+    "ci_hi_%": 4.27,
+    "wilcoxon_p": 0.7033,
+    "placebo": {
+     "n": 267,
+     "mean_%": -0.06,
+     "median_%": -3.56,
+     "pct_negative": 62.2,
+     "ci_lo_%": -3.22,
+     "ci_hi_%": 3.39,
+     "wilcoxon_p": 0.0018
+    },
+    "pre": {
+     "n": 267,
+     "mean_%": -2.1,
+     "median_%": -3.04,
+     "pct_negative": 58.8,
+     "ci_lo_%": -4.35,
+     "ci_hi_%": 0.35,
+     "wilcoxon_p": 0.0015
+    },
+    "pre_placebo": {
+     "n": 267,
+     "mean_%": 0.85,
+     "median_%": -3.33,
+     "pct_negative": 56.9,
+     "ci_lo_%": -2.45,
+     "ci_hi_%": 4.43,
+     "wilcoxon_p": 0.0588
+    }
+   },
+   "high": {
+    "n": 267,
+    "mean_%": -2.89,
+    "median_%": -4.6,
+    "pct_negative": 58.4,
+    "ci_lo_%": -6.31,
+    "ci_hi_%": 0.87,
+    "wilcoxon_p": 0.0028,
+    "placebo": {
+     "n": 267,
+     "mean_%": -1.06,
+     "median_%": -4.44,
+     "pct_negative": 58.1,
+     "ci_lo_%": -5.25,
+     "ci_hi_%": 4.01,
+     "wilcoxon_p": 0.0044
+    },
+    "pre": {
+     "n": 267,
+     "mean_%": -2.41,
+     "median_%": -5.41,
+     "pct_negative": 63.7,
+     "ci_lo_%": -6.11,
+     "ci_hi_%": 1.56,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 267,
+     "mean_%": -2.27,
+     "median_%": -5.15,
+     "pct_negative": 60.7,
+     "ci_lo_%": -6.37,
+     "ci_hi_%": 2.04,
+     "wilcoxon_p": 0.0008
+    }
+   }
+  },
+  "price vs offer going in": {
+   "below offer": {
+    "n": 442,
+    "mean_%": -1.07,
+    "median_%": -2.26,
+    "pct_negative": 55.0,
+    "ci_lo_%": -3.27,
+    "ci_hi_%": 1.27,
+    "wilcoxon_p": 0.0591,
+    "placebo": {
+     "n": 442,
+     "mean_%": -7.31,
+     "median_%": -8.05,
+     "pct_negative": 69.7,
+     "ci_lo_%": -9.66,
+     "ci_hi_%": -4.98,
+     "wilcoxon_p": 0.0
+    },
+    "pre": {
+     "n": 442,
+     "mean_%": -7.02,
+     "median_%": -6.99,
+     "pct_negative": 69.0,
+     "ci_lo_%": -8.98,
+     "ci_hi_%": -5.12,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 442,
+     "mean_%": -6.53,
+     "median_%": -7.5,
+     "pct_negative": 68.6,
+     "ci_lo_%": -8.85,
+     "ci_hi_%": -4.18,
+     "wilcoxon_p": 0.0
+    }
+   },
+   "0\u201350% above": {
+    "n": 278,
+    "mean_%": 0.24,
+    "median_%": -0.7,
+    "pct_negative": 52.2,
+    "ci_lo_%": -2.27,
+    "ci_hi_%": 2.89,
+    "wilcoxon_p": 0.8613,
+    "placebo": {
+     "n": 278,
+     "mean_%": 1.01,
+     "median_%": -0.82,
+     "pct_negative": 52.9,
+     "ci_lo_%": -0.83,
+     "ci_hi_%": 3.04,
+     "wilcoxon_p": 0.9652
+    },
+    "pre": {
+     "n": 278,
+     "mean_%": -0.26,
+     "median_%": -1.83,
+     "pct_negative": 55.8,
+     "ci_lo_%": -3.0,
+     "ci_hi_%": 2.59,
+     "wilcoxon_p": 0.0379
+    },
+    "pre_placebo": {
+     "n": 278,
+     "mean_%": -0.4,
+     "median_%": -1.41,
+     "pct_negative": 56.5,
+     "ci_lo_%": -2.7,
+     "ci_hi_%": 1.97,
+     "wilcoxon_p": 0.0418
+    }
+   },
+   "50%+ above": {
+    "n": 205,
+    "mean_%": -1.27,
+    "median_%": -2.02,
+    "pct_negative": 55.6,
+    "ci_lo_%": -4.52,
+    "ci_hi_%": 2.36,
+    "wilcoxon_p": 0.0984,
+    "placebo": {
+     "n": 205,
+     "mean_%": 9.56,
+     "median_%": 1.73,
+     "pct_negative": 44.9,
+     "ci_lo_%": 3.93,
+     "ci_hi_%": 16.18,
+     "wilcoxon_p": 0.0121
+    },
+    "pre": {
+     "n": 205,
+     "mean_%": 2.12,
+     "median_%": -1.14,
+     "pct_negative": 52.2,
+     "ci_lo_%": -1.44,
+     "ci_hi_%": 6.02,
+     "wilcoxon_p": 0.5106
+    },
+    "pre_placebo": {
+     "n": 205,
+     "mean_%": 8.73,
+     "median_%": 0.56,
+     "pct_negative": 48.3,
+     "ci_lo_%": 3.62,
+     "ci_hi_%": 14.52,
+     "wilcoxon_p": 0.0636
+    }
+   }
+  },
+  "run-up since day-1 close": {
+   "worst third": {
+    "n": 309,
+    "mean_%": -1.3,
+    "median_%": -3.06,
+    "pct_negative": 55.7,
+    "ci_lo_%": -4.31,
+    "ci_hi_%": 1.65,
+    "wilcoxon_p": 0.1081,
+    "placebo": {
+     "n": 309,
+     "mean_%": -11.1,
+     "median_%": -12.1,
+     "pct_negative": 77.0,
+     "ci_lo_%": -13.7,
+     "ci_hi_%": -8.34,
+     "wilcoxon_p": 0.0
+    },
+    "pre": {
+     "n": 309,
+     "mean_%": -10.3,
+     "median_%": -11.23,
+     "pct_negative": 74.1,
+     "ci_lo_%": -12.92,
+     "ci_hi_%": -7.83,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 309,
+     "mean_%": -9.8,
+     "median_%": -10.76,
+     "pct_negative": 73.8,
+     "ci_lo_%": -12.68,
+     "ci_hi_%": -6.63,
+     "wilcoxon_p": 0.0
+    }
+   },
+   "middle": {
+    "n": 308,
+    "mean_%": -0.78,
+    "median_%": -1.31,
+    "pct_negative": 54.5,
+    "ci_lo_%": -2.92,
+    "ci_hi_%": 1.4,
+    "wilcoxon_p": 0.2384,
+    "placebo": {
+     "n": 308,
+     "mean_%": -0.37,
+     "median_%": -2.29,
+     "pct_negative": 57.8,
+     "ci_lo_%": -2.53,
+     "ci_hi_%": 2.05,
+     "wilcoxon_p": 0.0193
+    },
+    "pre": {
+     "n": 308,
+     "mean_%": -2.92,
+     "median_%": -3.4,
+     "pct_negative": 60.4,
+     "ci_lo_%": -4.89,
+     "ci_hi_%": -0.86,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 308,
+     "mean_%": -2.26,
+     "median_%": -3.72,
+     "pct_negative": 61.4,
+     "ci_lo_%": -4.19,
+     "ci_hi_%": -0.23,
+     "wilcoxon_p": 0.0
+    }
+   },
+   "best third": {
+    "n": 308,
+    "mean_%": -0.09,
+    "median_%": -1.77,
+    "pct_negative": 52.6,
+    "ci_lo_%": -2.92,
+    "ci_hi_%": 2.76,
+    "wilcoxon_p": 0.2915,
+    "placebo": {
+     "n": 308,
+     "mean_%": 8.29,
+     "median_%": 1.92,
+     "pct_negative": 42.5,
+     "ci_lo_%": 4.54,
+     "ci_hi_%": 12.96,
+     "wilcoxon_p": 0.0002
+    },
+    "pre": {
+     "n": 308,
+     "mean_%": 4.35,
+     "median_%": 0.1,
+     "pct_negative": 49.4,
+     "ci_lo_%": 1.32,
+     "ci_hi_%": 7.33,
+     "wilcoxon_p": 0.3742
+    },
+    "pre_placebo": {
+     "n": 308,
+     "mean_%": 8.17,
+     "median_%": 1.55,
+     "pct_negative": 46.1,
+     "ci_lo_%": 4.49,
+     "ci_hi_%": 12.16,
+     "wilcoxon_p": 0.0039
+    }
+   }
+  },
+  "era": {
+   "2015\u201318": {
+    "n": 197,
+    "mean_%": -0.46,
+    "median_%": -1.67,
+    "pct_negative": 55.8,
+    "ci_lo_%": -3.13,
+    "ci_hi_%": 2.2,
+    "wilcoxon_p": 0.1507,
+    "placebo": {
+     "n": 197,
+     "mean_%": 0.42,
+     "median_%": -1.38,
+     "pct_negative": 56.3,
+     "ci_lo_%": -2.41,
+     "ci_hi_%": 3.37,
+     "wilcoxon_p": 0.1207
+    },
+    "pre": {
+     "n": 197,
+     "mean_%": -1.69,
+     "median_%": -2.1,
+     "pct_negative": 58.9,
+     "ci_lo_%": -3.38,
+     "ci_hi_%": -0.02,
+     "wilcoxon_p": 0.0194
+    },
+    "pre_placebo": {
+     "n": 197,
+     "mean_%": 0.77,
+     "median_%": -1.52,
+     "pct_negative": 56.9,
+     "ci_lo_%": -2.56,
+     "ci_hi_%": 4.71,
+     "wilcoxon_p": 0.0773
+    }
+   },
+   "2019\u201321": {
+    "n": 315,
+    "mean_%": -1.49,
+    "median_%": -2.28,
+    "pct_negative": 55.9,
+    "ci_lo_%": -3.64,
+    "ci_hi_%": 0.52,
+    "wilcoxon_p": 0.0759,
+    "placebo": {
+     "n": 315,
+     "mean_%": 1.11,
+     "median_%": -2.33,
+     "pct_negative": 57.8,
+     "ci_lo_%": -1.34,
+     "ci_hi_%": 3.52,
+     "wilcoxon_p": 0.1972
+    },
+    "pre": {
+     "n": 315,
+     "mean_%": -5.61,
+     "median_%": -7.85,
+     "pct_negative": 65.4,
+     "ci_lo_%": -7.85,
+     "ci_hi_%": -3.33,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 315,
+     "mean_%": -1.35,
+     "median_%": -4.51,
+     "pct_negative": 60.6,
+     "ci_lo_%": -3.56,
+     "ci_hi_%": 0.98,
+     "wilcoxon_p": 0.0008
+    }
+   },
+   "2022\u201323": {
+    "n": 146,
+    "mean_%": 2.27,
+    "median_%": 1.88,
+    "pct_negative": 43.8,
+    "ci_lo_%": -1.16,
+    "ci_hi_%": 5.73,
+    "wilcoxon_p": 0.3158,
+    "placebo": {
+     "n": 146,
+     "mean_%": -5.75,
+     "median_%": -6.53,
+     "pct_negative": 63.7,
+     "ci_lo_%": -9.35,
+     "ci_hi_%": -1.99,
+     "wilcoxon_p": 0.0001
+    },
+    "pre": {
+     "n": 146,
+     "mean_%": -3.72,
+     "median_%": -6.29,
+     "pct_negative": 65.8,
+     "ci_lo_%": -7.6,
+     "ci_hi_%": 0.58,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 146,
+     "mean_%": -1.92,
+     "median_%": -3.68,
+     "pct_negative": 63.7,
+     "ci_lo_%": -5.9,
+     "ci_hi_%": 2.45,
+     "wilcoxon_p": 0.0067
+    }
+   },
+   "2024\u201326": {
+    "n": 267,
+    "mean_%": -1.64,
+    "median_%": -2.75,
+    "pct_negative": 56.9,
+    "ci_lo_%": -5.46,
+    "ci_hi_%": 2.5,
+    "wilcoxon_p": 0.0717,
+    "placebo": {
+     "n": 267,
+     "mean_%": -2.19,
+     "median_%": -4.44,
+     "pct_negative": 60.3,
+     "ci_lo_%": -6.63,
+     "ci_hi_%": 3.0,
+     "wilcoxon_p": 0.0002
+    },
+    "pre": {
+     "n": 267,
+     "mean_%": -0.36,
+     "median_%": -1.74,
+     "pct_negative": 55.8,
+     "ci_lo_%": -3.88,
+     "ci_hi_%": 3.52,
+     "wilcoxon_p": 0.0598
+    },
+    "pre_placebo": {
+     "n": 267,
+     "mean_%": -2.45,
+     "median_%": -4.71,
+     "pct_negative": 61.0,
+     "ci_lo_%": -6.57,
+     "ci_hi_%": 2.19,
+     "wilcoxon_p": 0.0011
+    }
+   }
+  },
+  "deal size": {
+   "small": {
+    "n": 309,
+    "mean_%": -2.34,
+    "median_%": -4.78,
+    "pct_negative": 59.9,
+    "ci_lo_%": -5.8,
+    "ci_hi_%": 1.42,
+    "wilcoxon_p": 0.0016,
+    "placebo": {
+     "n": 309,
+     "mean_%": 1.11,
+     "median_%": -3.53,
+     "pct_negative": 57.3,
+     "ci_lo_%": -3.22,
+     "ci_hi_%": 6.07,
+     "wilcoxon_p": 0.0323
+    },
+    "pre": {
+     "n": 309,
+     "mean_%": 0.81,
+     "median_%": -2.34,
+     "pct_negative": 56.6,
+     "ci_lo_%": -2.69,
+     "ci_hi_%": 4.38,
+     "wilcoxon_p": 0.0905
+    },
+    "pre_placebo": {
+     "n": 309,
+     "mean_%": 0.99,
+     "median_%": -3.75,
+     "pct_negative": 55.3,
+     "ci_lo_%": -3.1,
+     "ci_hi_%": 5.56,
+     "wilcoxon_p": 0.191
+    }
+   },
+   "mid": {
+    "n": 308,
+    "mean_%": -1.59,
+    "median_%": -2.18,
+    "pct_negative": 55.8,
+    "ci_lo_%": -3.82,
+    "ci_hi_%": 0.73,
+    "wilcoxon_p": 0.0394,
+    "placebo": {
+     "n": 308,
+     "mean_%": -1.38,
+     "median_%": -3.08,
+     "pct_negative": 59.7,
+     "ci_lo_%": -3.6,
+     "ci_hi_%": 1.03,
+     "wilcoxon_p": 0.0044
+    },
+    "pre": {
+     "n": 308,
+     "mean_%": -5.66,
+     "median_%": -5.36,
+     "pct_negative": 65.9,
+     "ci_lo_%": -7.52,
+     "ci_hi_%": -3.6,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 308,
+     "mean_%": -0.67,
+     "median_%": -3.51,
+     "pct_negative": 60.7,
+     "ci_lo_%": -3.19,
+     "ci_hi_%": 2.02,
+     "wilcoxon_p": 0.0034
+    }
+   },
+   "large": {
+    "n": 308,
+    "mean_%": 1.77,
+    "median_%": 0.78,
+    "pct_negative": 47.1,
+    "ci_lo_%": 0.03,
+    "ci_hi_%": 3.58,
+    "wilcoxon_p": 0.0599,
+    "placebo": {
+     "n": 308,
+     "mean_%": -2.95,
+     "median_%": -3.83,
+     "pct_negative": 60.4,
+     "ci_lo_%": -4.79,
+     "ci_hi_%": -1.14,
+     "wilcoxon_p": 0.0001
+    },
+    "pre": {
+     "n": 308,
+     "mean_%": -4.06,
+     "median_%": -4.52,
+     "pct_negative": 61.4,
+     "ci_lo_%": -5.94,
+     "ci_hi_%": -2.04,
+     "wilcoxon_p": 0.0
+    },
+    "pre_placebo": {
+     "n": 308,
+     "mean_%": -4.25,
+     "median_%": -4.77,
+     "pct_negative": 65.3,
+     "ci_lo_%": -6.2,
+     "ci_hi_%": -1.93,
+     "wilcoxon_p": 0.0
+    }
+   }
+  }
+ }
+}

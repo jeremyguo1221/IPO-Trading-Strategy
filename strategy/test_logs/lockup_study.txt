@@ -1,0 +1,35 @@
+events: 925 | excluded: {'lock-up expiry beyond available price data': 67, 'not enough bars before/after expiry': 15, 'no lock-up date in Nasdaq deal data': 10}
+lock-up lengths: {180.0: 919, 119.0: 1, 139.0: 1, 172.0: 1, 169.0: 1, 141.0: 1} | median event trading day 124.0
+volume: {'expiry_day_median_ratio': 1.2, 'first_week_median_ratio': 1.22}
+pre     abn mean -2.96% median -4.09% neg 61.3% CI[-4.4,-1.37] p=0.0 | placebo mean -1.31% p=0.0
+event   abn mean 0.05% median 0.17% neg 48.2% CI[-0.44,0.54] p=0.2395 | placebo mean 0.1% p=0.8444
+post5   abn mean 0.65% median -0.5% neg 52.6% CI[-0.77,2.29] p=0.3377 | placebo mean -0.8% p=0.0
+post20  abn mean -0.57% median -0.87% neg 53.3% CI[-1.7,0.61] p=0.0362 | placebo mean -0.54% p=0.0002
+post40  abn mean -1.16% median -2.06% neg 56.0% CI[-2.54,0.3] p=0.0001 | placebo mean -3.18% p=0.0
+around  abn mean -0.72% median -1.67% neg 54.3% CI[-2.19,0.82] p=0.0217 | placebo mean -1.07% p=0.0
+
+unlocked_supply (overhang tercile):
+   low            n=268 around: mean -0.32% median 0.0% p=0.9692 (placebo mean -1.61%) | pre: mean -2.89% (placebo -2.35%)
+   mid            n=267 around: mean 1.26% median -0.72% p=0.7033 (placebo mean -0.06%) | pre: mean -2.1% (placebo 0.85%)
+   high           n=267 around: mean -2.89% median -4.6% p=0.0028 (placebo mean -1.06%) | pre: mean -2.41% (placebo -2.27%)
+
+price vs offer going in:
+   below offer    n=442 around: mean -1.07% median -2.26% p=0.0591 (placebo mean -7.31%) | pre: mean -7.02% (placebo -6.53%)
+   0–50% above    n=278 around: mean 0.24% median -0.7% p=0.8613 (placebo mean 1.01%) | pre: mean -0.26% (placebo -0.4%)
+   50%+ above     n=205 around: mean -1.27% median -2.02% p=0.0984 (placebo mean 9.56%) | pre: mean 2.12% (placebo 8.73%)
+
+run-up since day-1 close:
+   worst third    n=309 around: mean -1.3% median -3.06% p=0.1081 (placebo mean -11.1%) | pre: mean -10.3% (placebo -9.8%)
+   middle         n=308 around: mean -0.78% median -1.31% p=0.2384 (placebo mean -0.37%) | pre: mean -2.92% (placebo -2.26%)
+   best third     n=308 around: mean -0.09% median -1.77% p=0.2915 (placebo mean 8.29%) | pre: mean 4.35% (placebo 8.17%)
+
+era:
+   2015–18        n=197 around: mean -0.46% median -1.67% p=0.1507 (placebo mean 0.42%) | pre: mean -1.69% (placebo 0.77%)
+   2019–21        n=315 around: mean -1.49% median -2.28% p=0.0759 (placebo mean 1.11%) | pre: mean -5.61% (placebo -1.35%)
+   2022–23        n=146 around: mean 2.27% median 1.88% p=0.3158 (placebo mean -5.75%) | pre: mean -3.72% (placebo -1.92%)
+   2024–26        n=267 around: mean -1.64% median -2.75% p=0.0717 (placebo mean -2.19%) | pre: mean -0.36% (placebo -2.45%)
+
+deal size:
+   small          n=309 around: mean -2.34% median -4.78% p=0.0016 (placebo mean 1.11%) | pre: mean 0.81% (placebo 0.99%)
+   mid            n=308 around: mean -1.59% median -2.18% p=0.0394 (placebo mean -1.38%) | pre: mean -5.66% (placebo -0.67%)
+   large          n=308 around: mean 1.77% median 0.78% p=0.0599 (placebo mean -2.95%) | pre: mean -4.06% (placebo -4.25%)
