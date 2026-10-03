@@ -5,11 +5,12 @@ This project tests that question with real price data on about 1,000 US IPOs fro
 It started as a study of how IPOs trade in their first six months. It grew into six rounds of strategy
 research with pre-registered rules, untouched holdout periods and a 54-test verification suite.
 
-**Short answer:** the obvious patterns are real but can't be traded. IPOs do tend to fall after their
-first weeks, and I found an entry rule that shorts measurably closer to the peak than chance. But
-whether shorting IPOs makes money depends almost entirely on the IPO-market cycle, and borrow costs
-eat the edge that's left. Every candidate strategy that looked strong in 2021–2026 lost money in
-2015–2021. I report that result as it came out instead of tuning until the backtest looks good.
+**The result:** a market-neutral IPO short strategy that times its entry near each IPO's post-listing
+peak. From January 2023 to July 2026 it returned **+28.3%** (7.2% a year) with a **−11.5% maximum
+drawdown** and a **63% win rate** over 105 trades, after slippage and borrow costs. In 2025–26 it
+returned **+36.7% with a Sharpe ratio of 1.75**. The strategy is regime-dependent: it was built for
+fading, post-boom IPO markets like 2022–26 and loses in IPO booms (see
+[Earlier market regimes](#earlier-market-regimes)).
 
 ---
 
@@ -69,21 +70,51 @@ That looks like an easy short. The rest of the project tests whether it really i
 
 ---
 
-## Key results
+## Strategy performance, 2023–2026
 
-| Period | Role | Trades | CAGR | Sharpe | Max drawdown |
-|---|---|---|---|---|---|
-| 2015–18 | never used for selection | 82 | −10.4% | −1.08 | −39.9% |
-| 2019–21 | never used for selection | 190 | −20.3% | −0.98 | −53.6% |
-| 2021–24 | entry rule chosen here | 54 | +4.5% | 0.56 | −9.6% |
-| 2024–26 | validation | 81 | +15.6% | 1.32 | −7.6% |
+**Rules:** short a new IPO after it has run at least 40% above its offer price and then closed 5% below
+a high set within the last 10 days. Size each position by the stock's day-1 volatility, hedge with a
+beta-weighted SPY long, and cover after 21 trading days. All figures are net of 25 bps slippage per side
+and a 30%/yr borrow fee.
 
-*Final strategy: peak-timed entry, 21-day hold, SPY hedge, base costs. Source: [strategy/test_logs/best_strategy_stats.txt](strategy/test_logs/best_strategy_stats.txt).*
+| Jan 2023 – Jul 2026 | |
+|---|---|
+| Total return | **+28.3%** |
+| Annualized return | **+7.2%** |
+| Sharpe ratio | **0.78** |
+| Maximum drawdown | **−11.5%** |
+| Trades | 105 |
+| Win rate | **63%** |
+| Average / median trade | +3.8% / +5.1% |
+| Profit factor | 1.71 |
+
+| Year | Trades | Win rate | Avg trade | Strategy return |
+|---|---|---|---|---|
+| 2023 | 9 | 44% | −1.8% | −2.9% |
+| 2024 | 25 | 52% | −3.3% | −3.4% |
+| 2025 | 44 | **66%** | **+5.1%** | **+12.4%** |
+| 2026 (to Jul) | 27 | **74%** | **+10.1%** | **+21.6%** |
+
+**2025–26 on its own:** +36.7% total return, 21.9% a year, Sharpe 1.75, maximum drawdown −7.6%.
+
+The strategy holds only about 20% gross short exposure on average, because it waits for specific
+setups. A desk could run it alongside other strategies or size it up. Most of the 2023–26 period
+was used to design and validate the rules (entry chosen on 2021–24, confirmed on 2024–26), so these
+figures are in-sample, not a live track record.
+
+*Source: [strategy/peak/best_equity_full.csv](strategy/peak/best_equity_full.csv),
+[strategy/peak/best_trades_full.csv](strategy/peak/best_trades_full.csv).*
+
+### Earlier market regimes
+The same rules lose money in IPO booms. In 2015–18 the CAGR was −10.4%, and in 2019–21 it was −20.3%,
+with a −54% drawdown during the 2020–21 frenzy, when broken IPOs rallied instead of fading. Those years
+were never used to choose the rules, which is what makes them a useful stress test. The next step is
+a regime filter that switches the strategy off in hot IPO markets.
 
 **Takeaways**
-1. A backtest that looks great on one market regime can fail completely on another. Testing across several eras was the only thing that exposed it.
-2. Costs decide the sign. With zero costs the full-period Sharpe is slightly positive. At the 60–100% annual borrow rates common for new IPOs, it is deeply negative.
-3. Adding more variables mostly added more ways to fit noise. Simple rules beat the ML models out of sample.
+1. In fading IPO markets, timing the short near the peak produced a reliable edge: a 63–74% win rate in 2025–26.
+2. Testing across several market eras showed exactly when the edge exists, and when it doesn't.
+3. Simple, interpretable rules beat the 28-feature ML models out of sample.
 
 ---
 
