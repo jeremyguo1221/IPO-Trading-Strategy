@@ -101,7 +101,7 @@ results, not a live track record.
 [strategy/peak/best_trades_full.csv](strategy/peak/best_trades_full.csv).*
 
 ### Earlier market regimes
-In 2023–24, as the IPO market reopened, the strategy was roughly flat (−2.9% and −3.4%). The same rules
+In 2023–24, as the IPO market reopened, the strategy had small losses (−2.9% and −3.4%). The same rules
 lose money in IPO booms. In 2015–18 the CAGR was −10.4%, and in 2019–21 it was −20.3%,
 with a −54% drawdown during the 2020–21 frenzy, when broken IPOs rallied instead of fading. Those years
 were never used to choose the rules, which is what makes them a useful stress test. The next step is
